@@ -383,6 +383,53 @@ table.inv .tag{white-space:normal;line-height:1.3}
 .otw{margin:0 0 22px;color:var(--fg-2);font-size:15px}
 .otw b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
 
+/* News: topics I'm tracking */
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:clamp(36px,5vw,52px)}
+@media (max-width:820px){.topics{grid-template-columns:minmax(0,1fr)}}
+.topic{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);padding:20px 22px 22px;min-width:0}
+@media (max-width:520px){.topic{padding:18px 16px 20px}}
+.topic.wide{grid-column:1 / -1}
+.topic h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1;text-transform:uppercase;margin:12px 0 0;text-wrap:balance}
+.topic .intro{color:var(--fg-2);margin:10px 0 0;max-width:60ch}
+.topic-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 36px;margin-top:20px;align-items:start}
+@media (max-width:820px){.topic-split{grid-template-columns:minmax(0,1fr)}}
+.bars.hot .fill{background:var(--red)}
+.topic .cap a,.tl a.s{color:var(--fg-2);text-underline-offset:3px}
+.topic .cap a:hover,.tl a.s:hover{color:var(--fg)}
+.tl{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.topic-split .tl{margin-top:0}
+.tl li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:12px;font-size:15px;line-height:1.5}
+.tl time{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tl p{margin:0;color:var(--fg-2)}
+.tl a.s{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.flag{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-right:8px}
+
+/* Useful links */
+.drivers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.drv{display:flex;flex-direction:column;padding:18px 20px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);min-width:0}
+.sec-alt .drv{background:var(--bg)}
+.drv-vendor{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);margin:0}
+.drv-name{font-size:17px;font-weight:600;margin:6px 0 0;line-height:1.3}
+.drv-ver{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:12px 0 0}
+.drv-ver .v{font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;font-variant-numeric:tabular-nums}
+.drv-date{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.drv-note{font-size:14.5px;color:var(--fg-2);margin:12px 0 0;line-height:1.5}
+.drv-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:auto 0 0;padding-top:14px;font-family:var(--mono);font-size:12.5px}
+.drv-links a{color:var(--red-ink);text-decoration:none}
+.drv-links a:hover{text-decoration:underline}
+.lrows{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.lrows{grid-template-columns:minmax(0,1fr)}}
+.lrows li{min-width:0}
+.lrow{display:flex;flex-direction:column;gap:4px;height:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s}
+.lrow:hover{border-color:var(--fg-2)}
+.lr-name{font-weight:600;font-size:16px;line-height:1.35}
+.lr-go{color:var(--red-ink)}
+.lr-where{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.lr-desc{color:var(--fg-2);font-size:14.5px;line-height:1.5;margin-top:4px}
+.lgroup{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 12px}
+.caution{margin:0 0 4px;padding:14px 16px;border:1px solid var(--line-2);border-left:3px solid var(--warn);border-radius:3px;background:var(--panel);color:var(--fg-2);font-size:15px;max-width:72ch}
+.caution b{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-bottom:4px}
+
 /* Footer brand block */
 .foot-brand .brand{font-size:28px}
 .foot-brand .brand svg{width:48px;height:48px}
@@ -402,6 +449,7 @@ table.inv .tag{white-space:normal;line-height:1.3}
       <a href="#method">Method</a>
       <a href="#bench">Bench</a>
       <a href="#news">News</a>
+      <a href="#links">Links</a>
     </nav>
     <a class="btn btn-red btn-sm" href="https://www.youtube.com/@no_tech-dad?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
   </div>
@@ -696,9 +744,56 @@ table.inv .tag{white-space:normal;line-height:1.3}
         <div>
           <p class="eyebrow">Checked 14 Oct 2026</p>
           <h2 id="news-title">Industry news</h2>
-          <p class="sec-lead">What's moving in handheld PCs, mini PCs and eGPUs. The summaries are mine. Specs and prices are the makers' and retailers' figures, and I haven't tested them.</p>
+          <p class="sec-lead">What's moving in handheld PCs, graphics and eGPUs. The summaries are mine. Specs, prices and performance claims are the makers', retailers' and outlets' figures, and I haven't tested them. Reports and rumors are labeled.</p>
         </div>
       </div>
+
+      <h3 class="subhead-label">Topics I'm tracking</h3>
+      <div class="topics">
+        <article class="topic wide" aria-labelledby="tp-gpu">
+          <span class="tag t-plain">GPU prices</span>
+          <h3 id="tp-gpu">GPU prices are out to lunch</h3>
+          <p class="intro">Graphics cards are selling far above their launch prices, and the memory that goes into them keeps getting more expensive.</p>
+          <div class="topic-split">
+            <div>
+              <ul class="bars hot">
+                <li><div class="bar-top"><span>RTX 5060 Ti 16GB<small>$799.99 against $429</small></span><b>+86%</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:86%"></span></div></li>
+                <li><div class="bar-top"><span>RTX 5080<small>$1,679.99 against $999</small></span><b>+68%</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:68%"></span></div></li>
+                <li><div class="bar-top"><span>RTX 5070<small>$869.99 against $549</small></span><b>+58%</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:58%"></span></div></li>
+                <li><div class="bar-top"><span>RTX 5070 Ti<small>$1,169.99 against $749</small></span><b>+56%</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:56%"></span></div></li>
+                <li><div class="bar-top"><span>RX 9070 XT<small>$799.99 against $599</small></span><b>+34%</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:34%"></span></div></li>
+              </ul>
+              <p class="cap">Newegg prices on 3 Oct 2026 against launch MSRP, from one retailer on one day. Bars run from 0 to 100% over MSRP. Source: <a class="s" href="https://digitalcitizen.life/nvidia-amd-gpu-prices-above-launch-msrp-newegg-october-2026" target="_blank" rel="noopener">Digital Citizen</a>, 4 Oct 2026.</p>
+            </div>
+            <ul class="tl">
+              <li><time datetime="2026-10-08">8 Oct</time><p><b class="flag">Report</b>AMD has reportedly raised its suggested Radeon prices in China for this quarter. The RX 9070 goes up ¥700 to ¥6,299, and the RX 9070 XT stays at ¥6,999. AMD hasn't confirmed it. <a class="s" href="https://www.tweaktown.com/news/113991/amd-raises-gpu-prices-in-china-radeon-rx-9070-up-dollars104/index.html" target="_blank" rel="noopener">TweakTown ↗</a></p></li>
+              <li><time datetime="2026-10-02">2 Oct</time><p>TrendForce expects memory contract prices to rise again this quarter, by 10–15% for DRAM and 15–20% for NAND flash, with AI servers served first. PC makers are already cutting SSD sizes in mainstream models. <a class="s" href="https://evertiq.com/news/2026-10-02-ai-keeps-memory-prices-climbing-in-q4-as-consumer-demand-weakens" target="_blank" rel="noopener">Evertiq ↗</a></p></li>
+              <li><time datetime="2026-08-31">31 Aug</time><p>TechSpot's survey of 10 countries found GeForce prices up 19% in a month and Radeon up 11%. Cards averaged 28% over MSRP, not counting the RTX 5090, which sat 136% over its $1,999 MSRP. <a class="s" href="https://www.techspot.com/article/3167-gpu-pricing-q3-2026/" target="_blank" rel="noopener">TechSpot ↗</a></p></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="topic" aria-labelledby="tp-dlss">
+          <span class="tag t-plain">DLSS</span>
+          <h3 id="tp-dlss">DLSS 4.5 is here, and DLSS 5 is heavy</h3>
+          <ul class="tl">
+            <li><time datetime="2026-10-06">6 Oct</time><p>Call of Duty: Modern Warfare 4 ships with DLSS 4.5: upscaling on any RTX card, frame generation on RTX 40, and dynamic multi frame generation up to 6X on RTX 50. Campaign early access starts 16 Oct, and Game Ready driver 617.42 supports it. <a class="s" href="https://nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-dlss-4-5-available-october-16" target="_blank" rel="noopener">NVIDIA ↗</a></p></li>
+            <li><time datetime="2026-09-04">4 Sep</time><p>DLSS 5 launched for RTX 50 cards only, and it costs a lot of frames. In NBA 2K27, TechSpot's RTX 5090 at 4K fell from 192 to 76 fps with it on, and an RTX 5070 at 1440p from 217 to 67 fps. NVIDIA says RTX 40 support comes later. <a class="s" href="https://techspot.com/article/3170-real-dlss-5-performance" target="_blank" rel="noopener">TechSpot ↗</a></p></li>
+          </ul>
+        </article>
+
+        <article class="topic" aria-labelledby="tp-fsr">
+          <span class="tag t-plain">FSR 4</span>
+          <h3 id="tp-fsr">FSR 4 is coming to handhelds</h3>
+          <ul class="tl">
+            <li><time datetime="2026-10-07">7 Oct</time><p>AMD's Jack Huynh says official FSR 4 support reaches APUs, gaming laptops and handheld PCs before the end of 2026. A lighter version for RDNA 3-based APUs is in the works, which TechSpot says would cover Ryzen AI Max devices, most ROG Ally models and the Legion Go. There's no device list or date yet. <a class="s" href="https://www.techspot.com/news/114133-amd-fsr-4-coming-handhelds-laptops-end-2026.html" target="_blank" rel="noopener">TechSpot ↗</a></p></li>
+            <li><time datetime="2026-10-01">1 Oct</time><p><b class="flag">Rumor</b>Leaked specs for the Ryzen Z3 and Z3 Extreme claim Zen 6 cores and a 12-unit "RDNA 4m" GPU with hardware suited to FSR 4. AMD hasn't announced either chip. <a class="s" href="https://www.guru3d.com/story/amd-ryzen-z3-leak-suggests-six-zen-6-cores-and-12cu-rdna4m-graphics/" target="_blank" rel="noopener">Guru3D ↗</a></p></li>
+            <li><time datetime="2026-06">Jun</time><p>A lighter INT8 version of FSR 4 reached Radeon RX 7000 cards. RX 9000 cards have had it since launch. RDNA 2 devices like the Steam Deck and the base ROG Xbox Ally will likely wait until next year. <a class="s" href="https://www.techspot.com/news/114133-amd-fsr-4-coming-handhelds-laptops-end-2026.html" target="_blank" rel="noopener">TechSpot ↗</a></p></li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="subhead-label">More news</h3>
       <ul class="news">
         <li>
           <time datetime="2026-10-15">15 Oct 2026</time>
@@ -709,11 +804,43 @@ table.inv .tag{white-space:normal;line-height:1.3}
           </div>
         </li>
         <li>
+          <time datetime="2026-10-12">12 Oct 2026</time>
+          <div>
+            <div class="nh"><span class="tag t-plain">Driver</span><h3>Intel's Arc driver adds day-0 Call of Duty: MW4</h3></div>
+            <p>Driver 101.9150 also adds Planet Zoo 2. Intel claims up to 31% more frames in Resident Evil Requiem at 1080p Medium on Core Ultra series 2 graphics, the generation inside the MSI Claw 8 AI+. That's Intel's own figure, against its previous driver.</p>
+            <p class="src">Source: <a href="https://downloadmirror.intel.com/930514/ReleaseNotes_101.9150_WHQL.pdf" target="_blank" rel="noopener">Intel release notes (PDF)</a></p>
+          </div>
+        </li>
+        <li>
           <time datetime="2026-10-07">7 Oct 2026</time>
           <div>
             <div class="nh"><span class="tag t-plain">Price</span><h3>The first MSI Claw drops to $562</h3></div>
             <p>Best Buy cut the original MSI Claw (A1M, Core Ultra 7 155H, 1TB) by $187 in a clearance sale.</p>
             <p class="src">Source: <a href="https://www.tomshardware.com/video-games/handheld-gaming/get-a-great-deal-on-the-original-msi-claw-during-best-buy-clearance-sale-handheld-with-intel-core-ultra-7-155h-and-1tb-ssd-is-just-usd562-usd187-off-list-price" target="_blank" rel="noopener">Tom's Hardware</a></p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2026-09-29">29 Sep 2026</time>
+          <div>
+            <div class="nh"><span class="tag t-plain">Driver</span><h3>AMD Adrenalin 26.9.2 adds six new games</h3></div>
+            <p>The optional driver adds Call of Duty: MW4, Gears of War: E-Day, Minecraft Dungeons II and three more. It fixes driver timeouts in Final Fantasy VII Rebirth on RX 7000, War Thunder on RX 6000 and HITMAN on RX 9000. AMD's notes say it doesn't support handheld PCs, whose drivers come from the maker.</p>
+            <p class="src">Source: <a href="https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-9-2.html" target="_blank" rel="noopener">AMD release notes</a></p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2026-09-25">25 Sep 2026</time>
+          <div>
+            <div class="nh"><span class="tag t-plain">SteamOS</span><h3>SteamOS 3.8.28 adds gamepad support for more handhelds</h3></div>
+            <p>The update moves to Linux 6.18.50 and adds initial gamepad support for the MSI Claw 8 EX AI+, KONKR FIT and AYANEO Pocket S2. It also fixes the original Legion Go's gyro on older controller firmware, and battery readings on Legion Go models.</p>
+            <p class="src">Source: <a href="https://www.gamingonlinux.com/2026/09/steamos-3-8-28-stable-released-with-big-improvements-for-steam-deck-steam-machine-and-more-hardware-support/" target="_blank" rel="noopener">GamingOnLinux</a></p>
+          </div>
+        </li>
+        <li>
+          <time datetime="2026-09-14">14 Sep 2026</time>
+          <div>
+            <div class="nh"><span class="tag t-plain">eGPU</span><h3>UGREEN's LinkStation Pro dock gets Thunderbolt 5 and OCuLink</h3></div>
+            <p>The eGPU dock has an 850W power supply built in, Thunderbolt 5 at 80 Gbps and an OCuLink port at 64 Gbps. It costs 2,999 yuan (about $447) and is only sold in China so far.</p>
+            <p class="src">Source: <a href="https://www.notebookcheck.net/Ugreen-launches-upgraded-eGPU-dock-with-Thunderbolt-5-OCuLink-and-850W-PSU.1398851.0.html" target="_blank" rel="noopener">Notebookcheck</a></p>
           </div>
         </li>
         <li>
@@ -751,9 +878,34 @@ table.inv .tag{white-space:normal;line-height:1.3}
       </ul>
     </div>
   </section>
+
+  <!-- USEFUL LINKS: summary; the full list is links.html -->
+  <section class="sec sec-alt" id="links" aria-labelledby="links-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Checked 14 Oct 2026</p>
+          <h2 id="links-title">Useful links</h2>
+          <p class="sec-lead">The latest graphics drivers, handheld makers' support pages, and the open-source tools I point people to. Always download from the official page.</p>
+        </div>
+        <a class="more" href="links.html">All links →</a>
+      </div>
+      <h3 class="subhead-label">Latest graphics drivers</h3>
+      <ul class="drivers">
+        <li class="drv"><p class="drv-vendor">AMD · Radeon graphics</p><h3 class="drv-name">Adrenalin Edition</h3><p class="drv-ver"><span class="v">26.9.2</span><span class="tag t-plain">Optional</span></p><p class="drv-date">Released 29 Sep 2026</p><p class="drv-note">The current Recommended release is 26.8.1, from 20 Aug 2026. AMD&#x27;s notes say this package doesn&#x27;t support handheld PCs, so get handheld drivers from the maker.</p><p class="drv-links"><a href="https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-9-2.html" target="_blank" rel="noopener">Release notes ↗</a><a href="https://www.amd.com/en/support/download/drivers.html" target="_blank" rel="noopener">Download page ↗</a></p></li>
+        <li class="drv"><p class="drv-vendor">Intel · Arc graphics</p><h3 class="drv-name">Arc and Core Ultra graphics</h3><p class="drv-ver"><span class="v">101.9150</span><span class="tag t-plain">WHQL</span></p><p class="drv-date">Released 12 Oct 2026</p><p class="drv-note">Full version 32.0.101.9150. It covers Arc A- and B-series cards and the graphics in Core Ultra chips from Meteor Lake to Panther Lake. Arc G3 handheld chips aren&#x27;t named in the notes, so check your maker&#x27;s page first.</p><p class="drv-links"><a href="https://downloadmirror.intel.com/930514/ReleaseNotes_101.9150_WHQL.pdf" target="_blank" rel="noopener">Release notes (PDF) ↗</a><a href="https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html" target="_blank" rel="noopener">Download page ↗</a></p></li>
+        <li class="drv"><p class="drv-vendor">NVIDIA · GeForce</p><h3 class="drv-name">Game Ready driver</h3><p class="drv-ver"><span class="v">617.42</span><span class="tag t-plain">WHQL</span></p><p class="drv-date">Released 6 Oct 2026</p><p class="drv-note">Adds support for Call of Duty: Modern Warfare 4, plus DLSS 4.5 in several new games.</p><p class="drv-links"><a href="https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/" target="_blank" rel="noopener">Announcement ↗</a><a href="https://www.nvidia.com/en-us/geforce/drivers/" target="_blank" rel="noopener">Download page ↗</a></p></li>
+      </ul>
+      <div class="inv-links">
+        <h3 class="subhead-label">On the links page</h3>
+        <ul><li><a href="links.html#drivers">Graphics drivers <b>4</b></a></li><li><a href="links.html#makers">Handheld makers <b>11</b></a></li><li><a href="links.html#windows">Windows handhelds <b>3</b></a></li><li><a href="links.html#linux">SteamOS and Linux <b>4</b></a></li><li><a href="links.html#android">Android <b>1</b></a></li><li><a href="links.html#upscaling">Upscaling <b>2</b></a></li><li><a href="links.html#measuring">Measuring tools <b>4</b></a></li></ul>
+        <a class="btn btn-line" href="links.html">See all useful links</a>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="foot" id="links">
+<footer class="foot" id="contact">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
@@ -779,6 +931,12 @@ table.inv .tag{white-space:normal;line-height:1.3}
   </div>
 </footer>
 <script>
+(function () {  // on phones the nav scrolls sideways: bring the current page's item into view
+  var cur = document.querySelector('.nav [aria-current="page"]');
+  if (!cur) return;
+  var nav = cur.parentElement, r = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
+  if (r.right > n.right) nav.scrollLeft += r.right - n.right + 8;
+})();
 document.querySelectorAll('img[data-yt]').forEach(function (img) {
   var drop = function () { img.remove(); };
   if (img.complete && img.naturalWidth === 0) { drop(); } else { img.addEventListener('error', drop); }
