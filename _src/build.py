@@ -36,7 +36,7 @@ DATES = {
     "updated": "2026-10-19",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
     "links": "2026-10-19",       # useful links and the latest drivers
-    "news": "2026-10-14",        # news page and the home page's news column
+    "news": "2026-10-19",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
 INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"]), show(DATES["news"])
@@ -208,7 +208,19 @@ TOOLS = [  # (anchor, group, [(name, owner/repo, description)])
         ("OptiScaler", "optiscaler/OptiScaler",
          "Swaps a game's upscaler for another one (DLSS, FSR or XeSS) and can add frame generation."),
         ("DLSS Swapper", "beeradmoore/dlss-swapper",
-         "Manages and swaps the DLSS, FSR and XeSS files in games across the main PC launchers.")]),
+         "Manages and swaps the DLSS, FSR and XeSS files in games across the main PC launchers."),
+        ("HelixSR", "lonewolf0622/HelixSR",
+         "A drop-in FSR 3.1 replacement for DirectX 12 games that runs DLSS's upscaling network on AMD GPUs, also usable "
+         "through OptiScaler. Version 1.2.0 builds the network from NVIDIA's DLSS DLL on your PC; the files it makes are "
+         "for your own PC only. The author has tested it only on Linux, so treat it as experimental.")]),
+    ("tweaks", "Stutter and HDR", [
+        ("SCSKiller", "BlueHeisenberg/SCSKiller",
+         "Shader Stutter Killer: compiles a game's shaders into the graphics driver's cache before you play. Windows, "
+         "NVIDIA and AMD only, for DirectX 12 games (and DirectX 11 on NVIDIA). It doesn't fix traversal stutter, and a "
+         "driver update means compiling again."),
+        ("Go2HDR", "Rayekkk/Go2HDR",
+         "A tray app for the Legion Go 2 that matches Windows' SDR content brightness to the screen brightness whenever HDR "
+         "is on, using a curve you can edit.")]),
 ]
 MEASURE = [  # (name, shown address, url, description)
     ("CapFrameX", "github.com/CXWorld/CapFrameX", "https://github.com/CXWorld/CapFrameX",
