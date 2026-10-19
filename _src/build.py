@@ -360,6 +360,15 @@ VBYID = {v["id"]: v for v in VIDEOS}
 # ================================================================ results
 RESULT_TYPES = ["Handhelds", "eGPUs", "Mini PCs"]
 RESULTS = [
+    {"slug": "eday-g3e", "type": "Handhelds", "video": "CsgpuSEVITI", "tag": ("t-gold", "Verdict"),
+     "title": "Gears of War: E-Day on the OneXPlayer X2",
+     "finding": "40W, Low, frame generation off: 65 fps average, 48 fps 1% low, no stutter. Frame generation lifts the average but the lows fall.",
+     "meta": "Oct 2026 · 10 configurations, 30W to 40W, XeSS Dynamic",
+     "mini": ('<ul class="bars">'
+              '<li><div class="bar-top"><span>40W Low, FG off<small>1% low 48</small></span><b>65</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:81.3%"></span></div></li>'
+              '<li><div class="bar-top"><span>40W Medium, FG off<small>1% low 45</small></span><b>49</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:61.3%"></span></div></li>'
+              '<li><div class="bar-top"><span>40W Medium, FG 2x<small>1% low 32</small></span><b>73</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:91.3%"></span></div></li>'
+              '</ul><p class="cap">Average fps. Bars run from 0 to 80 fps.</p>')},
     {"slug": "next2-85w", "type": "Handhelds", "video": "YhhXa0mJcKE", "tag": ("t-ok", "Verified"),
      "title": "Can the AYANEO Next 2 hold 85W plugged in?",
      "finding": "It held 85W in 3 of 4 charger and cable setups. On my unit, the stock cable was the limit.",

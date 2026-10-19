@@ -268,3 +268,6 @@ a:hover .play{transform:scale(1.06)}
 table.inv tr:target td{background:var(--gold-wash)}
 main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
 @media (max-width:560px){.vc .vthumb .fb{font-size:17px;left:10px;bottom:8px}}
+.plate-fig{margin:18px 0 0}
+.plate-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
+.plate-fig figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
