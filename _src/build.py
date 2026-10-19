@@ -203,7 +203,14 @@ TOOLS = [  # (anchor, group, [(name, owner/repo, description)])
         ("DroidDeck", "Droid-Deck/DroidDeck",
          "Runs Valve's Steam client on Android handhelds, with Windows games through ARM64 Proton. It needs Android 9 or "
          "newer and an Adreno 730 or newer GPU. There's no official DroidDeck website, so only download it from GitHub. "
-         "It isn't affiliated with Valve.")]),
+         "It isn't affiliated with Valve."),
+        ("ARMSX2", "ARMSX2/ARMSX2",
+         "A PlayStation 2 emulator for ARM64, based on PCSX2, for Android, iOS, Linux, macOS and Windows. Its own site is "
+         "armsx2.net. Other sites with similar names aren't the project's, so download it from GitHub or armsx2.net."),
+        ("ARMSX3", "ARMSX2/ARMSX3",
+         "An early PlayStation 3 emulator for Android, built on RPCS3 by the ARMSX2 team. It's also on Google Play from "
+         "the developer ARMSX. It needs a fast Snapdragon handheld (Snapdragon 8 Gen 2 or newer and 12GB of RAM are "
+         "recommended), and you supply the PS3 firmware yourself.")]),
     ("upscaling", "Upscaling", [
         ("OptiScaler", "optiscaler/OptiScaler",
          "Swaps a game's upscaler for another one (DLSS, FSR or XeSS) and can add frame generation."),
@@ -220,7 +227,11 @@ TOOLS = [  # (anchor, group, [(name, owner/repo, description)])
          "driver update means compiling again."),
         ("Go2HDR", "Rayekkk/Go2HDR",
          "A tray app for the Legion Go 2 that matches Windows' SDR content brightness to the screen brightness whenever HDR "
-         "is on, using a curve you can edit.")]),
+         "is on, using a curve you can edit."),
+        ("LaptopTrueHDR", "spiwar/LaptopTrueHDR",
+         "Calibrates Windows HDR for a laptop's or handheld's built-in screen: it reads the panel's peak brightness and "
+         "sets the SDR/HDR content brightness to match. Run it at full system brightness with external screens unplugged, "
+         "and delete any Windows HDR Calibration profiles first.")]),
 ]
 MEASURE = [  # (name, shown address, url, description)
     ("CapFrameX", "github.com/CXWorld/CapFrameX", "https://github.com/CXWorld/CapFrameX",
