@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-10-14",     # footer stamp, results page, sitemap
+    "updated": "2026-10-19",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
-    "links": "2026-10-14",       # useful links and the latest drivers
+    "links": "2026-10-19",       # useful links and the latest drivers
     "news": "2026-10-14",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -229,6 +229,8 @@ EXPORT_DATE = show(VDATA["checked"])
 
 # One line per long-form video, in Nizzel's words from that video's YouTube description (lightly trimmed).
 BLURBS = {
+    "CsgpuSEVITI": "Can Intel's new Arc G3 Extreme run Gears of War: E-Day on the OneXPlayer X2? Ten benchmark configurations from 30W to 40W, all tested at about 35,000 feet aboard an aircraft.",
+    "2viMjdGRkS8": "What better place to play ACE COMBAT 8: Wings of Theve than at 35,000 feet? The AYANEO NEXT 2 from 35W to 85W, looking for the best balance between performance and power consumption.",
     "W3qXobq1-J4": "Power it. Dock it. Take it with you. Charging, Frost Bay cooling, three docks and two ways to carry the X2 Mini Pro.",
     "lY5GZKr9Pgk": "Setting up the X2 Mini Pro: Windows and driver updates, personalizing it, and three storage upgrades tested against the internal NVMe SSD.",
     "fJv2T-K8erI": "Same GPU. Half the CPU. Better screen, on paper. The X2 Mini Pro (Ryzen AI Max+ 388) meets the OneXFly Apex (Ryzen AI Max+ 395) on one table, one scale, one set of calipers.",
