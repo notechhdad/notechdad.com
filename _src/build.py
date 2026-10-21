@@ -33,7 +33,7 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-10-19",     # footer stamp, results page, sitemap
+    "updated": "2026-10-21",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
     "links": "2026-10-19",       # useful links and the latest drivers
     "news": "2026-10-19",        # news page and the home page's news column
@@ -358,8 +358,17 @@ VIDEOS = load_videos()
 VBYID = {v["id"]: v for v in VIDEOS}
 
 # ================================================================ results
-RESULT_TYPES = ["Handhelds", "eGPUs", "Mini PCs"]
+RESULT_TYPES = ["Handhelds", "Emulation", "eGPUs", "Mini PCs"]
 RESULTS = [
+    {"slug": "x2-ps3-rpcs3", "type": "Emulation", "video": None, "tag": ("t-warn", "Preliminary"),
+     "title": "PS3 emulation on the OneXPlayer X2",
+     "finding": "11 of 14 games passed gameplay and save/load in RPCS3. Uncharted 3 and The Last of Us kept freezing. Check that Turbo (CPU Boost) is on.",
+     "meta": "Oct 2026 · RPCS3 0.0.43, 40W, 720p",
+     "mini": ('<ul class="checks">'
+              '<li><span>Passed gameplay and save/load</span><span class="res res-ok"><span aria-hidden="true">✓</span> 11</span></li>'
+              '<li><span>Gameplay passed, save/load unchecked</span><span class="res res-warn"><span aria-hidden="true">?</span> 1</span></li>'
+              '<li><span>Unresolved: repeated freezes</span><span class="res res-bad"><span aria-hidden="true">✕</span> 2</span></li>'
+              '</ul>')},
     {"slug": "eday-g3e", "type": "Handhelds", "video": "CsgpuSEVITI", "tag": ("t-gold", "Verdict"),
      "title": "Gears of War: E-Day on the OneXPlayer X2",
      "finding": "40W, Low, frame generation off: 65 fps average, 48 fps 1% low, no stutter. Frame generation lifts the average but the lows fall.",

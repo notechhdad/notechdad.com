@@ -504,6 +504,8 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
 .plate-fig{margin:18px 0 0}
 .plate-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
 .plate-fig figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.res-warn{color:var(--warn)}
+.tbl td small{display:block;color:var(--muted);font-size:13px}
 
 </style>
 </head>
@@ -567,13 +569,21 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="eyebrow">3 results · Handhelds</p>
+          <p class="eyebrow">4 results · Handhelds, Emulation</p>
           <h2 id="results-title">Results</h2>
           <p class="sec-lead">Numbers from the videos, each with the conditions it was measured under and grouped by device type. More go up as each project's workbook is locked.</p>
         </div>
         <a class="more" href="results.html">All results →</a>
       </div>
       <div class="rgrid">
+        <article class="rcard" aria-labelledby="rs-x2-ps3-rpcs3">
+          <div class="rs-tags"><span class="tag t-plain">Emulation</span><span class="tag t-warn">Preliminary</span></div>
+          <h3 id="rs-x2-ps3-rpcs3">PS3 emulation on the OneXPlayer X2</h3>
+          <p class="finding">11 of 14 games passed gameplay and save/load in RPCS3. Uncharted 3 and The Last of Us kept freezing. Check that Turbo (CPU Boost) is on.</p>
+          <ul class="checks"><li><span>Passed gameplay and save/load</span><span class="res res-ok"><span aria-hidden="true">✓</span> 11</span></li><li><span>Gameplay passed, save/load unchecked</span><span class="res res-warn"><span aria-hidden="true">?</span> 1</span></li><li><span>Unresolved: repeated freezes</span><span class="res res-bad"><span aria-hidden="true">✕</span> 2</span></li></ul>
+          <p class="rs-meta">Oct 2026 · RPCS3 0.0.43, 40W, 720p</p>
+          <p class="rs-links"><a href="results.html#x2-ps3-rpcs3">Full result →</a></p>
+        </article>
         <article class="rcard" aria-labelledby="rs-eday-g3e">
           <div class="rs-tags"><span class="tag t-plain">Handhelds</span><span class="tag t-gold">Verdict</span></div>
           <h3 id="rs-eday-g3e">Gears of War: E-Day on the OneXPlayer X2</h3>
@@ -694,7 +704,7 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
     </div>
     <div class="fine">
       <span>I buy everything I review with my own money, and the opinions are my own.</span>
-      <span>Stay healthy. Stay safe. Love and peace. · Updated 19 Oct 2026</span>
+      <span>Stay healthy. Stay safe. Love and peace. · Updated 21 Oct 2026</span>
     </div>
   </div>
 </footer>

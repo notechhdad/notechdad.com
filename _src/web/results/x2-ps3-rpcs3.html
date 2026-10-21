@@ -1,0 +1,42 @@
+<article class="plate" aria-labelledby="p4-title">
+          <div class="plate-head">
+            <h3 id="p4-title">PS3 emulation on the OneXPlayer X2</h3>
+            <span class="tag t-warn">Preliminary</span>
+          </div>
+          <dl class="cond">
+            <div><dt>Emulator</dt><dd>RPCS3 0.0.43; final runs on build 20366, PS3 firmware 4.93</dd></div>
+            <div><dt>Device</dt><dd>OneXPlayer X2, Intel Arc G3 Extreme, Arc B390 through Vulkan</dd></div>
+            <div><dt>Power</dt><dd>OneXConsole 40W, Turbo turned on during troubleshooting</dd></div>
+            <div><dt>Rendering</dt><dd>720p at 100% scale</dd></div>
+            <div><dt>Library</dt><dd>microSD</dd></div>
+            <div><dt>Unit</dt><dd>Mine</dd></div>
+            <div><dt>Date</dt><dd>21 Oct 2026</dd></div>
+          </dl>
+          <div class="plate-body">
+            <p class="note" style="margin-top:0">A pass means the game reached real gameplay, controls, audio and graphics were usable through an opening section, and a save loaded correctly after a restart. A menu, an intro or an FPS counter alone didn't count. Frame rates are readings I saw or reported during play, not CapFrameX averages.</p>
+            <div class="tbl">
+              <table>
+                <thead><tr><th scope="col">Game</th><th scope="col">FPS seen</th><th scope="col">Save/load</th><th scope="col">Result</th></tr></thead>
+                <tbody>
+                  <tr><td>God of War Collection<small> (God of War II HD shown)</small></td><td>About 60</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span></td></tr>
+                  <tr><td>Persona 5</td><td>Playable, no firm figure</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span>, after an intro freeze and a retry</td></tr>
+                  <tr><td>Demon's Souls</td><td>About 30</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span></td></tr>
+                  <tr><td>Soulcalibur IV</td><td>About 60</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span></td></tr>
+                  <tr><td>Asura's Wrath</td><td>About 30</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span></td></tr>
+                  <tr><td>Devil May Cry HD Collection<small> (DMC 1, 2 and 3)</small></td><td>About 60</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span>, all three</td></tr>
+                  <tr><td>Resistance 3</td><td>About 30</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span>, with a glitch while aiming through a scope that clears when you leave it</td></tr>
+                  <tr><td>God of War III</td><td>7–15 at first, then a steady 30 in combat</td><td>Verified</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span> after troubleshooting; long sessions untested</td></tr>
+                  <tr><td>Gran Turismo 5</td><td>Not recorded reliably</td><td>Verified, bought car kept</td><td><span class="res res-ok"><span aria-hidden="true">✓</span> Passed</span> after startup and dealership freezes</td></tr>
+                  <tr><td>Dante's Inferno</td><td>About 60</td><td>Not confirmed</td><td><span class="res res-warn"><span aria-hidden="true">?</span> Gameplay passed</span>, save/load still to check</td></tr>
+                  <tr><td>Uncharted 3: Drake's Deception</td><td>29.04 in one screenshot, taken at a freeze</td><td>Not verified</td><td><span class="res res-bad"><span aria-hidden="true">✕</span> Unresolved</span>: repeated freezes in the opening fight, also on v1.19</td></tr>
+                  <tr><td>The Last of Us</td><td>12–19 early, 27.71 in one later screenshot</td><td>Not reliably verified</td><td><span class="res res-bad"><span aria-hidden="true">✕</span> Unresolved</span>: freezes at startup, in play and while saving</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="note"><b>The most useful discovery: check CPU Boost.</b> OneXConsole showed 40W while Turbo, which OneXPlayer says turns on CPU Boost, was off. After turning Turbo on, God of War III held a steady 30 fps in combat and passed save/load, and Gran Turismo 5 finished an Arcade race, bought a car and still had it after a reload. Emulator builds and game settings also changed along the way, so this isn't a controlled measurement of Turbo on its own. It does mean the Turbo state belongs in the test record next to the power limit.</p>
+            <p class="note"><b>God of War III settings for the passing run:</b> Turbo on at 40W; PPU and SPU decoders LLVM; SPU threads Auto; SPU block size Mega; XFloat Approximate; Vulkan at 720p, 100%; shader precision Ultra; Write Color Buffers on; patches Disable MLAA v3.0 and Disable SPU MLAA v1.5. Dropping to 50% resolution made it look worse without helping.</p>
+            <p class="note"><b>Uncharted 3 and The Last of Us</b> both look far better with the in-game MLAA disabled and GPU Lighting enabled, and both reach gameplay, but they kept freezing. Uncharted 3's 29.04 fps screenshot was captured at the moment it froze, which is why an FPS counter on its own proves nothing.</p>
+            <p class="note">These are first results from the sections I tested, not full playthroughs, official RPCS3 compatibility ratings or a guide to Android performance. The test procedure carries over to the AYN Odin 3; the Windows settings don't.</p>
+            <p class="src">Sources: my RPCS3 test report, logs and screenshots · <a href="https://onexplayerstore.com/blogs/weekly-blog/onexconsole-ultimate-control-software-for-your-onexplayer-handheld-gaming-console-part-1" target="_blank" rel="noopener">OneXConsole guide (Turbo) ↗</a> · RPCS3 wiki: <a href="https://wiki.rpcs3.net/index.php?title=God_of_War_III" target="_blank" rel="noopener">God of War III ↗</a>, <a href="https://wiki.rpcs3.net/index.php?title=The_Last_of_Us" target="_blank" rel="noopener">The Last of Us ↗</a>, <a href="https://wiki.rpcs3.net/index.php?title=Uncharted_3:_Drake%27s_Deception" target="_blank" rel="noopener">Uncharted 3 ↗</a></p>
+          </div>
+        </article>
