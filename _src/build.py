@@ -43,6 +43,18 @@ INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"])
 EMAIL = "Nizzel@notechdad.com"
 CHANNEL = "https://www.youtube.com/@no_tech-dad"
 SUBSCRIBE = CHANNEL + "?sub_confirmation=1"
+# Visitor counting with GoatCounter (cookie-free). Set to the site code from goatcounter.com, e.g. "notechdad".
+# Empty means no counter is added to the pages.
+GOATCOUNTER = ""
+def counter_tag():
+    if not GOATCOUNTER:
+        return ""
+    return (f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async '
+            'src="//gc.zgo.at/count.js"></script>\n'
+            '<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href*=\'youtube.com\']");'
+            'if(!a||!window.goatcounter||!window.goatcounter.count)return;var h=a.getAttribute("href"),'
+            'n=h.indexOf("sub_confirmation")>-1?"subscribe":(h.match(/v=([\\w-]+)/)?"watch-"+h.match(/v=([\\w-]+)/)[1]:"channel");'
+            'window.goatcounter.count({path:"click-"+n,title:a.textContent.trim().slice(0,60),event:true})});</script>\n')
 CSS = (W / "style.css").read_text() + "\n" + (W / "extra.css").read_text()
 GF = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
       '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
@@ -1024,7 +1036,7 @@ def main():
     pages = all_pages()
     for key, fname, title, desc, mhtml, ld, og in pages:
         path = "" if fname == "index.html" else fname
-        (REPO / fname).write_text(prod_head(title, path, desc, ld, og) + body(key, mhtml) + "\n</body>\n</html>\n")
+        (REPO / fname).write_text(prod_head(title, path, desc, ld, og) + body(key, mhtml) + "\n" + counter_tag() + "</body>\n</html>\n")
     (REPO / "CNAME").write_text("notechdad.com\n")
     tokens = CSS[CSS.index(":root{"):CSS.index("*{box-sizing")]
     (REPO / "404.html").write_text(f"""<!doctype html>
