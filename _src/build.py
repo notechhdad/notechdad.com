@@ -45,7 +45,7 @@ CHANNEL = "https://www.youtube.com/@no_tech-dad"
 SUBSCRIBE = CHANNEL + "?sub_confirmation=1"
 # Visitor counting with GoatCounter (cookie-free). Set to the site code from goatcounter.com, e.g. "notechdad".
 # Empty means no counter is added to the pages.
-GOATCOUNTER = ""
+GOATCOUNTER = "notechdad"
 def counter_tag():
     if not GOATCOUNTER:
         return ""
