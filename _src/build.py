@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-10-21",     # footer stamp, results page, sitemap
+    "updated": "2026-10-22",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
-    "links": "2026-10-19",       # useful links and the latest drivers
+    "links": "2026-10-22",       # useful links and the latest drivers
     "news": "2026-10-19",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -159,24 +159,25 @@ ON_BENCH = len(HANDHELDS) + sum(count(g) for *_, g in SECTIONS)
 # ================================================================ useful links (checked on LINKS_DATE)
 # (vendor line, product, version, status tag or None, release date, note, [(link label, url)])
 DRIVERS = [
-    ("AMD · Radeon graphics", "Adrenalin Edition", "26.9.2", "Optional", "29 Sep 2026",
-     "The current Recommended release is 26.8.1, from 20 Aug 2026. AMD's notes say this package doesn't "
-     "support handheld PCs, so get handheld drivers from the maker.",
-     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-9-2.html"),
+    ("AMD · Radeon graphics", "Adrenalin Edition", "26.10.1", "Recommended", "20 Oct 2026",
+     "Adds support for Call of Duty: Modern Warfare 4 and brings FSR Upscaling 4.1 to Radeon RX 6000 cards and "
+     "Ryzen AI chips. AMD's notes say this package doesn't support handheld PCs, so get handheld drivers from the maker.",
+     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-1.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
     ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9150", "WHQL", "12 Oct 2026",
      "Full version 32.0.101.9150. It covers Arc A- and B-series cards and the graphics in Core Ultra chips from "
      "Meteor Lake to Panther Lake. Arc G3 handheld chips aren't named in the notes, so check your maker's page first.",
      [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes_101.9150_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
-    ("NVIDIA · GeForce", "Game Ready driver", "617.42", "WHQL", "6 Oct 2026",
-     "Adds support for Call of Duty: Modern Warfare 4, plus DLSS 4.5 in several new games.",
-     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/"),
+    ("NVIDIA · GeForce", "Game Ready driver", "621.01", "WHQL", "21 Oct 2026",
+     "Game Ready for Phantom Blade Zero, with DLSS 4.5 and path tracing, and adds Advanced Shader Delivery for "
+     "Call of Duty: Modern Warfare 4 and Gears of War: E-Day.",
+     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/phantom-blade-zero-nvidia-geforce-game-ready-driver/"),
       ("Download page", "https://www.nvidia.com/en-us/geforce/drivers/")]),
 ]
-CHIPSET = ("AMD · Ryzen", "Mobile chipset drivers", "8.08.12.551", None, "14 Aug 2026",
+CHIPSET = ("AMD · Ryzen", "Mobile chipset drivers", "8.09.28.1124", None, "21 Oct 2026",
            "For Ryzen handhelds, laptops and mini PCs. If your maker publishes its own chipset package, start there.",
-           [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RYZEN-CHIPSET-8-08-12-551.html"),
+           [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RYZEN-CHIPSET-8-09-28-1124.html"),
             ("Download page", "https://www.amd.com/en/support/downloads/drivers.html/chipsets/laptop-chipsets/amd-ryzen-and-athlon-mobile-chipset.html")])
 MAKERS = [  # (maker, page, url)
     ("ASUS", "ROG Xbox Ally (2025)", "https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-xbox-ally-2025/helpdesk_download/"),
