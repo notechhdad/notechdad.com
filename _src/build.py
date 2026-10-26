@@ -33,7 +33,7 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-10-22",     # footer stamp, results page, sitemap
+    "updated": "2026-10-26",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
     "links": "2026-10-22",       # useful links and the latest drivers
     "news": "2026-10-22",        # news page and the home page's news column
