@@ -391,6 +391,15 @@ RESULTS = [
               '<li><div class="bar-top"><span>40W Medium, FG off<small>1% low 45</small></span><b>49</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:61.3%"></span></div></li>'
               '<li><div class="bar-top"><span>40W Medium, FG 2x<small>1% low 32</small></span><b>73</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:91.3%"></span></div></li>'
               '</ul><p class="cap">Average fps. Bars run from 0 to 80 fps.</p>')},
+    {"slug": "x2minipro-vs-apex-physical", "type": "Handhelds", "video": "fJv2T-K8erI", "tag": ("t-ok", "Verified"),
+     "title": "X2 Mini Pro vs OneXFly Apex, Part 1",
+     "finding": "The Apex is 70.7 g lighter ready to play and smaller. The Mini Pro has the bigger 8.84-inch screen, a lighter charger and a longer cable, and it passed 3 of 4 USB-C charger tests to the Apex's 2.",
+     "meta": "Sep 2026 · Weight, size, chargers, and temps and noise at 55W",
+     "mini": ('<ul class="checks">'
+              '<li><span>Lighter and smaller</span><span class="res res-ok">Apex</span></li>'
+              '<li><span>Bigger screen, 8.84" vs 8.02"</span><span class="res res-ok">Mini Pro</span></li>'
+              '<li><span>More USB-C charger tests passed</span><span class="res res-ok">Mini Pro</span></li>'
+              '</ul>')},
     {"slug": "next2-85w", "type": "Handhelds", "video": "YhhXa0mJcKE", "tag": ("t-ok", "Verified"),
      "title": "Can the AYANEO Next 2 hold 85W plugged in?",
      "finding": "It held 85W in 3 of 4 charger and cable setups. On my unit, the stock cable was the limit.",
@@ -410,6 +419,16 @@ RESULTS = [
               '<li><div class="bar-top"><span>OneXPlayer X2</span><b>78.5</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:89.2%"></span></div></li>'
               '<li><div class="bar-top"><span>OneXFly Apex Air</span><b>73.5</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:83.5%"></span></div></li>'
               '</ul><p class="cap">My weighted buyer score, in points. Bars start at zero.</p>')},
+    {"slug": "apex-vs-rtx4060", "type": "eGPUs", "video": "oI6M0GXJS60", "tag": ("t-ok", "Verified"),
+     "title": "OneXFly Apex vs an RTX 4060 eGPU setup",
+     "finding": "At native 1440p the Apex averaged 74.5 fps across 10 games to the RTX 4060 setup's 70.7. With path-traced Wukong, the RTX 4060 was 70% faster.",
+     "meta": "Aug 2026 · 1440p, wall power, three runs, medians",
+     "mini": ('<ul class="bars">'
+              '<li><div class="bar-top"><span>Apex, native<small>10-game average</small></span><b>74.5</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:93.1%"></span></div></li>'
+              '<li><div class="bar-top"><span>RTX 4060, native<small>10-game average</small></span><b>70.7</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:88.4%"></span></div></li>'
+              '<li><div class="bar-top"><span>Apex, Wukong full RT</span><b>23.9</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:29.9%"></span></div></li>'
+              '<li><div class="bar-top"><span>RTX 4060, Wukong full RT</span><b>40.5</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:50.6%"></span></div></li>'
+              '</ul><p class="cap">Average fps. Bars run from 0 to 80 fps.</p>')},
 ]
 
 def plate(r, page_link=True):
