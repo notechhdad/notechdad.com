@@ -59,10 +59,10 @@
     --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
     --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
     --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
-    --ok:#16804E; --ok-wash:rgba(22,128,78,.09);
+    --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
     --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
-    --warn:#B2540C; --warn-wash:rgba(178,84,12,.09);
-    --gold-wash:rgba(138,103,20,.09);
+    --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+    --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
     --header:rgba(250,248,248,.92);
   }
 }
@@ -71,10 +71,10 @@
   --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
   --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
   --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
-  --ok:#16804E; --ok-wash:rgba(22,128,78,.09);
+  --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
   --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
-  --warn:#B2540C; --warn-wash:rgba(178,84,12,.09);
-  --gold-wash:rgba(138,103,20,.09);
+  --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+  --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
   --header:rgba(250,248,248,.92);
 }
 
@@ -114,7 +114,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .t-ok{color:var(--ok);background:var(--ok-wash)}
 .t-info{color:var(--info);background:var(--info-wash)}
 .t-warn{color:var(--warn);background:var(--warn-wash)}
-.t-gold{color:var(--gold);background:var(--gold-wash)}
+.t-gold{color:var(--gold-ink, var(--gold));background:var(--gold-wash)}
 .t-mute{color:var(--muted);background:transparent}
 .t-plain{color:var(--fg-2);background:transparent;border-color:var(--line-2)}
 .t-plain::before{display:none}
@@ -257,9 +257,9 @@ th:last-child,td:last-child{padding-right:0}
   .roles{grid-template-columns:minmax(0,1fr)}
   .role + .role{border-left:0;border-top:1px solid var(--line-2)}
 }
-.role h3{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;font-weight:600}
-.role h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
-.role.ai h3::before{background:var(--gold)}
+.role h2{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;font-weight:600}
+.role h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.role.ai h2::before{background:var(--gold)}
 .role ul{margin:0;padding:0 0 0 18px;display:grid;gap:7px;color:var(--fg-2);font-size:15px;line-height:1.45}
 .about-text .ai-note{margin-top:18px;color:var(--fg);font-size:15.5px}
 .contact-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:15.5px}
@@ -462,8 +462,7 @@ a:hover .play{transform:scale(1.06)}
 .dm-name b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);font-weight:600;margin-right:10px}
 .dm-ver{grid-row:1 / span 2;grid-column:2;font-family:var(--display);font-weight:900;font-size:38px;line-height:.9;font-variant-numeric:tabular-nums}
 .dm-sub{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.dm-sub a{color:var(--red-ink);text-decoration:none}
-.dm-sub a:hover{text-decoration:underline}
+.dm-sub a{color:var(--red-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .dm-note{font-size:14.5px;color:var(--fg-2);margin:14px 0 0}
 
 /* About strip */
@@ -506,6 +505,57 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
 .plate-fig figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
 .res-warn{color:var(--warn)}
 .tbl td small{display:block;color:var(--muted);font-size:13px}
+.tbl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Feedback page: a form whose button writes an email in the visitor's own mail app */
+.fb{border-top:1px solid var(--line)}
+.fb-set{border:0;margin:0;padding:clamp(30px,4.5vw,48px) 0;min-width:0}
+.fb-set + .fb-set{border-top:1px solid var(--line)}
+.fb-set legend{float:left;width:100%;padding:0;margin:0}
+.fb-set legend h2{font-size:clamp(30px,4vw,44px)}
+.fb-set legend + *{clear:both}
+.fb-lead{color:var(--fg-2);max-width:42em;margin:0;padding:12px 0 18px}
+.fb-sub{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:22px 0 10px}
+.fb-lead + .fb-sub{margin-top:0}
+.picks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pick{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:8px 12px 8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--panel);color:var(--fg-2);font-size:15px;line-height:1.3;cursor:pointer;transition:border-color .15s,background-color .15s}
+.pick:hover{border-color:var(--fg-2);color:var(--fg)}
+.pick input{margin:0;width:16px;height:16px;flex:none;accent-color:var(--red-btn)}
+.pick:has(input:checked){border-color:var(--red);background:color-mix(in srgb, var(--red) 12%, transparent);color:var(--fg)}
+.pick:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.fb-groups{display:grid;gap:10px}
+.fb-dev{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel)}
+.fb-dev summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:14px 16px;cursor:pointer;list-style:none}
+.fb-dev summary::-webkit-details-marker{display:none}
+.fb-dev summary::before{content:"+";font-family:var(--mono);font-weight:600;color:var(--red-ink);width:1ch}
+.fb-dev[open] summary::before{content:"−"}
+.fb-dev summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:var(--r)}
+.sum-t{font-weight:600;font-size:17px}
+.sum-n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.sum-k{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--red-ink);margin-left:auto}
+.fb-dev-body{padding:0 16px 18px}
+.fb-dev-body .fb-sub:first-child{margin-top:4px}
+.fb-dev .pick{background:var(--bg)}
+.fb-field{display:grid;gap:6px;margin-top:22px;max-width:36rem}
+.fb-field.wide{max-width:48rem;margin-top:0}
+.fb-field label{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fb-field input,.fb-field textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--panel);border:1px solid var(--line-2);border-radius:4px;padding:10px 12px}
+.fb-field textarea{min-height:8.5rem;resize:vertical;line-height:1.5}
+.fb-field input:focus-visible,.fb-field textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fb-send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+button.btn{font-family:inherit;cursor:pointer}
+.fb-count{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0}
+.fb-status{margin:14px 0 0;font-weight:600}
+.fb-status:empty{display:none}
+.fb-privacy{color:var(--muted);font-size:14.5px;max-width:62ch;margin:14px 0 0}
+.fb-out{margin-top:22px;padding:16px 18px;border:1px solid var(--line-2);border-left:3px solid var(--gold);border-radius:3px;background:var(--panel);max-width:72ch}
+.fb-out p{margin:0;color:var(--fg-2)}
+.fb-msg{margin:14px 0;padding:12px 14px;background:var(--bg);border:1px dashed var(--line-2);border-radius:3px;font-family:var(--mono);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+
+/* Home: the feedback call-out */
+.fbc{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px 40px}
+@media (max-width:700px){.fbc{grid-template-columns:minmax(0,1fr)}.fbc .btn{justify-self:start}}
 
 </style>
 </head>
@@ -521,6 +571,7 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
       <a href="news.html">News</a>
       <a href="links.html">Links</a>
       <a href="about.html">About</a>
+      <a href="feedback.html">Feedback</a>
     </nav>
     <a class="btn btn-red btn-sm" href="https://www.youtube.com/@no_tech-dad?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
   </div>
@@ -544,7 +595,7 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
           <p class="feat-blurb">Can Intel&#x27;s new Arc G3 Extreme run Gears of War: E-Day on the OneXPlayer X2? Ten benchmark configurations from 30W to 40W, all tested at about 35,000 feet aboard an aircraft.</p>
           <div class="cta"><a class="btn btn-red" href="https://www.youtube.com/watch?v=CsgpuSEVITI" target="_blank" rel="noopener">Watch on YouTube ↗</a><a class="btn btn-line" href="videos.html">All videos</a></div>
         </article>
-        <aside class="runcard" aria-label="Run card: the rules every test follows">
+        <div class="runcard" role="note" aria-label="Run card: the rules every test follows">
           <div class="rc-head"><span><i class="dot" aria-hidden="true"></i>Run card</span><span>Every test</span></div>
           <dl class="rc-rows">
             <div class="rc-row"><dt>Power limit</dt><dd>Set in the device's own software, then confirmed in HWiNFO64</dd></div>
@@ -556,7 +607,7 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
             <div class="rc-row"><dt>Paid for by</dt><dd>Me</dd></div>
           </dl>
           <div class="rc-foot"><a href="method.html">Full protocol →</a><a href="results.html">Lab results →</a></div>
-        </aside>
+        </div>
       </div>
     </section>
   </div>
@@ -682,6 +733,20 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
     </div>
   </section>
 
+  <!-- FEEDBACK -->
+  <section class="sec" id="feedback" aria-labelledby="feedback-title">
+    <div class="wrap">
+      <div class="fbc">
+        <div>
+          <p class="eyebrow">Your call</p>
+          <h2 id="feedback-title">What should I test next?</h2>
+          <p class="sec-lead">Pick the devices, video ideas, drivers, tools and topics you want, from everything on my bench to popular devices that aren't on it yet.</p>
+        </div>
+        <a class="btn btn-red" href="feedback.html">Tell me</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT STRIP -->
   <section class="sec sec-alt" id="about" aria-labelledby="about-title">
     <div class="wrap">
@@ -711,6 +776,7 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
         <h2 class="subhead-label">Find me</h2>
         <ul class="links">
           <li><span class="lk">Email</span><span class="val"><a id="foot-email" href="mailto:Nizzel@notechdad.com">Nizzel@notechdad.com</a><button class="copy" type="button" data-copy="Nizzel@notechdad.com" aria-controls="foot-email"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Feedback</span><a href="feedback.html">Tell me what to test next →</a></li>
           <li><span class="lk">YouTube</span><a href="https://www.youtube.com/@no_tech-dad" target="_blank" rel="noopener">@no_tech-dad ↗</a></li>
           <li><span class="lk">X</span><a href="https://x.com/No_TechDad" target="_blank" rel="noopener">@No_TechDad ↗</a></li>
           <li><span class="lk">Discord</span><span class="val"><span id="discord-handle">nizzel1982</span><button class="copy" type="button" data-copy="nizzel1982" aria-controls="discord-handle"><span class="copy-label">Copy</span></button></span></li>
@@ -730,6 +796,15 @@ main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
   if (!cur) return;
   var nav = cur.parentElement, r = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
   if (r.right > n.right) nav.scrollLeft += r.right - n.right + 8;
+})();
+(function () {  // a table that scrolls sideways takes keyboard focus, so arrow keys can scroll it
+  var mark = function () {
+    document.querySelectorAll('.tbl').forEach(function (t) {
+      if (t.scrollWidth > t.clientWidth + 1) { t.setAttribute('tabindex', '0'); } else { t.removeAttribute('tabindex'); }
+    });
+  };
+  mark();
+  window.addEventListener('resize', mark);
 })();
 document.querySelectorAll('img[data-yt]').forEach(function (img) {
   var drop = function () { img.remove(); };

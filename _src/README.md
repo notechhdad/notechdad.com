@@ -6,9 +6,9 @@ notechdad.com is the website of the No_Tech-Dad YouTube channel. The presenter's
 
 | Path | What it is |
 |---|---|
-| `_src/build.py` | The generator. It holds the dates, the inventory, the useful links, the results, one blurb per video and the video pages, then builds every page and runs the checks. |
+| `_src/build.py` | The generator. It holds the dates, the inventory, the useful links, the results, one blurb per video, the video pages and the feedback page's lists, then builds every page and runs the checks. |
 | `_src/web/style.css`, `extra.css` | Styles, inlined into every page. |
-| `_src/web/pages/` | Hand-written parts. `home.html` has the hero, the three news rows and the about strip. `news_body.html` is the news page. `about_body.html`, `method_legend.html` and `method_proto.html` are the About and Method pages. |
+| `_src/web/pages/` | Hand-written parts. `home.html` has the hero, the three news rows, the feedback call-out and the about strip. `news_body.html` is the news page. `about_body.html`, `method_legend.html` and `method_proto.html` are the About and Method pages. |
 | `_src/web/results/` | One lab plate per published result. |
 | `_src/data/videos.json` | Long-form videos (over three minutes): id, title as on YouTube, published (UTC date), seconds, views. Public data only. |
 | `_src/check_pages.py` | Optional. Screenshots every page at phone and desktop widths and reports sideways overflow and script errors. Needs Playwright. |
@@ -31,6 +31,10 @@ The build exits with an error if an internal link is broken, or if anything priv
 - Results, inventory, video pages and opinions come only from the owner. Never add or change them on your own.
 - Never invent a version, date, number or quote. If something can't be confirmed on its source, leave it out.
 - Write plain, active sentences. Summarize news in your own words with the source linked, and label reports and rumors.
+
+## Feedback page
+
+`feedback.html` collects what visitors want: topics, drivers and tools, video ideas and devices. Its button writes an email to Nizzel@notechdad.com in the visitor's own mail app, so the site stores nothing. The device groups come from the inventory automatically, followed by `FB_POPULAR` (popular devices that aren't on the bench). A popular device that joins the inventory, or a tool that joins the links page, drops off its list by itself. GoatCounter counts each email started as the event `feedback-email`.
 
 ## Twice-weekly refresh (Monday and Thursday)
 

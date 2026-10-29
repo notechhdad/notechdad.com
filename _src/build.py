@@ -167,7 +167,7 @@ DRIVERS = [
     ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9150", "WHQL", "12 Oct 2026",
      "Full version 32.0.101.9150. It covers Arc A- and B-series cards and the graphics in Core Ultra chips from "
      "Meteor Lake to Panther Lake. Arc G3 handheld chips aren't named in the notes, so check your maker's page first.",
-     [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes_101.9150_WHQL.pdf"),
+     [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes__101.9150_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
     ("NVIDIA · GeForce", "Game Ready driver", "621.01", "WHQL", "21 Oct 2026",
      "Game Ready for Phantom Blade Zero, with DLSS 4.5 and path tracing, and adds Advanced Shader Delivery for "
@@ -248,7 +248,7 @@ TOOLS = [  # (anchor, group, [(name, owner/repo, description)])
 ]
 MEASURE = [  # (name, shown address, url, description)
     ("CapFrameX", "github.com/CXWorld/CapFrameX", "https://github.com/CXWorld/CapFrameX",
-     "Records and analyses frame times, with an overlay and comparison charts. It records the frame data in my runs."),
+     "Records and analyzes frame times, with an overlay and comparison charts. It records the frame data in my runs."),
     ("PresentMon", "github.com/GameTechDev/PresentMon", "https://github.com/GameTechDev/PresentMon",
      "Intel's open-source frame-timing capture tool for Windows. CapFrameX captures through it."),
     ("HWiNFO64", "hwinfo.com", "https://www.hwinfo.com/download/",
@@ -256,6 +256,49 @@ MEASURE = [  # (name, shown address, url, description)
     ("RivaTuner Statistics Server", "guru3d.com", "https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/",
      "Draws the on-screen overlay in my runs."),
 ]
+
+# ================================================================ feedback page
+# What visitors can ask for. The page sends nothing itself: its button writes an email to EMAIL in the visitor's
+# own mail app. The device groups are the whole inventory above (bench and on the way), then FB_POPULAR: popular
+# devices that aren't in the inventory. Anything in FB_POPULAR or FB_TOOLS that is already in the inventory or on
+# the links page is dropped automatically.
+FB_TOPICS = [
+    "Handheld PC news and launches", "eGPUs and docks", "Mini PCs", "Graphics drivers and updates",
+    "DLSS, FSR and XeSS", "GPU and memory prices", "SteamOS and Linux on handhelds",
+    "Windows setup and tweaks for handhelds", "Emulation", "Gaming while traveling",
+    "Battery life, chargers and cables", "Which device for which player", "Full results and workbooks",
+]
+FB_DRIVERS = [
+    "BIOS and firmware updates for each handheld", "AMD chipset drivers for desktops", "Intel chipset and NPU drivers",
+    "Beta and hotfix graphics drivers", "Linux graphics drivers (Mesa)",
+]
+FB_TOOLS = [
+    "Display Driver Uninstaller (DDU)", "NVCleanstall", "MSI Afterburner", "Lossless Scaling", "Special K",
+    "Moonlight and Sunshine", "Playnite", "EmuDeck",
+]
+FB_IDEAS = [
+    "Head-to-head: two devices, the same tests", "Family feud: three or more devices on one chip",
+    "A handheld against a desktop graphics card", "eGPU setups: which eGPU for which handheld",
+    "Power scaling: what each extra watt buys", "Battery life tests", "Charger, cable and dock tests",
+    "Setup, mods and storage upgrades", "Upscaler and frame generation shootouts",
+    "SteamOS against Windows on the same device", "Emulation tests", "New games on handhelds",
+    "Gaming at 35,000 feet and on the road", "Long-term reviews, months later", "Unboxings and first looks",
+    "Creator work and local AI on a handheld", "Live streams and Q&A",
+]
+FB_POPULAR = {  # bench section id: popular devices that aren't in the inventory
+    "handhelds": ["Steam Deck LCD", "ROG Ally", "ROG Ally X", "Legion Go", "Legion Go 2", "MSI Claw 7 AI+",
+                  "Zotac Zone", "GPD Win Mini", "GPD Win 4", "AYANEO 3", "OneXFly F1 Pro", "OneXPlayer G1"],
+    "android": ["Retroid Pocket 5", "Retroid Pocket Mini", "AYANEO Pocket S"],
+    "consoles": ["PlayStation 5", "PlayStation Portal", "Xbox Series X", "Xbox Series S"],
+    "mini-pcs": ["Framework Desktop", "Minisforum MS-S1 Max", "Minisforum MS-A2", "Beelink GTR9 Pro", "Beelink SER9",
+                 "GMKtec EVO-X2", "ASUS ROG NUC", "Acer Revo Box AI", "Apple Mac mini"],
+    "gpus": ["RTX 5080", "RTX 5070 Ti", "RTX 5060", "Radeon RX 9070 XT", "Radeon RX 9070", "Radeon RX 9060 XT",
+             "Arc B580", "Arc B570"],
+    "egpus": ["OneXGPU 2", "OneXGPU Lite", "GPD G1", "AYANEO AG01", "AORUS RTX 5090 AI BOX"],
+    "docks": ["Razer Core X V2", "Minisforum DEG1", "Steam Deck Dock"],
+}
+FB_INCOMING = {"H": "handhelds", "C": "mini-pcs", "D": "docks", "G": "gpus", "M": "displays", "P": "power",
+               "F": "filming"}  # asset id letter: the group an "on the way" device joins
 
 # ================================================================ videos
 # data/videos.json: {"checked": ISO date, "videos": [{"id", "title" (as on YouTube), "published" (UTC date),
@@ -277,7 +320,7 @@ BLURBS = {
     "VLbzPP-Wq-g": "Three handhelds. One Intel Arc G3 Extreme platform. Very different reasons to buy.",
     "oI6M0GXJS60": "Is the OneXFly Apex really as performant as an RTX 4060? One handheld against a complete desktop RTX 4060 eGPU chain, measured from the wall across synthetics, AI, creator work and eleven games.",
     "R5NCfNJm3Ak": "The AYANEO NEXT 2 on a flight, recorded locally through OBS Studio and played entirely on battery at a 55W power limit.",
-    "P95qqjbJaFY": "I paid $398 for the Xtra Muse, the pocket gimbal camera The Verge's teardown found to be a DJI Osmo Pocket 3 in everything but name, and tested the twin theory the hard way.",
+    "P95qqjbJaFY": "I bought the Xtra Muse, the pocket gimbal camera The Verge's teardown found to be a DJI Osmo Pocket 3 in everything but name, and tested the twin theory the hard way.",
     "2iYgc9XRR8U": "The Ayn Thor Max in the setting it was built for: a hotel room, mid-trip, three thousand kilometers from my bench.",
     "zFT0b6o0Ap0": "Same chip, Ryzen AI Max+ 395 in both. So why does one of these handhelds complete every single benchmark while the other can't finish the test?",
     "E6MmVNjsn2E": "A quick preview cut, made before my full method was locked. The controlled retest is “I Got It Wrong. So I Tested Everything Again”.",
@@ -444,7 +487,7 @@ def slugify(s):
 # ================================================================ shared chrome
 NAV = [("videos", "Videos", "videos.html"), ("results", "Results", "results.html"), ("method", "Method", "method.html"),
        ("bench", "Bench", "bench.html"), ("news", "News", "news.html"), ("links", "Links", "links.html"),
-       ("about", "About", "about.html")]
+       ("about", "About", "about.html"), ("feedback", "Feedback", "feedback.html")]
 
 def topbar(current):
     cur = ' aria-current="page"'
@@ -473,6 +516,7 @@ def footer():
         <h2 class="subhead-label">Find me</h2>
         <ul class="links">
           <li><span class="lk">Email</span><span class="val"><a id="foot-email" href="mailto:{EMAIL}">{EMAIL}</a><button class="copy" type="button" data-copy="{EMAIL}" aria-controls="foot-email"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Feedback</span><a href="feedback.html">Tell me what to test next →</a></li>
           <li><span class="lk">YouTube</span><a href="{CHANNEL}" target="_blank" rel="noopener">@no_tech-dad ↗</a></li>
           <li><span class="lk">X</span><a href="https://x.com/No_TechDad" target="_blank" rel="noopener">@No_TechDad ↗</a></li>
           <li><span class="lk">Discord</span><span class="val"><span id="discord-handle">nizzel1982</span><button class="copy" type="button" data-copy="nizzel1982" aria-controls="discord-handle"><span class="copy-label">Copy</span></button></span></li>
@@ -493,6 +537,15 @@ SCRIPT = """<script>
   if (!cur) return;
   var nav = cur.parentElement, r = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
   if (r.right > n.right) nav.scrollLeft += r.right - n.right + 8;
+})();
+(function () {  // a table that scrolls sideways takes keyboard focus, so arrow keys can scroll it
+  var mark = function () {
+    document.querySelectorAll('.tbl').forEach(function (t) {
+      if (t.scrollWidth > t.clientWidth + 1) { t.setAttribute('tabindex', '0'); } else { t.removeAttribute('tabindex'); }
+    });
+  };
+  mark();
+  window.addEventListener('resize', mark);
 })();
 document.querySelectorAll('img[data-yt]').forEach(function (img) {
   var drop = function () { img.remove(); };
@@ -705,6 +758,7 @@ def videos_main():
 {head}
 {section("most", "Most watched", "", f'<ul class="vgrid2">{chr(10)}{most}{chr(10)}      </ul>', None)}
 {section("all", "All videos", "", f'<ul class="vgrid2">{chr(10)}{allv}{chr(10)}      </ul>' + shorts, len(VIDEOS), ("video", "videos"))}
+  <p class="held">Want a video on something? <a class="inline" href="feedback.html">Tell me what to test next</a>.</p>
 </div>
 </main>"""
 
@@ -841,10 +895,10 @@ def links_main():
         f'<h3 class="lgroup" id="{a}">{e(t)}</h3><ul class="lrows">'
         + "".join(lrow(n, f"github.com/{r}", f"https://github.com/{r}", d) for n, r, d in rows) + "</ul>"
         for a, t, rows in TOOLS)
-    caution = ('<aside class="caution" aria-label="Before you install"><b>Before you install</b>These are community '
+    caution = ('<div class="caution" role="note" aria-label="Before you install"><b>Before you install</b>These are community '
                "projects, not vendor software, so read each project's page first. On Windows, set a restore point before "
                "you change anything. Tools that change Windows settings or power limits can make a device unstable, "
-               "and upscaler mods don't belong in online games with anti-cheat.</aside>")
+               "and upscaler mods don't belong in online games with anti-cheat.</div>")
     measure = '<ul class="lrows">' + "".join(lrow(n, w, u, d) for n, w, u, d in MEASURE) + "</ul>"
     n_tools = sum(len(t) for *_, t in TOOLS)
     parts = [
@@ -864,9 +918,164 @@ def links_main():
 <div class="wrap">
 {head}
 {chr(10).join(parts)}
-  <p class="held">Know a link that belongs here? Email me at {EMAIL}.</p>
+  <p class="held">Know a link that belongs here? <a class="inline" href="feedback.html#fb-links">Tell me on the feedback page</a> or email me at {EMAIL}.</p>
 </div>
 </main>"""
+
+def fb_device_groups():
+    """[(section id, title, on the bench, on the way, popular)] in bench-page order; names only."""
+    bare = lambda n: re.sub(r"\s*×\d+$", "", n)        # "Elgato Key Light ×3" -> "Elgato Key Light"
+    groups = [("handhelds", "Handheld PCs", [d[1] for d in HANDHELDS], [])]
+    groups += [(sid, title, [bare(r[1]) for _, rows in g for r in rows], []) for sid, title, _, g in SECTIONS]
+    by_id = {g[0]: g for g in groups}
+    for a, dev, *_ in INCOMING:
+        by_id.get(FB_INCOMING.get(a[0]), groups[0])[3].append(dev)
+    owned = {n.lower() for g in groups for n in g[2] + g[3]}
+    return [(sid, title, bench, way, [p for p in FB_POPULAR.get(sid, []) if p.lower() not in owned])
+            for sid, title, bench, way in groups]
+
+FB_SCRIPT = """<script>
+(function () {  // the feedback page: count the picks, then write them into an email in the visitor's mail app
+  var form = document.getElementById('fb-form');
+  if (!form) return;
+  var EMAIL = '%%EMAIL%%', SUBJECT = 'Feedback from notechdad.com';
+  var out = document.getElementById('fb-out'), msg = document.getElementById('fb-msg'),
+      copy = document.getElementById('fb-copy'), again = document.getElementById('fb-again'),
+      count = document.getElementById('fb-count'), status = document.getElementById('fb-status');
+  var all = function (sel) { return Array.prototype.slice.call(form.querySelectorAll(sel)); };
+  var picked = function (name) { return all('input[name="' + name + '"]:checked').map(function (i) { return i.value; }); };
+  var text = function (id) { return document.getElementById(id).value.trim(); };
+  function update() {
+    var n = all('input[type="checkbox"]:checked').length;
+    count.textContent = n ? n + (n === 1 ? ' pick' : ' picks') : 'Nothing picked yet';
+    all('details.fb-dev').forEach(function (d) {
+      var k = d.querySelectorAll('input:checked').length;
+      d.querySelector('.sum-k').textContent = k ? k + ' picked' : '';
+    });
+  }
+  function compose() {
+    var lines = [];
+    var add = function (label, items) {
+      items = items.filter(Boolean);
+      if (!items.length) return;
+      lines.push(label);
+      items.forEach(function (x) { lines.push('- ' + x); });
+      lines.push('');
+    };
+    add('I want to read about:', picked('topic'));
+    add('Drivers and tools to add:', picked('driver').concat(picked('tool'), [text('fb-tool')]));
+    add('Video ideas:', picked('idea'));
+    add('Devices:', picked('device').concat([text('fb-device')]));
+    if (text('fb-more')) lines.push('Anything else:', text('fb-more'), '');
+    if (text('fb-name')) lines.push('Name or handle: ' + text('fb-name'));
+    return lines.length ? 'Hi Nizzel,\\n\\n' + lines.join('\\n').trim() + '\\n' : '';
+  }
+  form.addEventListener('change', update);
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var body = compose();
+    if (!body) { status.textContent = 'Pick something or write a note first.'; return; }
+    var head = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(SUBJECT);
+    var full = head + '&body=' + encodeURIComponent(body), long = full.length > 1800;
+    msg.textContent = body;
+    copy.setAttribute('data-copy', body);
+    again.href = long ? head : full;
+    out.hidden = false;
+    status.textContent = long ? 'Your message is long for a mail link, so copy it below and paste it into the email.'
+                              : 'Your mail app should open with your picks filled in. If it doesn\\'t, copy them below.';
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: 'feedback-email', title: 'Feedback email', event: true });
+    }
+    window.location.href = long ? head : full;
+  });
+  update();
+})();
+</script>""".replace("%%EMAIL%%", EMAIL)
+
+def feedback_main():
+    def picks(name, items, cls=""):
+        lis = "".join(f'<li><label class="pick"><input type="checkbox" name="{name}" value="{e(x)}">'
+                      f'<span>{e(x)}</span></label></li>' for x in items)
+        return f'<ul class="picks{cls}">{lis}</ul>'
+
+    def field(fid, name, label, kind="input", note=""):
+        ctrl = (f'<textarea id="{fid}" name="{name}" rows="5" maxlength="2000"></textarea>' if kind == "textarea" else
+                f'<input id="{fid}" name="{name}" type="text" maxlength="200" autocomplete="off">')
+        return f'<div class="fb-field{" wide" if kind == "textarea" else ""}"><label for="{fid}">{label}</label>{ctrl}</div>'
+
+    def fieldset(fid, legend, lead, inner):
+        return (f'    <fieldset class="fb-set" id="{fid}">\n      <legend><h2>{e(legend)}</h2></legend>\n'
+                f'      <p class="fb-lead">{lead}</p>\n      {inner}\n    </fieldset>')
+
+    on_links = {n.lower() for *_, rows in TOOLS for n, *_ in rows} | {n.lower() for n, *_ in MEASURE}
+    tools = [t for t in FB_TOOLS if t.lower() not in on_links]
+    groups, n_dev = [], 0
+    for sid, title, bench, way, popular in fb_device_groups():
+        n_dev += len(bench) + len(way) + len(popular)
+        bits = [f"{len(bench)} on the bench"] + ([f"{len(way)} on the way"] if way else []) + \
+               ([f"{len(popular)} more"] if popular else [])
+        body = ""
+        for label, names in (("On my bench", bench), ("On the way", way), ("Not on my bench", popular)):
+            if names:
+                body += f'<h3 class="fb-sub">{label}</h3>' + picks("device", names)
+        groups.append(f'<details class="fb-dev" id="fb-dev-{sid}"><summary><span class="sum-t">{e(title)}</span>'
+                      f'<span class="sum-n">{" · ".join(bits)}</span><span class="sum-k"></span></summary>'
+                      f'<div class="fb-dev-body">{body}</div></details>')
+    sets = [
+        fieldset("fb-read", "What should I write about?", "Topics for the news page, guides and results.",
+                 picks("topic", FB_TOPICS)),
+        fieldset("fb-links", "Drivers and tools",
+                 'What should the <a class="inline" href="links.html">links page</a> track next? '
+                 "None of these are on it yet.",
+                 '<h3 class="fb-sub">Drivers and updates</h3>' + picks("driver", FB_DRIVERS)
+                 + '<h3 class="fb-sub">Tools</h3>' + picks("tool", tools)
+                 + field("fb-tool", "tool-other", "Another driver, app or tool")),
+        fieldset("fb-ideas", "Video ideas", "The kinds of videos you want more of.", picks("idea", FB_IDEAS)),
+        fieldset("fb-devices", "Which devices?",
+                 f"Everything on <a class=\"inline\" href=\"bench.html\">my bench</a> and on the way to it, then "
+                 f"popular devices that aren't on it. Open a group to pick.",
+                 '<div class="fb-groups">' + "".join(groups) + "</div>"
+                 + field("fb-device", "device-other", "Another device")),
+        fieldset("fb-note", "Anything else?", "An idea, a question, or something I got wrong.",
+                 field("fb-more", "note", "Your message", "textarea")
+                 + field("fb-name", "name", "Name or YouTube handle (optional)")),
+    ]
+    send = f"""    <div class="fb-send">
+      <button class="btn btn-red" type="submit">Write the email</button>
+      <p class="fb-count" id="fb-count">Nothing picked yet</p>
+    </div>
+    <p class="fb-status" id="fb-status" role="status"></p>
+    <p class="fb-privacy">The button opens an email to {EMAIL} in your own mail app, with your picks filled in, so you
+      can read it before you send it. Your picks stay in your browser until you send that email.</p>
+    <div class="fb-out" id="fb-out" hidden>
+      <p><b>Mail app didn't open?</b> Copy the message and email it to <a class="inline" href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+      <pre class="fb-msg" id="fb-msg"></pre>
+      <p class="fb-actions"><button class="copy" type="button" id="fb-copy" data-copy="" aria-controls="fb-msg"><span class="copy-label">Copy</span></button><a class="btn btn-line btn-sm" id="fb-again" href="mailto:{EMAIL}">Open the email again</a></p>
+    </div>"""
+    head = page_head("Tell me what to test next", "Feedback",
+                     "What should I write about, which drivers and tools should I track, which videos should I make, "
+                     "and on which devices? Pick as many as you like, add your own ideas, and send it to me as an email.",
+                     "".join(f'<li><a href="#{a}">{t}</a></li>' for a, t in
+                             (("fb-read", "Topics"), ("fb-links", "Drivers and tools"), ("fb-ideas", "Video ideas"),
+                              ("fb-devices", f"Devices <b>{n_dev}</b>"), ("fb-note", "Your message"))))
+    newest = VIDEOS[0]
+    return f"""<main id="top">
+<div class="wrap">
+{head}
+  <form class="fb" id="fb-form" action="mailto:{EMAIL}?subject=Feedback%20from%20notechdad.com" method="post" enctype="text/plain">
+{chr(10).join(sets)}
+{send}
+  </form>
+  <p class="held">Rather leave a comment? Tell me under <a class="inline" href="{yt(newest['id'])}" target="_blank" rel="noopener">my newest video ↗</a>.</p>
+</div>
+</main>
+{FB_SCRIPT}"""
+
+def iso_dur(s):
+    """Seconds as an ISO 8601 duration, e.g. 1559 -> PT25M59S, so a chapter's <time> validates."""
+    h, rem = divmod(s, 3600)
+    m, sec = divmod(rem, 60)
+    return "PT" + (f"{h}H" if h else "") + (f"{m}M" if m else "") + f"{sec}S"
 
 def ts(s):
     m, sec = divmod(s, 60)
@@ -877,7 +1086,7 @@ def companion_main(vid):
     v, p = VBYID[vid], VIDEO_PAGES[vid]
     rs = [r for r in RESULTS if r["video"] == vid]
     intro = "".join(f"<p>{e(x)}</p>" for x in p["intro"])
-    chapters = "".join(f'<li><a href="{yt(vid)}&amp;t={s}s" target="_blank" rel="noopener"><time>{ts(s)}</time>'
+    chapters = "".join(f'<li><a href="{yt(vid)}&amp;t={s}s" target="_blank" rel="noopener"><time datetime="{iso_dur(s)}">{ts(s)}</time>'
                        f'<span>{e(label)}</span></a></li>' for s, label in p["chapters"])
     devices = "".join(f'<li><a href="bench.html#asset-{a}">{e(n)} <b>{a}</b></a></li>' for a, n in p["devices"])
     tested = "".join(f"<li>{e(x)}</li>" for x in p["tested"])
@@ -987,6 +1196,9 @@ def all_pages():
         ("about", "about.html", "About · No_Tech-Dad",
          "Nizzel, the dad behind No_Tech-Dad: a problem solver who buys every device and runs every test, supported by AI.",
          about_main(), None, None),
+        ("feedback", "feedback.html", "Feedback · No_Tech-Dad",
+         "Tell No_Tech-Dad what to test next: topics, drivers and tools, video ideas, and the handheld PCs, eGPUs, "
+         "mini PCs and other devices you want covered.", feedback_main(), None, None),
     ]
     for vid, p in VIDEO_PAGES.items():
         v = VBYID[vid]
@@ -1025,7 +1237,8 @@ def write_preview(pages, out):
 ALLOWED_EMAILS = {EMAIL.lower()}
 PRIVATE = [  # (pattern, what it means); nothing like this may ever reach the published site
     (r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", "an email address other than the site's"),
-    (r"HK\$|AED\s?\d|\bprice paid\b", "a price paid"),
+    (r"HK\$|AED\s?\d|\bprice paid\b|\bpaid\s+(?:US)?\$\s?\d|\bpaid\s+\d[\d,.]*\s?(?:USD|AED|dollars|dirhams)\b",
+     "a price paid"),
     (r"orderCode|yourpledge|pledges-and-orders", "an order or pledge link"),
 ]
 

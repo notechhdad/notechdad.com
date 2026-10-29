@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback · No_Tech-Dad</title>
+<meta name="description" content="Tell No_Tech-Dad what to test next: topics, drivers and tools, video ideas, and the handheld PCs, eGPUs, mini PCs and other devices you want covered.">
+<link rel="canonical" href="https://notechdad.com/feedback.html">
+<meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF8F8" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="No_Tech-Dad">
+<meta property="og:title" content="Feedback · No_Tech-Dad">
+<meta property="og:description" content="Tell No_Tech-Dad what to test next: topics, drivers and tools, video ideas, and the handheld PCs, eGPUs, mini PCs and other devices you want covered.">
+<meta property="og:url" content="https://notechdad.com/feedback.html">
+<meta property="og:image" content="https://notechdad.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="No_Tech-Dad channel art with the No_Tech-Dad wordmark and tagline">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@No_TechDad">
+<link rel="me" href="https://www.youtube.com/@no_tech-dad">
+<link rel="me" href="https://x.com/No_TechDad">
+<link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/big-shoulders-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:900;font-display:swap;src:url(fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2")}
+/* Layout: a lab notebook. Sticky bar, then pages built from one 1120px column: a newest-video hero beside
+   the run card, result plates, the video shelf, news, drivers and the bench. Dark-first, with a light mirror. */
+:root{
+  color-scheme: dark;
+  --bg:#121011; --panel:#1A1718; --raised:#262122; --line:#332C2D; --line-2:#4B4142;
+  --fg:#F2EDEB; --fg-2:#C3B9B7; --muted:#968B89; --bar:#BDB2B0; --grid:rgba(255,255,255,.045);
+  --red:#E3222C; --red-btn:#C81C25; --red-ink:#FF6369; --on-red:#FFFFFF; --gold:#D9B35C;
+  --ok:#55C992; --ok-wash:rgba(85,201,146,.12);
+  --info:#93B5F5; --info-wash:rgba(147,181,245,.12);
+  --warn:#F2914A; --warn-wash:rgba(242,145,74,.13);
+  --gold-wash:rgba(217,179,92,.13);
+  --header:rgba(18,16,17,.9);
+  --display:"Big Shoulders Display",Impact,"Arial Narrow","Roboto Condensed",sans-serif-condensed,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --wrap:1120px; --r:6px;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme: light;
+    --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
+    --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
+    --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
+    --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
+    --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
+    --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+    --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
+    --header:rgba(250,248,248,.92);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
+  --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
+  --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
+  --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
+  --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
+  --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+  --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
+  --header:rgba(250,248,248,.92);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a.inline,.prose a{color:var(--red-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;background:var(--header);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:23px;letter-spacing:.01em;line-height:1}
+.brand svg{width:34px;height:34px;flex:none}
+.nav{order:2;flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -8px}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;padding:6px 8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-2);text-decoration:none;border-radius:4px}
+.nav a:hover{color:var(--fg);background:var(--raised)}
+.topbar .btn{order:1;margin-left:auto}
+@media (min-width:1060px){
+  .nav{order:1;flex:0 1 auto;margin:0 0 0 auto}
+  .topbar .btn{order:2;margin-left:0}
+}
+
+/* Buttons and tags */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:4px;font-weight:600;font-size:15px;line-height:1.2;text-decoration:none;border:1px solid transparent;transition:filter .15s,border-color .15s}
+.btn-red{background:var(--red-btn);color:var(--on-red)}
+.btn-red:hover{filter:brightness(1.1)}
+.btn-line{border-color:var(--line-2);color:var(--fg)}
+.btn-line:hover{border-color:var(--fg-2)}
+.btn-sm{padding:7px 12px;font-size:13.5px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;line-height:1;padding:5px 8px;border-radius:3px;border:1px solid currentColor;border-color:color-mix(in srgb, currentColor 45%, transparent);white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.t-ok{color:var(--ok);background:var(--ok-wash)}
+.t-info{color:var(--info);background:var(--info-wash)}
+.t-warn{color:var(--warn);background:var(--warn-wash)}
+.t-gold{color:var(--gold-ink, var(--gold));background:var(--gold-wash)}
+.t-mute{color:var(--muted);background:transparent}
+.t-plain{color:var(--fg-2);background:transparent;border-color:var(--line-2)}
+.t-plain::before{display:none}
+
+/* Hero */
+.strip{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(52px,8.5vw,104px);font-size:clamp(52px,15cqi,112px);line-height:.86;letter-spacing:-.005em;margin:0;white-space:nowrap}
+.tagline{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.5vw,27px);letter-spacing:.04em;text-transform:uppercase;color:var(--fg-2);margin:16px 0 0}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--fg-2);max-width:34em;margin:22px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+.runcard{border:1px solid var(--line-2);background:var(--panel);border-radius:3px;font-size:14.5px;line-height:1.5}
+.rc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;background:var(--fg);color:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.rc-head span{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:rec 1.8s ease-in-out infinite}
+@keyframes rec{50%{opacity:.2}}
+.rc-rows{margin:0;padding:4px 16px}
+.rc-row{display:grid;grid-template-columns:minmax(0,7.6rem) minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.rc-row:last-child{border-bottom:0}
+.rc-row dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.rc-row dd{margin:0}
+.rc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding:10px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px}
+.rc-foot a{color:var(--red-ink);text-decoration:none}
+.rc-foot a:hover{text-decoration:underline}
+
+/* Sections */
+.sec{padding-block:clamp(52px,7vw,92px);border-top:1px solid var(--line)}
+.sec-alt{background:var(--panel)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px 24px;margin-bottom:clamp(26px,4vw,42px)}
+@media (max-width:700px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-ink);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,66px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin:0;text-wrap:balance}
+.sec-lead{color:var(--fg-2);max-width:42em;margin:14px 0 0}
+.more{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--red-ink);text-decoration:none;white-space:nowrap}
+.more:hover{text-decoration:underline}
+.subhead-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 12px}
+
+
+
+/* Results */
+.plates{display:grid;gap:24px}
+.plate{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.plate-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px 16px;padding:22px 22px 0}
+.plate-head h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1;text-transform:uppercase;margin:0;max-width:26ch;text-wrap:balance}
+.cond{display:flex;flex-wrap:wrap;gap:8px 24px;margin:16px 22px 0;padding:12px 14px;background:var(--bg);border:1px dashed var(--line-2);border-radius:3px;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+.cond div{display:flex;gap:8px;min-width:0}
+.cond dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding-top:1px;flex:none}
+.cond dd{margin:0}
+.plate-body{padding:18px 22px 22px}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:0 14px 10px 0;border-bottom:1px solid var(--line-2)}
+td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th:last-child,td:last-child{padding-right:0}
+.res{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;font-weight:600;white-space:nowrap}
+.res-ok{color:var(--ok)}
+.res-bad{color:var(--red-ink)}
+.note{color:var(--fg-2);font-size:14.5px;margin:16px 0 0;max-width:66ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.chart-head h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin:0;font-weight:600}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:15px}
+.bar-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14.5px}
+.bar-top small{display:block;color:var(--muted);font-size:12.5px}
+.bar-top b{font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{position:relative;height:12px;background:var(--raised);border-radius:2px;margin-top:6px}
+.fill{position:absolute;top:0;bottom:0;left:0;background:var(--bar);border-radius:2px}
+.tick{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--warn)}
+.cap{font-size:13.5px;color:var(--muted);margin:16px 0 0}
+
+/* Method */
+.legend{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.legend li{display:grid;grid-template-columns:8.4rem minmax(0,1fr);gap:12px;align-items:start;font-size:15px;color:var(--fg-2)}
+.legend .tag{justify-self:start;margin-top:2px}
+.proto{margin:0;border-top:1px solid var(--line-2)}
+.proto div{display:grid;grid-template-columns:minmax(0,8.5rem) minmax(0,1fr);gap:4px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.proto dt{font-family:var(--display);font-weight:800;font-size:23px;text-transform:uppercase;line-height:1.1}
+.proto dd{margin:0;color:var(--fg-2)}
+@media (max-width:560px){.proto div{grid-template-columns:minmax(0,1fr)}}
+
+
+
+/* News */
+.news{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.news li{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:6px 28px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media (max-width:620px){.news li{grid-template-columns:minmax(0,1fr)}}
+.news time{font-family:var(--mono);font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums;padding-top:3px;white-space:nowrap}
+.nh{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:6px}
+.news h3{font-size:18px;font-weight:600;margin:0;line-height:1.3}
+.news p{margin:0;color:var(--fg-2);max-width:70ch}
+.news .src{margin-top:8px}
+.news .src a{color:var(--fg-2);text-underline-offset:3px}
+.news .src a:hover{color:var(--fg)}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);background:var(--panel);padding-block:clamp(44px,6vw,68px) 28px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px}
+@media (max-width:820px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.links li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.lk{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.links a{font-weight:600;text-decoration:none}
+.links a:hover{color:var(--red-ink)}
+.val{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.copy{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--line-2);background:transparent;color:var(--fg);border-radius:3px;cursor:pointer}
+.copy:hover{border-color:var(--fg-2)}
+.fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* Brand: badge image and wordmark colors from the channel logo */
+.brand img{width:34px;height:34px;flex:none;display:block}
+.foot-brand .brand img{width:48px;height:48px}
+.wordmark .w-no{color:var(--red)}
+.wordmark .w-dad{color:var(--gold)}
+
+/* About: the human behind it */
+.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,56px);align-items:start}
+.about-grid:not(:has(.portrait)){grid-template-columns:minmax(0,1fr)}
+@media (max-width:820px){.about-grid{grid-template-columns:minmax(0,1fr)}}
+.photo{margin:0;min-width:0}
+.frame{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:var(--r);overflow:hidden;background:var(--raised)}
+.portrait .frame{aspect-ratio:4/5}
+.frame img{display:block;width:100%;height:100%;object-fit:cover}
+.photo figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+.frame.art{background:#0E0B0C}
+.frame.art img{object-fit:contain}
+.about-text p{color:var(--fg-2);margin:0 0 14px;max-width:38em;font-size:17px}
+.about-text .hi{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1;text-transform:uppercase;color:var(--fg);margin-bottom:18px}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:26px 0 0;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.role{padding:18px 20px;min-width:0}
+.role + .role{border-left:1px solid var(--line-2)}
+@media (max-width:600px){
+  .roles{grid-template-columns:minmax(0,1fr)}
+  .role + .role{border-left:0;border-top:1px solid var(--line-2)}
+}
+.role h2{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;font-weight:600}
+.role h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.role.ai h2::before{background:var(--gold)}
+.role ul{margin:0;padding:0 0 0 18px;display:grid;gap:7px;color:var(--fg-2);font-size:15px;line-height:1.45}
+.about-text .ai-note{margin-top:18px;color:var(--fg);font-size:15.5px}
+.contact-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:15.5px}
+.contact-line a{color:var(--fg);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(30px,4vw,44px)}
+@media (max-width:760px){.photo-row{grid-template-columns:minmax(0,1fr)}}
+
+
+
+/* Inventory page */
+.page-head{padding-block:clamp(40px,6vw,72px) clamp(28px,4vw,44px)}
+.page-head h1{font-family:var(--display);font-weight:900;font-size:clamp(56px,9vw,104px);line-height:.86;text-transform:uppercase;margin:0}
+.jump{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.jump a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--line-2);border-radius:4px;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--fg-2)}
+.jump a:hover{color:var(--fg);border-color:var(--fg-2)}
+.jump b{color:var(--muted);font-weight:600}
+.inv-sec{padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+.inv-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin-bottom:16px}
+.inv-head h2{font-size:clamp(30px,4vw,44px)}
+.inv-head .count{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--muted)}
+.inv-sec .sec-lead{margin:0 0 18px}
+table.inv td.asset{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;width:4.2rem}
+table.inv td.dev{font-weight:600}
+table.inv td.det{color:var(--fg-2)}
+table.inv td.note{color:var(--muted);font-size:14px}
+table.inv tbody th{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);font-weight:600;text-align:left;padding:18px 0 8px;border-bottom:1px solid var(--line-2)}
+table.inv tbody:first-of-type th{padding-top:4px}
+.sw{margin:16px 0 0;color:var(--fg-2);font-size:15px}
+.sw b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
+.held{margin:26px 0 0;color:var(--muted);font-size:14.5px}
+.nav a[aria-current="page"]{color:var(--fg);background:var(--raised)}
+table.inv .tag{white-space:normal;line-height:1.3}
+.otw{margin:0 0 22px;color:var(--fg-2);font-size:15px}
+.otw b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
+
+/* News: topics I'm tracking */
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:clamp(36px,5vw,52px)}
+@media (max-width:820px){.topics{grid-template-columns:minmax(0,1fr)}}
+.topic{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);padding:20px 22px 22px;min-width:0}
+@media (max-width:520px){.topic{padding:18px 16px 20px}}
+.topic.wide{grid-column:1 / -1}
+.topic h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1;text-transform:uppercase;margin:12px 0 0;text-wrap:balance}
+.topic .intro{color:var(--fg-2);margin:10px 0 0;max-width:60ch}
+.topic-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 36px;margin-top:20px;align-items:start}
+@media (max-width:820px){.topic-split{grid-template-columns:minmax(0,1fr)}}
+.bars.hot .fill{background:var(--red)}
+.topic .cap a,.tl a.s{color:var(--fg-2);text-underline-offset:3px}
+.topic .cap a:hover,.tl a.s:hover{color:var(--fg)}
+.tl{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.topic-split .tl{margin-top:0}
+.tl li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:12px;font-size:15px;line-height:1.5}
+.tl time{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tl p{margin:0;color:var(--fg-2)}
+.tl a.s{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.flag{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-right:8px}
+
+/* Useful links */
+.drivers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.drv{display:flex;flex-direction:column;padding:18px 20px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);min-width:0}
+.sec-alt .drv{background:var(--bg)}
+.drv-vendor{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);margin:0}
+.drv-name{font-size:17px;font-weight:600;margin:6px 0 0;line-height:1.3}
+.drv-ver{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:12px 0 0}
+.drv-ver .v{font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;font-variant-numeric:tabular-nums}
+.drv-date{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.drv-note{font-size:14.5px;color:var(--fg-2);margin:12px 0 0;line-height:1.5}
+.drv-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:auto 0 0;padding-top:14px;font-family:var(--mono);font-size:12.5px}
+.drv-links a{color:var(--red-ink);text-decoration:none}
+.drv-links a:hover{text-decoration:underline}
+.lrows{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.lrows{grid-template-columns:minmax(0,1fr)}}
+.lrows li{min-width:0}
+.lrow{display:flex;flex-direction:column;gap:4px;height:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s}
+.lrow:hover{border-color:var(--fg-2)}
+.lr-name{font-weight:600;font-size:16px;line-height:1.35}
+.lr-go{color:var(--red-ink)}
+.lr-where{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.lr-desc{color:var(--fg-2);font-size:14.5px;line-height:1.5;margin-top:4px}
+.lgroup{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 12px}
+.caution{margin:0 0 4px;padding:14px 16px;border:1px solid var(--line-2);border-left:3px solid var(--warn);border-radius:3px;background:var(--panel);color:var(--fg-2);font-size:15px;max-width:72ch}
+.caution b{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-bottom:4px}
+
+/* Footer brand block */
+.foot-brand .brand{font-size:28px}
+.foot-brand .brand svg{width:48px;height:48px}
+.foot-brand .tagline-sm{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-2);margin:14px 0 8px}
+.foot-brand p{color:var(--fg-2);max-width:32em;margin:0}
+
+/* ---------------------------------------------------------------- video + lab layout */
+/* Home hero: the newest video, framed like a viewfinder, beside the run card */
+.hero2{padding-block:clamp(30px,4.5vw,56px) clamp(44px,6vw,76px)}
+.hero-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(26px,4vw,44px)}
+@media (max-width:860px){.hero-intro{grid-template-columns:minmax(0,1fr)}}
+.brandcol{container-type:inline-size;min-width:0}
+.hero-intro .wordmark{font-size:clamp(48px,8vw,92px);font-size:clamp(48px,15cqi,96px)}
+.hero-intro .tagline{margin-top:12px}
+.hero-intro .lead{margin:0;max-width:36em}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:860px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.feature{min-width:0}
+.feature-media{display:block;border-radius:var(--r)}
+.feat-kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--muted);margin:18px 0 8px}
+h2.feat-title{font-size:clamp(30px,3.6vw,46px);line-height:.95}
+.feat-blurb{color:var(--fg-2);margin:12px 0 0;max-width:40em;font-size:17px}
+.feature .cta{margin-top:20px}
+
+.vthumb{position:relative;display:block;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background-color:var(--raised);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vthumb .fb{position:absolute;left:14px;bottom:10px;font-family:var(--display);font-weight:900;font-size:24px;line-height:.9;text-transform:uppercase;color:var(--muted)}
+.vthumb.big{border-radius:var(--r)}
+.vthumb.big .fb{left:30px;bottom:26px;font-size:clamp(32px,5vw,60px)}
+.vf{position:absolute;inset:14px;pointer-events:none;--c:rgba(255,255,255,.92);
+  background:
+    linear-gradient(var(--c) 0 0) left top/26px 2px,linear-gradient(var(--c) 0 0) left top/2px 26px,
+    linear-gradient(var(--c) 0 0) right top/26px 2px,linear-gradient(var(--c) 0 0) right top/2px 26px,
+    linear-gradient(var(--c) 0 0) left bottom/26px 2px,linear-gradient(var(--c) 0 0) left bottom/2px 26px,
+    linear-gradient(var(--c) 0 0) right bottom/26px 2px,linear-gradient(var(--c) 0 0) right bottom/2px 26px;
+  background-repeat:no-repeat}
+.vthumb:not(:has(img)) .vf{--c:var(--line-2)}
+.play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:var(--red-btn);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(0,0,0,.24);transition:transform .15s}
+.play svg{margin-left:3px}
+a:hover .play{transform:scale(1.06)}
+.vf-tag,.vthumb .dur{position:absolute;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;line-height:1;padding:6px 8px;border-radius:3px;background:rgba(10,8,9,.74);color:#fff}
+.vf-tag{left:26px;top:24px;text-transform:uppercase}
+.vthumb .dur{right:26px;bottom:24px;font-variant-numeric:tabular-nums}
+@media (max-width:520px){
+  .vf{inset:9px}
+  .vf-tag{left:16px;top:15px}
+  .vthumb .dur{right:16px;bottom:15px}
+  .play{width:56px;height:56px;margin:-28px 0 0 -28px}
+}
+
+/* The channel in numbers: one ruled line */
+.ledger{border-block:1px solid var(--line);background:var(--panel)}
+.ledger ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.ledger li{min-width:0}
+.ledger li + li{border-left:1px solid var(--line)}
+.ledger a{display:flex;align-items:baseline;gap:10px;height:100%;padding:18px 20px;text-decoration:none;color:var(--fg-2);font-size:15px;line-height:1.3}
+.ledger li:first-child a{padding-left:0}
+.ledger b{font-family:var(--display);font-weight:900;font-size:38px;line-height:.9;color:var(--fg);font-variant-numeric:tabular-nums;flex:none}
+.ledger a:hover b{color:var(--red-ink)}
+@media (max-width:860px){
+  .ledger ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ledger li:nth-child(3){border-left:0}
+  .ledger li:nth-child(n+3){border-top:1px solid var(--line)}
+  .ledger li:nth-child(odd) a{padding-left:0}
+  .ledger li:nth-child(even) a{padding-right:0}
+}
+@media (max-width:420px){.ledger a{flex-direction:column;gap:6px;font-size:14px}}
+
+/* Results hub */
+.rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.rgrid{grid-template-columns:minmax(0,1fr)}}
+.rcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 22px 22px;min-width:0}
+.rs-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rcard h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1;text-transform:uppercase;margin:14px 0 0;text-wrap:balance}
+.finding{color:var(--fg);font-size:16.5px;margin:10px 0 18px;max-width:46ch}
+.rs-meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.rs-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:auto 0 0;padding-top:14px;font-family:var(--mono);font-size:12.5px}
+.rs-links a{color:var(--red-ink);text-decoration:none}
+.rs-links a:hover{text-decoration:underline}
+.checks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.checks li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+
+/* Video shelf */
+.vgrid2{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px}
+@media (max-width:920px){.vgrid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vc{min-width:0}
+.vc a{display:flex;flex-direction:column;gap:6px;height:100%;text-decoration:none;color:inherit}
+.vc .vthumb{margin-bottom:8px}
+.vc-title{font-weight:600;font-size:16.5px;line-height:1.35}
+.vc a:hover .vc-title{color:var(--red-ink)}
+.vc-meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.vc-blurb{color:var(--fg-2);font-size:14.5px;line-height:1.5}
+.vc-go{margin-top:auto;padding-top:4px;font-family:var(--mono);font-size:12px;color:var(--red-ink)}
+@media (max-width:560px){
+  .vgrid2{grid-template-columns:minmax(0,1fr);gap:20px}
+  .vc a{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);column-gap:14px;row-gap:4px;align-content:start}
+  .vc .vthumb{grid-row:1 / span 4;margin:0}
+  .vc-title{font-size:15px}
+  .vc-blurb{display:none}
+}
+.vshorts{margin:28px 0 0}
+
+/* News and latest drivers */
+.nd-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(36px,5vw,64px)}
+@media (max-width:900px){.nd-grid{grid-template-columns:minmax(0,1fr)}}
+.nd-grid .sec-head{margin-bottom:18px}
+.nd-grid h2{font-size:clamp(34px,4.2vw,48px)}
+.nlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.nlist a{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.nl-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.nl-top time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.nl-title{font-weight:600;font-size:18px;line-height:1.3}
+.nlist a:hover .nl-title{color:var(--red-ink)}
+.nl-sum{color:var(--fg-2);font-size:15px}
+.dmini{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.dmini li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.dm-name{font-weight:600;font-size:16px;min-width:0}
+.dm-name b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);font-weight:600;margin-right:10px}
+.dm-ver{grid-row:1 / span 2;grid-column:2;font-family:var(--display);font-weight:900;font-size:38px;line-height:.9;font-variant-numeric:tabular-nums}
+.dm-sub{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.dm-sub a{color:var(--red-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.dm-note{font-size:14.5px;color:var(--fg-2);margin:14px 0 0}
+
+/* About strip */
+.about-strip{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center}
+@media (max-width:640px){.about-strip{grid-template-columns:minmax(0,1fr)}}
+.as-photo{margin:0;width:100%;max-width:200px;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--raised)}
+@media (max-width:640px){.as-photo{max-width:132px}}
+.as-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.as-text h2{font-size:clamp(30px,3.6vw,44px)}
+.as-text p{color:var(--fg-2);max-width:40em;margin:14px 0 0}
+.as-text .contact-line{margin:14px 0 20px}
+
+/* Inner pages */
+.page-head .eyebrow a{color:inherit;text-underline-offset:3px}
+.method2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(30px,5vw,64px);align-items:start;padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+@media (max-width:860px){.method2{grid-template-columns:minmax(0,1fr)}}
+.method2 .legend{margin-top:0}
+.about-page,.news-page{padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+.news-page > .subhead-label{margin-bottom:14px}
+.page-head.vp-head h1{font-size:clamp(34px,5vw,60px);line-height:.92;text-wrap:balance;max-width:22ch}
+.vp-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start;padding-bottom:clamp(30px,4.5vw,48px)}
+@media (max-width:900px){.vp-grid{grid-template-columns:minmax(0,1fr)}}
+.embed{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#000}
+.embed > a{display:block;height:100%}
+.embed .vthumb{height:100%;aspect-ratio:auto;border-radius:0}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vp-intro p{color:var(--fg-2);margin:16px 0 0;max-width:62ch}
+.vp-intro p:first-child{color:var(--fg);font-size:18px;margin-top:22px}
+.vp-side .chapters,.vp-side .jump{margin:0 0 28px}
+.chapters{list-style:none;padding:0;border-top:1px solid var(--line-2)}
+.chapters a{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg-2);font-size:15px;line-height:1.4}
+.chapters a:hover{color:var(--fg)}
+.chapters time{font-family:var(--mono);font-size:12.5px;color:var(--red-ink);font-variant-numeric:tabular-nums;padding-top:1px}
+.tested{margin:0;padding:0 0 0 20px;display:grid;gap:8px;color:var(--fg-2);max-width:70ch}
+table.inv tr:target td{background:var(--gold-wash)}
+main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
+@media (max-width:560px){.vc .vthumb .fb{font-size:17px;left:10px;bottom:8px}}
+.plate-fig{margin:18px 0 0}
+.plate-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
+.plate-fig figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.res-warn{color:var(--warn)}
+.tbl td small{display:block;color:var(--muted);font-size:13px}
+.tbl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Feedback page: a form whose button writes an email in the visitor's own mail app */
+.fb{border-top:1px solid var(--line)}
+.fb-set{border:0;margin:0;padding:clamp(30px,4.5vw,48px) 0;min-width:0}
+.fb-set + .fb-set{border-top:1px solid var(--line)}
+.fb-set legend{float:left;width:100%;padding:0;margin:0}
+.fb-set legend h2{font-size:clamp(30px,4vw,44px)}
+.fb-set legend + *{clear:both}
+.fb-lead{color:var(--fg-2);max-width:42em;margin:0;padding:12px 0 18px}
+.fb-sub{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:22px 0 10px}
+.fb-lead + .fb-sub{margin-top:0}
+.picks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pick{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:8px 12px 8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--panel);color:var(--fg-2);font-size:15px;line-height:1.3;cursor:pointer;transition:border-color .15s,background-color .15s}
+.pick:hover{border-color:var(--fg-2);color:var(--fg)}
+.pick input{margin:0;width:16px;height:16px;flex:none;accent-color:var(--red-btn)}
+.pick:has(input:checked){border-color:var(--red);background:color-mix(in srgb, var(--red) 12%, transparent);color:var(--fg)}
+.pick:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.fb-groups{display:grid;gap:10px}
+.fb-dev{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel)}
+.fb-dev summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:14px 16px;cursor:pointer;list-style:none}
+.fb-dev summary::-webkit-details-marker{display:none}
+.fb-dev summary::before{content:"+";font-family:var(--mono);font-weight:600;color:var(--red-ink);width:1ch}
+.fb-dev[open] summary::before{content:"−"}
+.fb-dev summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:var(--r)}
+.sum-t{font-weight:600;font-size:17px}
+.sum-n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.sum-k{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--red-ink);margin-left:auto}
+.fb-dev-body{padding:0 16px 18px}
+.fb-dev-body .fb-sub:first-child{margin-top:4px}
+.fb-dev .pick{background:var(--bg)}
+.fb-field{display:grid;gap:6px;margin-top:22px;max-width:36rem}
+.fb-field.wide{max-width:48rem;margin-top:0}
+.fb-field label{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fb-field input,.fb-field textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--panel);border:1px solid var(--line-2);border-radius:4px;padding:10px 12px}
+.fb-field textarea{min-height:8.5rem;resize:vertical;line-height:1.5}
+.fb-field input:focus-visible,.fb-field textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fb-send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+button.btn{font-family:inherit;cursor:pointer}
+.fb-count{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0}
+.fb-status{margin:14px 0 0;font-weight:600}
+.fb-status:empty{display:none}
+.fb-privacy{color:var(--muted);font-size:14.5px;max-width:62ch;margin:14px 0 0}
+.fb-out{margin-top:22px;padding:16px 18px;border:1px solid var(--line-2);border-left:3px solid var(--gold);border-radius:3px;background:var(--panel);max-width:72ch}
+.fb-out p{margin:0;color:var(--fg-2)}
+.fb-msg{margin:14px 0;padding:12px 14px;background:var(--bg);border:1px dashed var(--line-2);border-radius:3px;font-family:var(--mono);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+
+/* Home: the feedback call-out */
+.fbc{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px 40px}
+@media (max-width:700px){.fbc{grid-template-columns:minmax(0,1fr)}.fbc .btn{justify-self:start}}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="No_Tech-Dad, home"><img src="img/badge.png" width="34" height="34" alt="">No_Tech-Dad</a>
+    <nav class="nav" aria-label="Pages">
+      <a href="videos.html">Videos</a>
+      <a href="results.html">Results</a>
+      <a href="method.html">Method</a>
+      <a href="bench.html">Bench</a>
+      <a href="news.html">News</a>
+      <a href="links.html">Links</a>
+      <a href="about.html">About</a>
+      <a href="feedback.html" aria-current="page">Feedback</a>
+    </nav>
+    <a class="btn btn-red btn-sm" href="https://www.youtube.com/@no_tech-dad?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</header>
+<main id="top">
+<div class="wrap">
+  <div class="page-head">
+    <p class="eyebrow">Tell me what to test next</p>
+    <h1>Feedback</h1>
+    <p class="sec-lead">What should I write about, which drivers and tools should I track, which videos should I make, and on which devices? Pick as many as you like, add your own ideas, and send it to me as an email.</p>
+    <ul class="jump"><li><a href="#fb-read">Topics</a></li><li><a href="#fb-links">Drivers and tools</a></li><li><a href="#fb-ideas">Video ideas</a></li><li><a href="#fb-devices">Devices <b>123</b></a></li><li><a href="#fb-note">Your message</a></li></ul>
+  </div>
+  <form class="fb" id="fb-form" action="mailto:Nizzel@notechdad.com?subject=Feedback%20from%20notechdad.com" method="post" enctype="text/plain">
+    <fieldset class="fb-set" id="fb-read">
+      <legend><h2>What should I write about?</h2></legend>
+      <p class="fb-lead">Topics for the news page, guides and results.</p>
+      <ul class="picks"><li><label class="pick"><input type="checkbox" name="topic" value="Handheld PC news and launches"><span>Handheld PC news and launches</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="eGPUs and docks"><span>eGPUs and docks</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Mini PCs"><span>Mini PCs</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Graphics drivers and updates"><span>Graphics drivers and updates</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="DLSS, FSR and XeSS"><span>DLSS, FSR and XeSS</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="GPU and memory prices"><span>GPU and memory prices</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="SteamOS and Linux on handhelds"><span>SteamOS and Linux on handhelds</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Windows setup and tweaks for handhelds"><span>Windows setup and tweaks for handhelds</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Emulation"><span>Emulation</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Gaming while traveling"><span>Gaming while traveling</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Battery life, chargers and cables"><span>Battery life, chargers and cables</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Which device for which player"><span>Which device for which player</span></label></li><li><label class="pick"><input type="checkbox" name="topic" value="Full results and workbooks"><span>Full results and workbooks</span></label></li></ul>
+    </fieldset>
+    <fieldset class="fb-set" id="fb-links">
+      <legend><h2>Drivers and tools</h2></legend>
+      <p class="fb-lead">What should the <a class="inline" href="links.html">links page</a> track next? None of these are on it yet.</p>
+      <h3 class="fb-sub">Drivers and updates</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="driver" value="BIOS and firmware updates for each handheld"><span>BIOS and firmware updates for each handheld</span></label></li><li><label class="pick"><input type="checkbox" name="driver" value="AMD chipset drivers for desktops"><span>AMD chipset drivers for desktops</span></label></li><li><label class="pick"><input type="checkbox" name="driver" value="Intel chipset and NPU drivers"><span>Intel chipset and NPU drivers</span></label></li><li><label class="pick"><input type="checkbox" name="driver" value="Beta and hotfix graphics drivers"><span>Beta and hotfix graphics drivers</span></label></li><li><label class="pick"><input type="checkbox" name="driver" value="Linux graphics drivers (Mesa)"><span>Linux graphics drivers (Mesa)</span></label></li></ul><h3 class="fb-sub">Tools</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="tool" value="Display Driver Uninstaller (DDU)"><span>Display Driver Uninstaller (DDU)</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="NVCleanstall"><span>NVCleanstall</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="MSI Afterburner"><span>MSI Afterburner</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="Lossless Scaling"><span>Lossless Scaling</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="Special K"><span>Special K</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="Moonlight and Sunshine"><span>Moonlight and Sunshine</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="Playnite"><span>Playnite</span></label></li><li><label class="pick"><input type="checkbox" name="tool" value="EmuDeck"><span>EmuDeck</span></label></li></ul><div class="fb-field"><label for="fb-tool">Another driver, app or tool</label><input id="fb-tool" name="tool-other" type="text" maxlength="200" autocomplete="off"></div>
+    </fieldset>
+    <fieldset class="fb-set" id="fb-ideas">
+      <legend><h2>Video ideas</h2></legend>
+      <p class="fb-lead">The kinds of videos you want more of.</p>
+      <ul class="picks"><li><label class="pick"><input type="checkbox" name="idea" value="Head-to-head: two devices, the same tests"><span>Head-to-head: two devices, the same tests</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Family feud: three or more devices on one chip"><span>Family feud: three or more devices on one chip</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="A handheld against a desktop graphics card"><span>A handheld against a desktop graphics card</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="eGPU setups: which eGPU for which handheld"><span>eGPU setups: which eGPU for which handheld</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Power scaling: what each extra watt buys"><span>Power scaling: what each extra watt buys</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Battery life tests"><span>Battery life tests</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Charger, cable and dock tests"><span>Charger, cable and dock tests</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Setup, mods and storage upgrades"><span>Setup, mods and storage upgrades</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Upscaler and frame generation shootouts"><span>Upscaler and frame generation shootouts</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="SteamOS against Windows on the same device"><span>SteamOS against Windows on the same device</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Emulation tests"><span>Emulation tests</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="New games on handhelds"><span>New games on handhelds</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Gaming at 35,000 feet and on the road"><span>Gaming at 35,000 feet and on the road</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Long-term reviews, months later"><span>Long-term reviews, months later</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Unboxings and first looks"><span>Unboxings and first looks</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Creator work and local AI on a handheld"><span>Creator work and local AI on a handheld</span></label></li><li><label class="pick"><input type="checkbox" name="idea" value="Live streams and Q&amp;A"><span>Live streams and Q&amp;A</span></label></li></ul>
+    </fieldset>
+    <fieldset class="fb-set" id="fb-devices">
+      <legend><h2>Which devices?</h2></legend>
+      <p class="fb-lead">Everything on <a class="inline" href="bench.html">my bench</a> and on the way to it, then popular devices that aren't on it. Open a group to pick.</p>
+      <div class="fb-groups"><details class="fb-dev" id="fb-dev-handhelds"><summary><span class="sum-t">Handheld PCs</span><span class="sum-n">17 on the bench · 2 on the way · 12 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Steam Deck OLED"><span>Steam Deck OLED</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ROG Xbox Ally"><span>ROG Xbox Ally</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Legion Go S"><span>Legion Go S</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ROG Xbox Ally X"><span>ROG Xbox Ally X</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MSI Claw A8"><span>MSI Claw A8</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer X1 Pro"><span>OneXPlayer X1 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXFly Apex"><span>OneXFly Apex</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYANEO Next 2"><span>AYANEO Next 2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer X2 Mini Pro"><span>OneXPlayer X2 Mini Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD Win Max 3"><span>GPD Win Max 3</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD Win 5"><span>GPD Win 5</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MSI Claw A1M"><span>MSI Claw A1M</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MSI Claw 8 AI+"><span>MSI Claw 8 AI+</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer X2"><span>OneXPlayer X2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer 3"><span>OneXPlayer 3</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXFly Apex Air"><span>OneXFly Apex Air</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MSI Claw 8 EX AI+"><span>MSI Claw 8 EX AI+</span></label></li></ul><h3 class="fb-sub">On the way</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="ROG Xbox Ally X20"><span>ROG Xbox Ally X20</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Acer Predator Atlas 8"><span>Acer Predator Atlas 8</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Steam Deck LCD"><span>Steam Deck LCD</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ROG Ally"><span>ROG Ally</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ROG Ally X"><span>ROG Ally X</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Legion Go"><span>Legion Go</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Legion Go 2"><span>Legion Go 2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MSI Claw 7 AI+"><span>MSI Claw 7 AI+</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Zotac Zone"><span>Zotac Zone</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD Win Mini"><span>GPD Win Mini</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD Win 4"><span>GPD Win 4</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYANEO 3"><span>AYANEO 3</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXFly F1 Pro"><span>OneXFly F1 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer G1"><span>OneXPlayer G1</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-android"><summary><span class="sum-t">Android handhelds</span><span class="sum-n">4 on the bench · 3 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="AYANEO Pocket AIR Mini"><span>AYANEO Pocket AIR Mini</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYANEO KONKR Pocket BLOCK"><span>AYANEO KONKR Pocket BLOCK</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYN Thor"><span>AYN Thor</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYN Odin 3"><span>AYN Odin 3</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Retroid Pocket 5"><span>Retroid Pocket 5</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Retroid Pocket Mini"><span>Retroid Pocket Mini</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYANEO Pocket S"><span>AYANEO Pocket S</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-consoles"><summary><span class="sum-t">Consoles</span><span class="sum-n">7 on the bench · 4 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="PlayStation 5 Pro"><span>PlayStation 5 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="PlayStation 4 Pro"><span>PlayStation 4 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="PlayStation Vita"><span>PlayStation Vita</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="PlayStation Portable (PSP)"><span>PlayStation Portable (PSP)</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Nintendo Switch 2"><span>Nintendo Switch 2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Nintendo Switch"><span>Nintendo Switch</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Nintendo Switch Lite"><span>Nintendo Switch Lite</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="PlayStation 5"><span>PlayStation 5</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="PlayStation Portal"><span>PlayStation Portal</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Xbox Series X"><span>Xbox Series X</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Xbox Series S"><span>Xbox Series S</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-mini-pcs"><summary><span class="sum-t">Mini PCs</span><span class="sum-n">2 on the bench · 3 on the way · 9 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Minisforum AI X1 Pro"><span>Minisforum AI X1 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Beelink GTi15 Ultra"><span>Beelink GTi15 Ultra</span></label></li></ul><h3 class="fb-sub">On the way</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Valve Steam Machine"><span>Valve Steam Machine</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Piston V"><span>Piston V</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD BOX"><span>GPD BOX</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Framework Desktop"><span>Framework Desktop</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Minisforum MS-S1 Max"><span>Minisforum MS-S1 Max</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Minisforum MS-A2"><span>Minisforum MS-A2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Beelink GTR9 Pro"><span>Beelink GTR9 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Beelink SER9"><span>Beelink SER9</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GMKtec EVO-X2"><span>GMKtec EVO-X2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG NUC"><span>ASUS ROG NUC</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Acer Revo Box AI"><span>Acer Revo Box AI</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Apple Mac mini"><span>Apple Mac mini</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-desktop"><summary><span class="sum-t">Desktop test bench</span><span class="sum-n">2 on the bench</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG Crosshair X870E Hero"><span>ASUS ROG Crosshair X870E Hero</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Open-air test bench"><span>Open-air test bench</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-gpus"><summary><span class="sum-t">Graphics cards</span><span class="sum-n">8 on the bench · 8 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG Astral RTX 5090"><span>ASUS ROG Astral RTX 5090</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="NVIDIA RTX 5090 Founders Edition"><span>NVIDIA RTX 5090 Founders Edition</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="NVIDIA RTX 4090 Founders Edition"><span>NVIDIA RTX 4090 Founders Edition</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 5070"><span>RTX 5070</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 4070 Super"><span>RTX 4070 Super</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 5060 Ti"><span>RTX 5060 Ti</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 4060"><span>RTX 4060</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 5050"><span>RTX 5050</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="RTX 5080"><span>RTX 5080</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 5070 Ti"><span>RTX 5070 Ti</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="RTX 5060"><span>RTX 5060</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Radeon RX 9070 XT"><span>Radeon RX 9070 XT</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Radeon RX 9070"><span>Radeon RX 9070</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Radeon RX 9060 XT"><span>Radeon RX 9060 XT</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Arc B580"><span>Arc B580</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Arc B570"><span>Arc B570</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-egpus"><summary><span class="sum-t">External GPUs</span><span class="sum-n">3 on the bench · 5 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG XG Mobile"><span>ASUS ROG XG Mobile</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="MOREFINE 5090M"><span>MOREFINE 5090M</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AORUS RTX 5060 Ti eGPU"><span>AORUS RTX 5060 Ti eGPU</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="OneXGPU 2"><span>OneXGPU 2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXGPU Lite"><span>OneXGPU Lite</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="GPD G1"><span>GPD G1</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AYANEO AG01"><span>AYANEO AG01</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AORUS RTX 5090 AI BOX"><span>AORUS RTX 5090 AI BOX</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-docks"><summary><span class="sum-t">Docks</span><span class="sum-n">9 on the bench · 1 on the way · 3 more</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Minisforum DEG2"><span>Minisforum DEG2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="AOOSTAR AG03"><span>AOOSTAR AG03</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="UGREEN Link Station"><span>UGREEN Link Station</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Beelink EX dock"><span>Beelink EX dock</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Beelink EX Mate Pro"><span>Beelink EX Mate Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Razer Thunderbolt Dock Chroma"><span>Razer Thunderbolt Dock Chroma</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="JSAUX 5-in-1 dock"><span>JSAUX 5-in-1 dock</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="UGREEN 6-in-1 dock"><span>UGREEN 6-in-1 dock</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Anker 14-in-1 dock"><span>Anker 14-in-1 dock</span></label></li></ul><h3 class="fb-sub">On the way</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="GPD G2 eGPU dock"><span>GPD G2 eGPU dock</span></label></li></ul><h3 class="fb-sub">Not on my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Razer Core X V2"><span>Razer Core X V2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Minisforum DEG1"><span>Minisforum DEG1</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Steam Deck Dock"><span>Steam Deck Dock</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-displays"><summary><span class="sum-t">Displays</span><span class="sum-n">7 on the bench</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG Strix XG32UCWMG"><span>ASUS ROG Strix XG32UCWMG</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="ASUS ROG Swift PG27UCDM"><span>ASUS ROG Swift PG27UCDM</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="UPERFECT portable monitor"><span>UPERFECT portable monitor</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Aura dual-screen display"><span>Aura dual-screen display</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Arzopa portable monitor"><span>Arzopa portable monitor</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Minisforum dual-screen portable monitor"><span>Minisforum dual-screen portable monitor</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Wiseco AMOLED USB-C screen"><span>Wiseco AMOLED USB-C screen</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-power"><summary><span class="sum-t">Power and measurement</span><span class="sum-n">4 on the bench</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="TP-Link Tapo P110M"><span>TP-Link Tapo P110M</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Anker Prime charger"><span>Anker Prime charger</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="CUKTECH 30 Ultra charger"><span>CUKTECH 30 Ultra charger</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="OneXPlayer Frost Bay"><span>OneXPlayer Frost Bay</span></label></li></ul></div></details><details class="fb-dev" id="fb-dev-filming"><summary><span class="sum-t">Filming</span><span class="sum-n">10 on the bench</span><span class="sum-k"></span></summary><div class="fb-dev-body"><h3 class="fb-sub">On my bench</h3><ul class="picks"><li><label class="pick"><input type="checkbox" name="device" value="Sony FX30"><span>Sony FX30</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Sony ZV-E10 II"><span>Sony ZV-E10 II</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="iPhone 17 Pro"><span>iPhone 17 Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Insta360 Luna Ultra"><span>Insta360 Luna Ultra</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Insta360 GO 3S"><span>Insta360 GO 3S</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Insta360 Link 2C Pro"><span>Insta360 Link 2C Pro</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Hollyland Lark M2"><span>Hollyland Lark M2</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="BOYA wireless mic"><span>BOYA wireless mic</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Elgato Key Light"><span>Elgato Key Light</span></label></li><li><label class="pick"><input type="checkbox" name="device" value="Blackmagic DeckLink Quad HDMI Recorder"><span>Blackmagic DeckLink Quad HDMI Recorder</span></label></li></ul></div></details></div><div class="fb-field"><label for="fb-device">Another device</label><input id="fb-device" name="device-other" type="text" maxlength="200" autocomplete="off"></div>
+    </fieldset>
+    <fieldset class="fb-set" id="fb-note">
+      <legend><h2>Anything else?</h2></legend>
+      <p class="fb-lead">An idea, a question, or something I got wrong.</p>
+      <div class="fb-field wide"><label for="fb-more">Your message</label><textarea id="fb-more" name="note" rows="5" maxlength="2000"></textarea></div><div class="fb-field"><label for="fb-name">Name or YouTube handle (optional)</label><input id="fb-name" name="name" type="text" maxlength="200" autocomplete="off"></div>
+    </fieldset>
+    <div class="fb-send">
+      <button class="btn btn-red" type="submit">Write the email</button>
+      <p class="fb-count" id="fb-count">Nothing picked yet</p>
+    </div>
+    <p class="fb-status" id="fb-status" role="status"></p>
+    <p class="fb-privacy">The button opens an email to Nizzel@notechdad.com in your own mail app, with your picks filled in, so you
+      can read it before you send it. Your picks stay in your browser until you send that email.</p>
+    <div class="fb-out" id="fb-out" hidden>
+      <p><b>Mail app didn't open?</b> Copy the message and email it to <a class="inline" href="mailto:Nizzel@notechdad.com">Nizzel@notechdad.com</a>.</p>
+      <pre class="fb-msg" id="fb-msg"></pre>
+      <p class="fb-actions"><button class="copy" type="button" id="fb-copy" data-copy="" aria-controls="fb-msg"><span class="copy-label">Copy</span></button><a class="btn btn-line btn-sm" id="fb-again" href="mailto:Nizzel@notechdad.com">Open the email again</a></p>
+    </div>
+  </form>
+  <p class="held">Rather leave a comment? Tell me under <a class="inline" href="https://www.youtube.com/watch?v=CsgpuSEVITI" target="_blank" rel="noopener">my newest video ↗</a>.</p>
+</div>
+</main>
+<script>
+(function () {  // the feedback page: count the picks, then write them into an email in the visitor's mail app
+  var form = document.getElementById('fb-form');
+  if (!form) return;
+  var EMAIL = 'Nizzel@notechdad.com', SUBJECT = 'Feedback from notechdad.com';
+  var out = document.getElementById('fb-out'), msg = document.getElementById('fb-msg'),
+      copy = document.getElementById('fb-copy'), again = document.getElementById('fb-again'),
+      count = document.getElementById('fb-count'), status = document.getElementById('fb-status');
+  var all = function (sel) { return Array.prototype.slice.call(form.querySelectorAll(sel)); };
+  var picked = function (name) { return all('input[name="' + name + '"]:checked').map(function (i) { return i.value; }); };
+  var text = function (id) { return document.getElementById(id).value.trim(); };
+  function update() {
+    var n = all('input[type="checkbox"]:checked').length;
+    count.textContent = n ? n + (n === 1 ? ' pick' : ' picks') : 'Nothing picked yet';
+    all('details.fb-dev').forEach(function (d) {
+      var k = d.querySelectorAll('input:checked').length;
+      d.querySelector('.sum-k').textContent = k ? k + ' picked' : '';
+    });
+  }
+  function compose() {
+    var lines = [];
+    var add = function (label, items) {
+      items = items.filter(Boolean);
+      if (!items.length) return;
+      lines.push(label);
+      items.forEach(function (x) { lines.push('- ' + x); });
+      lines.push('');
+    };
+    add('I want to read about:', picked('topic'));
+    add('Drivers and tools to add:', picked('driver').concat(picked('tool'), [text('fb-tool')]));
+    add('Video ideas:', picked('idea'));
+    add('Devices:', picked('device').concat([text('fb-device')]));
+    if (text('fb-more')) lines.push('Anything else:', text('fb-more'), '');
+    if (text('fb-name')) lines.push('Name or handle: ' + text('fb-name'));
+    return lines.length ? 'Hi Nizzel,\n\n' + lines.join('\n').trim() + '\n' : '';
+  }
+  form.addEventListener('change', update);
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var body = compose();
+    if (!body) { status.textContent = 'Pick something or write a note first.'; return; }
+    var head = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(SUBJECT);
+    var full = head + '&body=' + encodeURIComponent(body), long = full.length > 1800;
+    msg.textContent = body;
+    copy.setAttribute('data-copy', body);
+    again.href = long ? head : full;
+    out.hidden = false;
+    status.textContent = long ? 'Your message is long for a mail link, so copy it below and paste it into the email.'
+                              : 'Your mail app should open with your picks filled in. If it doesn\'t, copy them below.';
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: 'feedback-email', title: 'Feedback email', event: true });
+    }
+    window.location.href = long ? head : full;
+  });
+  update();
+})();
+</script>
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand"><img src="img/badge.png" width="48" height="48" alt="">No_Tech-Dad</span>
+        <p class="tagline-sm">Tech. Life. Leveling Up Together.</p>
+        <p>Independent tests of handheld PCs, eGPUs and mini PCs. Run by a human, supported by AI.</p>
+      </div>
+      <div>
+        <h2 class="subhead-label">Find me</h2>
+        <ul class="links">
+          <li><span class="lk">Email</span><span class="val"><a id="foot-email" href="mailto:Nizzel@notechdad.com">Nizzel@notechdad.com</a><button class="copy" type="button" data-copy="Nizzel@notechdad.com" aria-controls="foot-email"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Feedback</span><a href="feedback.html">Tell me what to test next →</a></li>
+          <li><span class="lk">YouTube</span><a href="https://www.youtube.com/@no_tech-dad" target="_blank" rel="noopener">@no_tech-dad ↗</a></li>
+          <li><span class="lk">X</span><a href="https://x.com/No_TechDad" target="_blank" rel="noopener">@No_TechDad ↗</a></li>
+          <li><span class="lk">Discord</span><span class="val"><span id="discord-handle">nizzel1982</span><button class="copy" type="button" data-copy="nizzel1982" aria-controls="discord-handle"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Community</span><a href="https://handheldsunited.com" target="_blank" rel="noopener">Handhelds United ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>I buy everything I review with my own money, and the opinions are my own.</span>
+      <span>Stay healthy. Stay safe. Love and peace. · Updated 29 Oct 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {  // on phones the nav scrolls sideways: bring the current page's item into view
+  var cur = document.querySelector('.nav [aria-current="page"]');
+  if (!cur) return;
+  var nav = cur.parentElement, r = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
+  if (r.right > n.right) nav.scrollLeft += r.right - n.right + 8;
+})();
+(function () {  // a table that scrolls sideways takes keyboard focus, so arrow keys can scroll it
+  var mark = function () {
+    document.querySelectorAll('.tbl').forEach(function (t) {
+      if (t.scrollWidth > t.clientWidth + 1) { t.setAttribute('tabindex', '0'); } else { t.removeAttribute('tabindex'); }
+    });
+  };
+  mark();
+  window.addEventListener('resize', mark);
+})();
+document.querySelectorAll('img[data-yt]').forEach(function (img) {
+  var drop = function () { img.remove(); };
+  if (img.complete && img.naturalWidth === 0) { drop(); } else { img.addEventListener('error', drop); }
+});
+document.querySelectorAll('[data-embed]').forEach(function (box) {
+  // Plays the video in place on notechdad.com; anywhere else the link simply opens YouTube.
+  if (!/(^|\.)notechdad\.com$/.test(location.hostname)) return;
+  box.querySelector('a').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + box.getAttribute('data-embed') + '?autoplay=1&rel=0';
+    f.title = box.getAttribute('data-title') || 'YouTube video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    box.replaceChildren(f);
+  });
+});
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var label = btn.querySelector('.copy-label');
+    var reset = function () { setTimeout(function () { label.textContent = 'Copy'; }, 2200); };
+    function selectIt() {
+      var el = document.getElementById(btn.getAttribute('aria-controls'));
+      try {
+        var range = document.createRange(); range.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        label.textContent = 'Selected';
+      } catch (e2) { label.textContent = 'Copy failed'; }
+      reset();
+    }
+    try {
+      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () {
+        label.textContent = 'Copied'; reset();
+      }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+});
+</script>
+<script data-goatcounter="https://notechdad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href*='youtube.com']");if(!a||!window.goatcounter||!window.goatcounter.count)return;var h=a.getAttribute("href"),n=h.indexOf("sub_confirmation")>-1?"subscribe":(h.match(/v=([\w-]+)/)?"watch-"+h.match(/v=([\w-]+)/)[1]:"channel");window.goatcounter.count({path:"click-"+n,title:a.textContent.trim().slice(0,60),event:true})});</script>
+</body>
+</html>
