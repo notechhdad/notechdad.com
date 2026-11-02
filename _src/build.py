@@ -36,7 +36,7 @@ DATES = {
     "updated": "2026-11-02",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
     "links": "2026-11-02",       # useful links and the latest drivers
-    "news": "2026-10-29",        # news page and the home page's news column
+    "news": "2026-11-02",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
 INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"]), show(DATES["news"])
@@ -170,10 +170,13 @@ DRIVERS = [
      "Meteor Lake to Panther Lake. Arc G3 handheld chips aren't named in the notes, so check your maker's page first.",
      [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes__101.9150_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
-    ("NVIDIA · GeForce", "Game Ready driver", "621.01", "WHQL", "21 Oct 2026",
-     "Game Ready for Phantom Blade Zero, with DLSS 4.5 and path tracing, and adds Advanced Shader Delivery for "
-     "Call of Duty: Modern Warfare 4 and Gears of War: E-Day.",
-     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/phantom-blade-zero-nvidia-geforce-game-ready-driver/"),
+    ("NVIDIA · GeForce", "Hotfix driver", "621.12", "Hotfix · beta", "27 Oct 2026",
+     "Built on Game Ready 621.01, it fixes video freezes and black screens on some RTX 50 and RTX Spark systems. "
+     "Warning: NVIDIA calls hotfix drivers beta, optional and provided as-is, with a much shorter QA process, and says "
+     "the safest option is to wait for the next WHQL driver. The latest WHQL driver is Game Ready 621.01, from "
+     "21 Oct 2026. For the most stable setup, my pick is Game Ready 617.42 (WHQL, 6 Oct 2026).",
+     [("Hotfix notes", "https://nvidia.custhelp.com/app/answers/detail/a_id/5938/~/geforce%2Frtx-spark-hotfix-display-driver-version-621.12"),
+      ("617.42 announcement", "https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/"),
       ("Download page", "https://www.nvidia.com/en-us/geforce/drivers/")]),
 ]
 CHIPSET = ("AMD · Ryzen", "Mobile chipset drivers", "8.09.28.1124", None, "21 Oct 2026",
@@ -617,7 +620,8 @@ def video_card(v, with_blurb=False):
 
 def driver_card(d):
     vendor, name, ver, status, date, note, links = d
-    tag = f'<span class="tag t-plain">{e(status)}</span>' if status else ""
+    cls = "t-warn" if status and "beta" in status.lower() else "t-plain"
+    tag = f'<span class="tag {cls}">{e(status)}</span>' if status else ""
     lk = "".join(f'<a href="{e(u)}" target="_blank" rel="noopener">{e(l)} ↗</a>' for l, u in links)
     return (f'        <li class="drv"><p class="drv-vendor">{e(vendor)}</p><h3 class="drv-name">{e(name)}</h3>'
             f'<p class="drv-ver"><span class="v">{e(ver)}</span>{tag}</p><p class="drv-date">Released {e(date)}</p>'
