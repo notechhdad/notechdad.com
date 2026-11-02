@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-10-29",     # footer stamp, results page, sitemap
+    "updated": "2026-11-02",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
-    "links": "2026-10-22",       # useful links and the latest drivers
+    "links": "2026-11-02",       # useful links and the latest drivers
     "news": "2026-10-29",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -159,10 +159,11 @@ ON_BENCH = len(HANDHELDS) + sum(count(g) for *_, g in SECTIONS)
 # ================================================================ useful links (checked on LINKS_DATE)
 # (vendor line, product, version, status tag or None, release date, note, [(link label, url)])
 DRIVERS = [
-    ("AMD · Radeon graphics", "Adrenalin Edition", "26.10.1", "Recommended", "20 Oct 2026",
-     "Adds support for Call of Duty: Modern Warfare 4 and brings FSR Upscaling 4.1 to Radeon RX 6000 cards and "
-     "Ryzen AI chips. AMD's notes say this package doesn't support handheld PCs, so get handheld drivers from the maker.",
-     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-1.html"),
+    ("AMD · Radeon graphics", "Adrenalin Edition", "26.10.2", "Optional", "30 Oct 2026",
+     "A fix-only release. AMD lists fixes for crashes and timeouts, including with overlays and FSR Frame "
+     "Generation. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes say this package doesn't "
+     "support handheld PCs, so get handheld drivers from the maker.",
+     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-2.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
     ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9150", "WHQL", "12 Oct 2026",
      "Full version 32.0.101.9150. It covers Arc A- and B-series cards and the graphics in Core Ultra chips from "
@@ -308,6 +309,7 @@ EXPORT_DATE = show(VDATA["checked"])
 
 # One line per long-form video, in Nizzel's words from that video's YouTube description (lightly trimmed).
 BLURBS = {
+    "LfZLywglLT4": "It started with a small borrowed corner of our family room. The studio transformation, from the original room and the 3D plan to the building work, shelving, cable chaos and the grand reveal.",
     "CsgpuSEVITI": "Can Intel's new Arc G3 Extreme run Gears of War: E-Day on the OneXPlayer X2? Ten benchmark configurations from 30W to 40W, all tested at about 35,000 feet aboard an aircraft.",
     "2viMjdGRkS8": "What better place to play ACE COMBAT 8: Wings of Theve than at 35,000 feet? The AYANEO NEXT 2 from 35W to 85W, looking for the best balance between performance and power consumption.",
     "W3qXobq1-J4": "Power it. Dock it. Take it with you. Charging, Frost Bay cooling, three docks and two ways to carry the X2 Mini Pro.",
