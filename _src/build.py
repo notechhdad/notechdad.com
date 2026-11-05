@@ -40,6 +40,12 @@ DATES = {
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
 INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"]), show(DATES["news"])
+
+# Price tracker: data/prices.json, drawn by tracker.py (news page section and home page strip).
+sys.dont_write_bytecode = True         # keep __pycache__ out of the repo
+import tracker
+PRICES = tracker.load(SRC / "data" / "prices.json")
+PRICES_DATE = show(PRICES["checked"])
 EMAIL = "Nizzel@notechdad.com"
 CHANNEL = "https://www.youtube.com/@no_tech-dad"
 SUBSCRIBE = CHANNEL + "?sub_confirmation=1"
@@ -594,6 +600,8 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
 });
 </script>"""
 
+SCRIPT = SCRIPT.replace("</script>", tracker.TRACKER_JS + "</script>")
+
 # ================================================================ components
 PLAY = ('<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" focusable="false">'
         '<path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>')
@@ -748,6 +756,7 @@ def home_main():
             .replace("%%RESULTS_HUB%%", results_hub())
             .replace("%%LATEST%%", latest_section())
             .replace("%%DRIVERS_MINI%%", drivers_mini())
+            .replace("%%PRICE_STRIP%%", tracker.home_strip(PRICES))
             .replace("%%LINKS_DATE%%", LINKS_DATE)
             .replace("%%NEWS_DATE%%", NEWS_DATE))
 
@@ -820,6 +829,7 @@ def news_main():
 <div class="wrap">
 {head}
   <div class="news-page">
+{tracker.news_section(PRICES, PRICES_DATE)}
 {part("news_body.html")}  </div>
 </div>
 </main>"""

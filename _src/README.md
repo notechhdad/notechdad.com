@@ -11,6 +11,7 @@ notechdad.com is the website of the No_Tech-Dad YouTube channel. The presenter's
 | `_src/web/pages/` | Hand-written parts. `home.html` has the hero, the three news rows, the feedback call-out and the about strip. `news_body.html` is the news page. `about_body.html`, `method_legend.html` and `method_proto.html` are the About and Method pages. |
 | `_src/web/results/` | One lab plate per published result. |
 | `_src/data/videos.json` | Long-form videos (over three minutes): id, title as on YouTube, published (UTC date), seconds, views. Public data only. |
+| `_src/data/prices.json`, `_src/tracker.py` | The price tracker's readings, and the code that draws its charts on the news page and its tiles on the home page. See "Price tracker" below. |
 | `_src/check_pages.py` | Optional. Screenshots every page at phone and desktop widths and reports sideways overflow and script errors. Needs Playwright. |
 | Repo root | Generated pages (`*.html`, `404.html`, `sitemap.xml`, `CNAME`), plus assets the build never touches: `img/`, `fonts/`, icons, `og-image.png` and `robots.txt`. |
 
@@ -32,6 +33,27 @@ The build exits with an error if an internal link is broken, or if anything priv
 - Never invent a version, date, number or quote. If something can't be confirmed on its source, leave it out.
 - Write plain, active sentences. Summarize news in your own words with the source linked, and label reports and rumors.
 
+## Price tracker
+
+The top of `news.html` tracks what the same memory kit, graphics cards and NVMe SSD have cost each month since January 2026, with the latest price highlighted. Three tiles on the home page link to it. `_src/tracker.py` draws it from `_src/data/prices.json`:
+
+- `"checked"`: the date the prices were last checked (ISO). `"note"`: the line under the heading that names the markets and currencies.
+- `"series"`: one entry per tracked product. Featured series (`"featured": true`) get a full card and a home tile; the rest are listed under "More graphics cards". Fields:
+  - `id`, `category` and `market` (shown together, for example "Memory · Tokyo"), `title` (the product) and `short` (used in the sentence under the heading).
+  - `metric` (what each point is), `region` (shown beside the source), `currency` (`USD` or `JPY`), `source_name`, `source_url`, `method` (shown under "How these are tracked") and, optionally, `caveats`.
+  - Optional: `msrp` (`{"value": 549, "label": "MSRP"}`); `context` with `context_src` and `context_url` (one dated fact from another source, shown under the chart); `flag` with `flag_url` (a short warning on a "More graphics cards" row).
+  - `points`, oldest first, one reading per month. The last point is the current price, so it gets highlighted.
+    - A monthly figure: `{"month": "2026-03", "value": 649, "url": "..."}`. While the month is still running, add `"to"` with the source's "prices checked" date, and the site labels it "1–3 Nov 2026".
+    - A dated reading: `{"date": "2026-10-24", "label": "17–24 Oct 2026", "value": 72980, "url": "..."}`. For a survey, `date` is its last day and `label` is its window.
+    - `"value": null` for a month the source left blank. The chart breaks its line there.
+
+Where the numbers come from:
+
+- **Graphics cards** (US, dollars): each card's BestValueGPU history page. Use the "New" column of its monthly table, which is the median of each day's lowest new price at Newegg. The current month's row is partial: copy its value and set `to` to the page's "Prices checked" date. Once a month is over, replace its partial value with the final one and drop `to`.
+- **Memory and SSD** (Akihabara, yen with tax): AKIBA PC Hotline!'s second-half-of-the-month (後半) price reports, titled like "[10月後半のメモリ価格]" and "[10月後半のSSD価格]". Each comes out a few days after its survey ends, usually in the last week of the month. From the memory report, take the lowest price (最安値) of the DDR5-6000 16GB×2枚組 DIMM row. From the SSD report, take the lowest price of the Samsung 990 PRO MZ-V9P2T0B/IT (2TB) row. Add each month once, with the survey window from the report's 調査日 line and the report's URL.
+
+Rules: one source and one method per series, for every month. Never estimate, interpolate or carry a value forward. Change a past month only when the source has changed it. Re-check every `context` and `flag` on its source, and remove a flag once its source no longer says it. Charts start at zero, so a rise reads at its true size.
+
 ## Feedback page
 
 `feedback.html` collects what visitors want: topics, drivers and tools, video ideas and devices. Its button writes an email to Nizzel@notechdad.com in the visitor's own mail app, so the site stores nothing. The device groups come from the inventory automatically, followed by `FB_POPULAR` (popular devices that aren't on the bench). A popular device that joins the inventory, or a tool that joins the links page, drops off its list by itself. GoatCounter counts each email started as the event `feedback-email`.
@@ -50,14 +72,17 @@ The build exits with an error if an internal link is broken, or if anything priv
    - Add each new long-form video to `data/videos.json`, refresh every view count, and set `"checked"` to today.
    - For each new video, add a `BLURBS` entry in `build.py`. Write one or two sentences from that video's own YouTube description, in the owner's words and lightly trimmed. Skip edit notes, links and hashtags.
    - The home page's newest video and the latest-videos row update themselves from the data.
-3. **News: draft only, and publish only with the owner's OK.**
+3. **Prices: publish directly.**
+   - Follow "Where the numbers come from" above for every series in `data/prices.json`, reading each value on its source page.
+   - Set `"checked"` to today. The news page and the home tiles update themselves from the data.
+4. **News: draft only, and publish only with the owner's OK.**
    - Find notable news since `DATES["news"]`. The topics are handheld PCs, eGPUs, mini PCs, graphics drivers, DLSS, FSR, and GPU and memory prices.
    - Open every article to confirm its date and facts, and prefer reputable outlets.
    - Draft each item in the house style: date, tag, headline, a one- to three-sentence summary and a source link. Label reports and rumors.
    - Once the owner approves, edit `web/pages/news_body.html`. Update the three topic rows in `web/pages/home.html` too if a tracked topic changes. Set `DATES["news"]` to today.
-4. **Build and check.**
+5. **Build and check.**
    - Build, then look at the pages that changed.
    - Set `DATES["updated"]` to today whenever anything is published.
-5. **Publish.**
+6. **Publish.**
    - Commit only if something changed, with a message that says what changed. Push to `main`.
    - Confirm that the GitHub Pages "pages build and deployment" run succeeded.

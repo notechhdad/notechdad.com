@@ -1,0 +1,430 @@
+{
+  "checked": "2026-11-05",
+  "note": "Graphics cards: US prices in US dollars. Memory and SSD: Akihabara shop prices in yen, tax included. Each percentage compares a part with its own earlier price, so exchange rates don't affect it.",
+  "series": [
+    {
+      "id": "ram",
+      "category": "Memory",
+      "market": "Tokyo",
+      "featured": true,
+      "title": "DDR5-6000 32GB kit (2×16GB)",
+      "short": "the cheapest DDR5-6000 32GB kit in Akihabara",
+      "metric": "Lowest shop price in each month's survey",
+      "region": "Akihabara, Tokyo · yen, tax included",
+      "currency": "JPY",
+      "source_name": "AKIBA PC Hotline!",
+      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html",
+      "method": "AKIBA PC Hotline! (Impress Watch) surveys memory prices at six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for a DDR5-6000 16GB×2 desktop kit, tax included, and links to that month's report. The same survey runs every month, which keeps the months comparable.",
+      "caveats": "The lowest price is one shop's offer that week, so a single sale can move it.",
+      "context": "The six-shop average was ¥75,356 in January and ¥75,621 in October.",
+      "points": [
+        {
+          "date": "2026-01-24",
+          "label": "17–24 Jan 2026",
+          "value": 59980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2081690.html"
+        },
+        {
+          "date": "2026-02-21",
+          "label": "14–21 Feb 2026",
+          "value": 54980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2088314.html"
+        },
+        {
+          "date": "2026-03-21",
+          "label": "14–21 Mar 2026",
+          "value": 50800,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2096324.html"
+        },
+        {
+          "date": "2026-04-18",
+          "label": "11–18 Apr 2026",
+          "value": 54980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2103898.html"
+        },
+        {
+          "date": "2026-05-23",
+          "label": "16–23 May 2026",
+          "value": 59980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2112296.html"
+        },
+        {
+          "date": "2026-06-20",
+          "label": "13–20 Jun 2026",
+          "value": 59980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2119813.html"
+        },
+        {
+          "date": "2026-07-18",
+          "label": "11–18 Jul 2026",
+          "value": 49980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2127087.html"
+        },
+        {
+          "date": "2026-08-22",
+          "label": "8–22 Aug 2026",
+          "value": 59980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2135576.html"
+        },
+        {
+          "date": "2026-09-19",
+          "label": "12–19 Sep 2026",
+          "value": 52990,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2142665.html"
+        },
+        {
+          "date": "2026-10-24",
+          "label": "17–24 Oct 2026",
+          "value": 72980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html"
+        }
+      ]
+    },
+    {
+      "id": "rtx-5070",
+      "category": "Graphics card",
+      "market": "US",
+      "featured": true,
+      "title": "GeForce RTX 5070",
+      "short": "the RTX 5070 at Newegg",
+      "metric": "Median of each day's lowest new price",
+      "region": "US · Newegg, new cards",
+      "currency": "USD",
+      "source_name": "BestValueGPU",
+      "source_url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/",
+      "method": "BestValueGPU checks the lowest new price at Newegg every day and filters out one-off mislisted prices. Each point is that month's median of those daily lows. Its record of new prices starts in March 2026, and the November point covers only the days checked so far.",
+      "msrp": {
+        "value": 549,
+        "label": "MSRP"
+      },
+      "context": "Before this record starts, PC Gamer found it at its $549 MSRP at Walmart on 22 January.",
+      "context_src": "PC Gamer",
+      "context_url": "https://www.pcgamer.com/hardware/graphics-cards/if-youve-been-saving-up-to-buy-a-new-16-gb-graphics-card-then-i-have-bad-news-for-you-its-already-a-bloodbath-out-there-and-its-getting-worse-every-week",
+      "points": [
+        {
+          "month": "2026-03",
+          "value": 649,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-04",
+          "value": 629,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-05",
+          "value": 629,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-06",
+          "value": 609,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-07",
+          "value": 629,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-08",
+          "value": 799,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-09",
+          "value": 839,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-10",
+          "value": 849,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/"
+        },
+        {
+          "month": "2026-11",
+          "value": 849,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/",
+          "to": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": "ssd",
+      "category": "NVMe SSD",
+      "market": "Tokyo",
+      "featured": true,
+      "title": "Samsung 990 PRO 2TB",
+      "short": "the cheapest 2TB Samsung 990 PRO in Akihabara",
+      "metric": "Lowest shop price in each month's survey",
+      "region": "Akihabara, Tokyo · yen, tax included",
+      "currency": "JPY",
+      "source_name": "AKIBA PC Hotline!",
+      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html",
+      "method": "AKIBA PC Hotline! surveys SSD prices at four to six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for the Samsung 990 PRO 2TB without a heatsink (MZ-V9P2T0B/IT), tax included, and links to that month's report.",
+      "context": "In the US, Gamers Nexus found the same drive at Newegg for $190 in November 2025 and $400 in March 2026.",
+      "context_src": "Gamers Nexus",
+      "context_url": "https://gamersnexus.net/features/ssds-wtf",
+      "points": [
+        {
+          "date": "2026-01-24",
+          "label": "17–24 Jan 2026",
+          "value": 42980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2081298.html"
+        },
+        {
+          "date": "2026-02-21",
+          "label": "14–21 Feb 2026",
+          "value": 42980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2088312.html"
+        },
+        {
+          "date": "2026-03-21",
+          "label": "14–21 Mar 2026",
+          "value": 56980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2095935.html"
+        },
+        {
+          "date": "2026-04-18",
+          "label": "11–18 Apr 2026",
+          "value": 69800,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2103507.html"
+        },
+        {
+          "date": "2026-05-23",
+          "label": "16–23 May 2026",
+          "value": 56980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2111874.html"
+        },
+        {
+          "date": "2026-06-20",
+          "label": "13–20 Jun 2026",
+          "value": 96980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2119464.html"
+        },
+        {
+          "date": "2026-07-18",
+          "label": "11–18 Jul 2026",
+          "value": 79970,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2126741.html"
+        },
+        {
+          "date": "2026-08-22",
+          "label": "8–22 Aug 2026",
+          "value": 96980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2135570.html"
+        },
+        {
+          "date": "2026-09-19",
+          "label": "12–19 Sep 2026",
+          "value": 89980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2142626.html"
+        },
+        {
+          "date": "2026-10-24",
+          "label": "17–24 Oct 2026",
+          "value": 89980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html"
+        }
+      ]
+    },
+    {
+      "id": "rtx-5060-ti-16gb",
+      "category": "Graphics card",
+      "market": "US",
+      "title": "GeForce RTX 5060 Ti 16GB",
+      "short": "the RTX 5060 Ti 16GB at Newegg",
+      "metric": "Median of each day's lowest new price",
+      "region": "US · Newegg, new cards",
+      "currency": "USD",
+      "source_name": "BestValueGPU",
+      "source_url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/",
+      "method": "BestValueGPU checks the lowest new price at Newegg every day and filters out one-off mislisted prices. Each point is that month's median of those daily lows. Its record of new prices starts in March 2026, and the November point covers only the days checked so far.",
+      "msrp": {
+        "value": 429,
+        "label": "MSRP"
+      },
+      "points": [
+        {
+          "month": "2026-03",
+          "value": 569,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-04",
+          "value": 499,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-05",
+          "value": 569,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-06",
+          "value": 569,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-07",
+          "value": 569,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-08",
+          "value": 779,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-09",
+          "value": 779,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-10",
+          "value": 779,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/"
+        },
+        {
+          "month": "2026-11",
+          "value": 799,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/",
+          "to": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": "rx-9070-xt",
+      "category": "Graphics card",
+      "market": "US",
+      "title": "Radeon RX 9070 XT",
+      "short": "the RX 9070 XT at Newegg",
+      "metric": "Median of each day's lowest new price",
+      "region": "US · Newegg, new cards",
+      "currency": "USD",
+      "source_name": "BestValueGPU",
+      "source_url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/",
+      "method": "BestValueGPU checks the lowest new price at Newegg every day and filters out one-off mislisted prices. Each point is that month's median of those daily lows. Its record of new prices starts in March 2026, and the November point covers only the days checked so far.",
+      "msrp": {
+        "value": 599,
+        "label": "MSRP"
+      },
+      "points": [
+        {
+          "month": "2026-03",
+          "value": 729,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-04",
+          "value": 709,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-05",
+          "value": 709,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-06",
+          "value": 699,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-07",
+          "value": 699,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-08",
+          "value": 719,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-09",
+          "value": 768,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-10",
+          "value": 849,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/"
+        },
+        {
+          "month": "2026-11",
+          "value": 919,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/",
+          "to": "2026-11-04"
+        }
+      ]
+    },
+    {
+      "id": "rtx-5090",
+      "category": "Graphics card",
+      "market": "US",
+      "title": "GeForce RTX 5090",
+      "short": "the RTX 5090 at Newegg",
+      "metric": "Median of each day's lowest new price",
+      "region": "US · Newegg, new cards",
+      "currency": "USD",
+      "source_name": "BestValueGPU",
+      "source_url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/",
+      "method": "BestValueGPU checks the lowest new price at Newegg every day and filters out one-off mislisted prices. Each point is that month's median of those daily lows. Its record of new prices starts in March 2026, and the November point covers only the days checked so far.",
+      "caveats": "The RTX 5090 has no new price for September.",
+      "msrp": {
+        "value": 1999,
+        "label": "MSRP"
+      },
+      "flag": "PC Gamer, 30 Oct: “Unavailable from reputable sellers”",
+      "flag_url": "https://www.pcgamer.com/best-graphics-card-deals-today",
+      "points": [
+        {
+          "month": "2026-03",
+          "value": 3799,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-04",
+          "value": 3699,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-05",
+          "value": 3949,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-06",
+          "value": 4199,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-07",
+          "value": 4099,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-08",
+          "value": 4499,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-09",
+          "value": null,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-10",
+          "value": 9344,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/"
+        },
+        {
+          "month": "2026-11",
+          "value": 8999,
+          "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/",
+          "to": "2026-11-03"
+        }
+      ]
+    }
+  ]
+}

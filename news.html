@@ -556,6 +556,92 @@ button.btn{font-family:inherit;cursor:pointer}
 .fbc{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px 40px}
 @media (max-width:700px){.fbc{grid-template-columns:minmax(0,1fr)}.fbc .btn{justify-self:start}}
 
+/* Price tracker: news page section and home strip (built by _src/tracker.py) */
+.pt{margin:0 0 clamp(40px,6vw,64px)}
+.pt-head{margin-bottom:22px}
+h2.pt-h{font-size:clamp(34px,4.6vw,52px)}
+.pt-lead{color:var(--fg-2);max-width:62ch;margin:12px 0 0;font-size:17px}
+.pt-checked{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 0}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}
+.pt-card{margin:0;display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);padding:18px 20px 16px;min-width:0}
+.pt-cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);margin:0}
+.pt-title{font-size:17px;font-weight:600;margin:6px 0 0;line-height:1.3}
+.pt-now-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:12px 0 0}
+.pt-price{font-family:var(--display);font-weight:900;font-size:50px;line-height:.9}
+.pt-when{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pt-deltas{display:flex;flex-wrap:wrap;gap:4px 14px;margin:10px 0 0;font-size:14.5px}
+.pt-delta{font-weight:600;white-space:nowrap}
+.pt-up{color:var(--red-ink)}
+.pt-down{color:var(--ok)}
+.pt-flat{color:var(--muted)}
+.pt-since{font-weight:400;color:var(--fg-2)}
+.pt-over{color:var(--fg-2)}
+.pt-chart{position:relative;margin:14px 0 0}
+.pt-svg{display:block;width:100%;max-width:480px;height:auto;overflow:visible;touch-action:pan-y}
+.pt-svg:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:3px}
+.pt-svg .pt-grid{stroke:var(--line);stroke-width:1}
+.pt-svg .pt-base{stroke:var(--line-2);stroke-width:1}
+.pt-svg .pt-ref{stroke:var(--muted);stroke-width:1}
+.pt-svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.pt-svg .pt-reflabel{fill:var(--fg-2);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.pt-svg .pt-nowlabel{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.pt-start,.pt-lone{fill:var(--red);stroke:var(--panel);stroke-width:2}
+.pt-svg .pt-nowlabel{fill:var(--fg);font-size:11.5px;font-weight:600}
+.pt-line{fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.pt-area{fill:var(--red);fill-opacity:.1;stroke:none}
+.pt-halo{fill:var(--red);fill-opacity:.2}
+.pt-now{fill:var(--red);stroke:var(--panel);stroke-width:2}
+.pt-x{stroke:var(--fg-2);stroke-width:1}
+.pt-f{fill:var(--panel);stroke:var(--red);stroke-width:2}
+.pt-tip{position:absolute;top:0;left:0;z-index:2;pointer-events:none;display:flex;flex-direction:column;gap:2px;padding:6px 9px;border-radius:4px;background:var(--fg);color:var(--bg);line-height:1.25;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.pt-tip[hidden]{display:none}
+.pt-tip b{font-family:var(--mono);font-size:13px}
+.pt-tip span{font-family:var(--mono);font-size:11px;opacity:.85}
+.pt-src{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:auto;padding-top:12px}
+.pt-src a{color:var(--fg-2);text-underline-offset:3px}
+.pt-src a:hover{color:var(--fg)}
+.pt-more-h{margin:30px 0 10px}
+.pt-more{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.pt-more li{display:grid;grid-template-columns:minmax(0,1.2fr) 120px minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:6px 18px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pm-name{font-weight:600}
+.pm-msrp{display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted);font-weight:400}
+.pm-vals{font-family:var(--mono);font-size:13.5px;color:var(--fg-2);white-space:nowrap}
+.pm-vals b{color:var(--fg)}
+.pt-more .pt-delta{font-size:14px}
+@media (max-width:700px){
+  .pt-more li{grid-template-columns:minmax(0,1fr) auto}
+  .pm-spark{grid-column:2;grid-row:1 / span 2}
+  .pm-vals{grid-column:1}
+  .pt-more .pt-delta{grid-column:1 / -1}
+}
+.pt-spark{display:block;width:120px;height:44px;overflow:visible}
+.pt-spark .pt-now{stroke-width:1.5}
+.pt-table{margin:24px 0 0}
+.pt-table summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--red-ink);width:max-content}
+.pt-table .tbl{margin-top:12px}
+.pt-table td{font-family:var(--mono);font-size:13px;white-space:nowrap}
+.pt-table tbody th{font-family:var(--mono);font-size:12px;color:var(--fg-2);text-transform:none;letter-spacing:0;white-space:nowrap;padding:12px 14px 12px 0;border-bottom:1px solid var(--line)}
+.pt-d{color:var(--muted);font-size:11.5px}
+.pt-na{color:var(--muted)}
+.pt-notes{margin:0;padding:0 0 0 18px;display:grid;gap:8px;color:var(--fg-2);font-size:14.5px;max-width:80ch}
+.ps{margin:0 0 clamp(36px,5vw,52px)}
+.ps-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px;margin-bottom:12px}
+.ps-head .subhead-label{margin:0}
+.ps-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.ps-tiles{grid-template-columns:minmax(0,1fr)}}
+.ps-tiles a{display:flex;flex-direction:column;gap:4px;height:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s}
+.ps-tiles a:hover{border-color:var(--fg-2)}
+.ps-cat{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink)}
+.ps-name{font-weight:600;font-size:15px;line-height:1.3}
+.ps-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:6px 0 2px}
+.ps-price{font-family:var(--display);font-weight:900;font-size:38px;line-height:.9}
+.ps .pt-delta{font-size:13.5px}
+.pt-metric{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+.pt-ctx{font-size:13.5px;color:var(--fg-2);margin:12px 0 0;line-height:1.5}
+.pm-vals small{font-size:11.5px;color:var(--muted)}
+.pm-change{display:flex;flex-direction:column;gap:2px}
+.pm-flag{font-size:12.5px;color:var(--fg-2);line-height:1.4}
+
 </style>
 </head>
 <body>
@@ -583,6 +669,50 @@ button.btn{font-family:inherit;cursor:pointer}
     <p class="sec-lead">What's moving in handheld PCs, graphics and eGPUs. The summaries are mine. Specs, prices and performance claims are the makers', retailers' and outlets' figures, and I haven't tested them. Reports and rumors are labeled.</p>
   </div>
   <div class="news-page">
+      <section class="pt" id="prices" aria-labelledby="prices-title">
+        <div class="pt-head">
+          <h2 class="pt-h" id="prices-title">Price tracker</h2>
+          <p class="pt-lead">What the same parts have cost each month since January, with the latest price highlighted. The cheapest DDR5-6000 32GB kit in Akihabara has risen 22% since January, the RTX 5070 at Newegg has risen 31% since March and the cheapest 2TB Samsung 990 PRO in Akihabara has risen 109% since January.</p>
+          <p class="pt-checked">Checked 5 Nov 2026. Graphics cards: US prices in US dollars. Memory and SSD: Akihabara shop prices in yen, tax included. Each percentage compares a part with its own earlier price, so exchange rates don&#x27;t affect it.</p>
+        </div>
+        <div class="pt-grid">
+        <figure class="pt-card" id="pt-ram">
+          <p class="pt-cat">Memory · Tokyo</p>
+          <h3 class="pt-title">DDR5-6000 32GB kit (2×16GB)</h3>
+          <p class="pt-now-row"><span class="pt-price">¥72,980</span><span class="pt-when">17–24 Oct 2026</span></p>
+          <p class="pt-metric">Lowest shop price in each month&#x27;s survey</p>
+          <p class="pt-deltas"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +22% <span class="pt-since">since Jan</span></span></p>
+          <div class="pt-chart"><svg class="pt-svg" viewBox="0 0 320 176" role="img" aria-labelledby="pt-ram-t" tabindex="0" data-pts="[[63.8, 57.5, &quot;17\u201324 Jan 2026&quot;, &quot;\u00a559,980&quot;], [85.5, 65.4, &quot;14\u201321 Feb 2026&quot;, &quot;\u00a554,980&quot;], [107.2, 72.0, &quot;14\u201321 Mar 2026&quot;, &quot;\u00a550,800&quot;], [128.9, 65.4, &quot;11\u201318 Apr 2026&quot;, &quot;\u00a554,980&quot;], [156.0, 57.5, &quot;16\u201323 May 2026&quot;, &quot;\u00a559,980&quot;], [177.7, 57.5, &quot;13\u201320 Jun 2026&quot;, &quot;\u00a559,980&quot;], [199.4, 73.3, &quot;11\u201318 Jul 2026&quot;, &quot;\u00a549,980&quot;], [226.5, 57.5, &quot;8\u201322 Aug 2026&quot;, &quot;\u00a559,980&quot;], [248.2, 68.5, &quot;12\u201319 Sep 2026&quot;, &quot;\u00a552,990&quot;], [275.3, 37.1, &quot;17\u201324 Oct 2026&quot;, &quot;\u00a572,980&quot;]]"><title id="pt-ram-t">DDR5-6000 32GB kit (2×16GB): ¥59,980 in 17–24 Jan 2026, ¥72,980 in 17–24 Oct 2026, up 22%.</title><line class="pt-base" x1="46" x2="304" y1="152.0" y2="152.0"/><text class="pt-ytick" x="40" y="155.5" text-anchor="end">¥0</text><line class="pt-grid" x1="46" x2="304" y1="120.5" y2="120.5"/><text class="pt-ytick" x="40" y="124.0" text-anchor="end">¥20K</text><line class="pt-grid" x1="46" x2="304" y1="89.0" y2="89.0"/><text class="pt-ytick" x="40" y="92.5" text-anchor="end">¥40K</text><line class="pt-grid" x1="46" x2="304" y1="57.5" y2="57.5"/><text class="pt-ytick" x="40" y="61.0" text-anchor="end">¥60K</text><line class="pt-grid" x1="46" x2="304" y1="26.0" y2="26.0"/><text class="pt-ytick" x="40" y="29.5" text-anchor="end">¥80K</text><text class="pt-xtick" x="46.0" y="169" text-anchor="middle">Jan</text><text class="pt-xtick" x="91.7" y="169" text-anchor="middle">Mar</text><text class="pt-xtick" x="139.0" y="169" text-anchor="middle">May</text><text class="pt-xtick" x="186.2" y="169" text-anchor="middle">Jul</text><text class="pt-xtick" x="234.3" y="169" text-anchor="middle">Sep</text><text class="pt-xtick" x="281.5" y="169" text-anchor="middle">Nov</text><path class="pt-area" d="M63.8,57.5 L85.5,65.4 L107.2,72.0 L128.9,65.4 L156.0,57.5 L177.7,57.5 L199.4,73.3 L226.5,57.5 L248.2,68.5 L275.3,37.1 L275.3,152.0 L63.8,152.0 Z"/><path class="pt-line" d="M63.8,57.5 L85.5,65.4 L107.2,72.0 L128.9,65.4 L156.0,57.5 L177.7,57.5 L199.4,73.3 L226.5,57.5 L248.2,68.5 L275.3,37.1"/><circle class="pt-start" cx="63.8" cy="57.5" r="3.5"/><circle class="pt-halo" cx="275.3" cy="37.1" r="11"/><circle class="pt-now" cx="275.3" cy="37.1" r="5"/><text class="pt-nowlabel" x="275.3" y="22.1" text-anchor="end">¥72,980</text><line class="pt-x" x1="0" x2="0" y1="26" y2="152" visibility="hidden"/><circle class="pt-f" r="4.5" cx="0" cy="0" visibility="hidden"/></svg><div class="pt-tip" hidden></div></div>
+          <p class="pt-ctx">The six-shop average was ¥75,356 in January and ¥75,621 in October.</p>
+          <figcaption class="pt-src">Akihabara, Tokyo · yen, tax included · Source: <a href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html" target="_blank" rel="noopener">AKIBA PC Hotline!&nbsp;↗</a></figcaption>
+        </figure>
+        <figure class="pt-card" id="pt-rtx-5070">
+          <p class="pt-cat">Graphics card · US</p>
+          <h3 class="pt-title">GeForce RTX 5070</h3>
+          <p class="pt-now-row"><span class="pt-price">$849</span><span class="pt-when">1–3 Nov 2026</span></p>
+          <p class="pt-metric">Median of each day&#x27;s lowest new price</p>
+          <p class="pt-deltas"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +31% <span class="pt-since">since Mar</span></span><span class="pt-over">+55% vs MSRP $549</span></p>
+          <div class="pt-chart"><svg class="pt-svg" viewBox="0 0 320 176" role="img" aria-labelledby="pt-rtx-5070-t" tabindex="0" data-pts="[[102.6, 70.2, &quot;Mar 2026&quot;, &quot;$649&quot;], [126.6, 72.7, &quot;Apr 2026&quot;, &quot;$629&quot;], [149.8, 72.7, &quot;May 2026&quot;, &quot;$629&quot;], [173.8, 75.3, &quot;Jun 2026&quot;, &quot;$609&quot;], [197.1, 72.7, &quot;Jul 2026&quot;, &quot;$629&quot;], [221.1, 51.3, &quot;Aug 2026&quot;, &quot;$799&quot;], [245.1, 46.3, &quot;Sep 2026&quot;, &quot;$839&quot;], [268.4, 45.0, &quot;Oct 2026&quot;, &quot;$849&quot;], [283.1, 45.0, &quot;1\u20133 Nov 2026&quot;, &quot;$849&quot;]]"><title id="pt-rtx-5070-t">GeForce RTX 5070: $649 in Mar 2026, $849 in 1–3 Nov 2026, up 31%.</title><line class="pt-base" x1="46" x2="304" y1="152.0" y2="152.0"/><text class="pt-ytick" x="40" y="155.5" text-anchor="end">$0</text><line class="pt-grid" x1="46" x2="304" y1="120.5" y2="120.5"/><text class="pt-ytick" x="40" y="124.0" text-anchor="end">$250</text><line class="pt-grid" x1="46" x2="304" y1="89.0" y2="89.0"/><text class="pt-ytick" x="40" y="92.5" text-anchor="end">$500</text><line class="pt-grid" x1="46" x2="304" y1="57.5" y2="57.5"/><text class="pt-ytick" x="40" y="61.0" text-anchor="end">$750</text><line class="pt-grid" x1="46" x2="304" y1="26.0" y2="26.0"/><text class="pt-ytick" x="40" y="29.5" text-anchor="end">$1,000</text><text class="pt-xtick" x="46.0" y="169" text-anchor="middle">Jan</text><text class="pt-xtick" x="91.7" y="169" text-anchor="middle">Mar</text><text class="pt-xtick" x="139.0" y="169" text-anchor="middle">May</text><text class="pt-xtick" x="186.2" y="169" text-anchor="middle">Jul</text><text class="pt-xtick" x="234.3" y="169" text-anchor="middle">Sep</text><text class="pt-xtick" x="281.5" y="169" text-anchor="middle">Nov</text><line class="pt-ref" x1="46" x2="304" y1="82.8" y2="82.8"/><text class="pt-reflabel" x="302" y="94.8" text-anchor="end">MSRP $549</text><path class="pt-area" d="M102.6,70.2 L126.6,72.7 L149.8,72.7 L173.8,75.3 L197.1,72.7 L221.1,51.3 L245.1,46.3 L268.4,45.0 L283.1,45.0 L283.1,152.0 L102.6,152.0 Z"/><path class="pt-line" d="M102.6,70.2 L126.6,72.7 L149.8,72.7 L173.8,75.3 L197.1,72.7 L221.1,51.3 L245.1,46.3 L268.4,45.0 L283.1,45.0"/><circle class="pt-start" cx="102.6" cy="70.2" r="3.5"/><circle class="pt-halo" cx="283.1" cy="45.0" r="11"/><circle class="pt-now" cx="283.1" cy="45.0" r="5"/><text class="pt-nowlabel" x="283.1" y="30.0" text-anchor="end">$849</text><line class="pt-x" x1="0" x2="0" y1="26" y2="152" visibility="hidden"/><circle class="pt-f" r="4.5" cx="0" cy="0" visibility="hidden"/></svg><div class="pt-tip" hidden></div></div>
+          <p class="pt-ctx">Before this record starts, PC Gamer found it at its $549 MSRP at Walmart on 22 January. <a class="inline" href="https://www.pcgamer.com/hardware/graphics-cards/if-youve-been-saving-up-to-buy-a-new-16-gb-graphics-card-then-i-have-bad-news-for-you-its-already-a-bloodbath-out-there-and-its-getting-worse-every-week" target="_blank" rel="noopener">PC Gamer&nbsp;↗</a></p>
+          <figcaption class="pt-src">US · Newegg, new cards · Source: <a href="https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/" target="_blank" rel="noopener">BestValueGPU&nbsp;↗</a></figcaption>
+        </figure>
+        <figure class="pt-card" id="pt-ssd">
+          <p class="pt-cat">NVMe SSD · Tokyo</p>
+          <h3 class="pt-title">Samsung 990 PRO 2TB</h3>
+          <p class="pt-now-row"><span class="pt-price">¥89,980</span><span class="pt-when">17–24 Oct 2026</span></p>
+          <p class="pt-metric">Lowest shop price in each month&#x27;s survey</p>
+          <p class="pt-deltas"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +109% <span class="pt-since">since Jan</span></span></p>
+          <div class="pt-chart"><svg class="pt-svg" viewBox="0 0 320 176" role="img" aria-labelledby="pt-ssd-t" tabindex="0" data-pts="[[63.8, 106.9, &quot;17\u201324 Jan 2026&quot;, &quot;\u00a542,980&quot;], [85.5, 106.9, &quot;14\u201321 Feb 2026&quot;, &quot;\u00a542,980&quot;], [107.2, 92.2, &quot;14\u201321 Mar 2026&quot;, &quot;\u00a556,980&quot;], [128.9, 78.7, &quot;11\u201318 Apr 2026&quot;, &quot;\u00a569,800&quot;], [156.0, 92.2, &quot;16\u201323 May 2026&quot;, &quot;\u00a556,980&quot;], [177.7, 50.2, &quot;13\u201320 Jun 2026&quot;, &quot;\u00a596,980&quot;], [199.4, 68.0, &quot;11\u201318 Jul 2026&quot;, &quot;\u00a579,970&quot;], [226.5, 50.2, &quot;8\u201322 Aug 2026&quot;, &quot;\u00a596,980&quot;], [248.2, 57.5, &quot;12\u201319 Sep 2026&quot;, &quot;\u00a589,980&quot;], [275.3, 57.5, &quot;17\u201324 Oct 2026&quot;, &quot;\u00a589,980&quot;]]"><title id="pt-ssd-t">Samsung 990 PRO 2TB: ¥42,980 in 17–24 Jan 2026, ¥89,980 in 17–24 Oct 2026, up 109%.</title><line class="pt-base" x1="46" x2="304" y1="152.0" y2="152.0"/><text class="pt-ytick" x="40" y="155.5" text-anchor="end">¥0</text><line class="pt-grid" x1="46" x2="304" y1="120.5" y2="120.5"/><text class="pt-ytick" x="40" y="124.0" text-anchor="end">¥30K</text><line class="pt-grid" x1="46" x2="304" y1="89.0" y2="89.0"/><text class="pt-ytick" x="40" y="92.5" text-anchor="end">¥60K</text><line class="pt-grid" x1="46" x2="304" y1="57.5" y2="57.5"/><text class="pt-ytick" x="40" y="61.0" text-anchor="end">¥90K</text><line class="pt-grid" x1="46" x2="304" y1="26.0" y2="26.0"/><text class="pt-ytick" x="40" y="29.5" text-anchor="end">¥120K</text><text class="pt-xtick" x="46.0" y="169" text-anchor="middle">Jan</text><text class="pt-xtick" x="91.7" y="169" text-anchor="middle">Mar</text><text class="pt-xtick" x="139.0" y="169" text-anchor="middle">May</text><text class="pt-xtick" x="186.2" y="169" text-anchor="middle">Jul</text><text class="pt-xtick" x="234.3" y="169" text-anchor="middle">Sep</text><text class="pt-xtick" x="281.5" y="169" text-anchor="middle">Nov</text><path class="pt-area" d="M63.8,106.9 L85.5,106.9 L107.2,92.2 L128.9,78.7 L156.0,92.2 L177.7,50.2 L199.4,68.0 L226.5,50.2 L248.2,57.5 L275.3,57.5 L275.3,152.0 L63.8,152.0 Z"/><path class="pt-line" d="M63.8,106.9 L85.5,106.9 L107.2,92.2 L128.9,78.7 L156.0,92.2 L177.7,50.2 L199.4,68.0 L226.5,50.2 L248.2,57.5 L275.3,57.5"/><circle class="pt-start" cx="63.8" cy="106.9" r="3.5"/><circle class="pt-halo" cx="275.3" cy="57.5" r="11"/><circle class="pt-now" cx="275.3" cy="57.5" r="5"/><text class="pt-nowlabel" x="275.3" y="42.5" text-anchor="end">¥89,980</text><line class="pt-x" x1="0" x2="0" y1="26" y2="152" visibility="hidden"/><circle class="pt-f" r="4.5" cx="0" cy="0" visibility="hidden"/></svg><div class="pt-tip" hidden></div></div>
+          <p class="pt-ctx">In the US, Gamers Nexus found the same drive at Newegg for $190 in November 2025 and $400 in March 2026. <a class="inline" href="https://gamersnexus.net/features/ssds-wtf" target="_blank" rel="noopener">Gamers Nexus&nbsp;↗</a></p>
+          <figcaption class="pt-src">Akihabara, Tokyo · yen, tax included · Source: <a href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html" target="_blank" rel="noopener">AKIBA PC Hotline!&nbsp;↗</a></figcaption>
+        </figure>
+        </div>
+      <h3 class="subhead-label pt-more-h">More graphics cards</h3>
+      <ul class="pt-more"><li><span class="pm-name">GeForce RTX 5060 Ti 16GB<span class="pm-msrp">MSRP $429</span></span><span class="pm-spark"><svg class="pt-spark" viewBox="0 0 120 44" width="120" height="44" aria-hidden="true" focusable="false"><path class="pt-area" d="M29.7,18.6 L39.7,21.0 L49.5,18.6 L59.5,18.6 L69.2,18.6 L79.3,11.4 L89.4,11.4 L99.1,11.4 L105.2,10.7 L105.2,38.0 L29.7,38.0 Z"/><path class="pt-line" d="M29.7,18.6 L39.7,21.0 L49.5,18.6 L59.5,18.6 L69.2,18.6 L79.3,11.4 L89.4,11.4 L99.1,11.4 L105.2,10.7"/><circle class="pt-now" cx="105.2" cy="10.7" r="3.5"/></svg></span><span class="pm-vals"><span class="pm-was">$569 <small>Mar</small></span><span aria-hidden="true"> → </span><b>$799</b> <small>Nov</small></span><span class="pm-change"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +40% <span class="pt-since">since Mar</span></span></span></li><li><span class="pm-name">Radeon RX 9070 XT<span class="pm-msrp">MSRP $599</span></span><span class="pm-spark"><svg class="pt-spark" viewBox="0 0 120 44" width="120" height="44" aria-hidden="true" focusable="false"><path class="pt-area" d="M29.7,16.4 L39.7,17.0 L49.5,17.0 L59.5,17.3 L69.2,17.3 L79.3,16.7 L89.4,15.2 L99.1,12.8 L105.6,10.7 L105.6,38.0 L29.7,38.0 Z"/><path class="pt-line" d="M29.7,16.4 L39.7,17.0 L49.5,17.0 L59.5,17.3 L69.2,17.3 L79.3,16.7 L89.4,15.2 L99.1,12.8 L105.6,10.7"/><circle class="pt-now" cx="105.6" cy="10.7" r="3.5"/></svg></span><span class="pm-vals"><span class="pm-was">$729 <small>Mar</small></span><span aria-hidden="true"> → </span><b>$919</b> <small>Nov</small></span><span class="pm-change"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +26% <span class="pt-since">since Mar</span></span></span></li><li><span class="pm-name">GeForce RTX 5090<span class="pm-msrp">MSRP $1,999</span></span><span class="pm-spark"><svg class="pt-spark" viewBox="0 0 120 44" width="120" height="44" aria-hidden="true" focusable="false"><path class="pt-area" d="M29.7,26.9 L39.7,27.2 L49.5,26.5 L59.5,25.7 L69.2,26.0 L79.3,24.9 L79.3,38.0 L29.7,38.0 Z"/><path class="pt-area" d="M99.1,10.7 L105.2,11.7 L105.2,38.0 L99.1,38.0 Z"/><path class="pt-line" d="M29.7,26.9 L39.7,27.2 L49.5,26.5 L59.5,25.7 L69.2,26.0 L79.3,24.9"/><path class="pt-line" d="M99.1,10.7 L105.2,11.7"/><circle class="pt-now" cx="105.2" cy="11.7" r="3.5"/></svg></span><span class="pm-vals"><span class="pm-was">$3,799 <small>Mar</small></span><span aria-hidden="true"> → </span><b>$8,999</b> <small>Nov</small></span><span class="pm-change"><span class="pt-delta pt-up"><span aria-hidden="true">▲</span> +137% <span class="pt-since">since Mar</span></span><span class="pm-flag"><a class="inline" href="https://www.pcgamer.com/best-graphics-card-deals-today" target="_blank" rel="noopener">PC Gamer, 30 Oct: “Unavailable from reputable sellers”&nbsp;↗</a></span></span></li></ul>
+      <details class="pt-table"><summary>See every reading</summary><div class="tbl"><table><thead><tr><th scope="col">Month</th><th scope="col">DDR5-6000 32GB kit (2×16GB)</th><th scope="col">GeForce RTX 5070</th><th scope="col">Samsung 990 PRO 2TB</th><th scope="col">GeForce RTX 5060 Ti 16GB</th><th scope="col">Radeon RX 9070 XT</th><th scope="col">GeForce RTX 5090</th></tr></thead><tbody><tr><th scope="row">Jan 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2081690.html" target="_blank" rel="noopener">¥59,980</a> <span class="pt-d">17–24 Jan</span></td><td class="pt-na">no reading</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2081298.html" target="_blank" rel="noopener">¥42,980</a> <span class="pt-d">17–24 Jan</span></td><td class="pt-na">no reading</td><td class="pt-na">no reading</td><td class="pt-na">no reading</td></tr><tr><th scope="row">Feb 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2088314.html" target="_blank" rel="noopener">¥54,980</a> <span class="pt-d">14–21 Feb</span></td><td class="pt-na">no reading</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2088312.html" target="_blank" rel="noopener">¥42,980</a> <span class="pt-d">14–21 Feb</span></td><td class="pt-na">no reading</td><td class="pt-na">no reading</td><td class="pt-na">no reading</td></tr><tr><th scope="row">Mar 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2096324.html" target="_blank" rel="noopener">¥50,800</a> <span class="pt-d">14–21 Mar</span></td><td>$649</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2095935.html" target="_blank" rel="noopener">¥56,980</a> <span class="pt-d">14–21 Mar</span></td><td>$569</td><td>$729</td><td>$3,799</td></tr><tr><th scope="row">Apr 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2103898.html" target="_blank" rel="noopener">¥54,980</a> <span class="pt-d">11–18 Apr</span></td><td>$629</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2103507.html" target="_blank" rel="noopener">¥69,800</a> <span class="pt-d">11–18 Apr</span></td><td>$499</td><td>$709</td><td>$3,699</td></tr><tr><th scope="row">May 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2112296.html" target="_blank" rel="noopener">¥59,980</a> <span class="pt-d">16–23 May</span></td><td>$629</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2111874.html" target="_blank" rel="noopener">¥56,980</a> <span class="pt-d">16–23 May</span></td><td>$569</td><td>$709</td><td>$3,949</td></tr><tr><th scope="row">Jun 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2119813.html" target="_blank" rel="noopener">¥59,980</a> <span class="pt-d">13–20 Jun</span></td><td>$609</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2119464.html" target="_blank" rel="noopener">¥96,980</a> <span class="pt-d">13–20 Jun</span></td><td>$569</td><td>$699</td><td>$4,199</td></tr><tr><th scope="row">Jul 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2127087.html" target="_blank" rel="noopener">¥49,980</a> <span class="pt-d">11–18 Jul</span></td><td>$629</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2126741.html" target="_blank" rel="noopener">¥79,970</a> <span class="pt-d">11–18 Jul</span></td><td>$569</td><td>$699</td><td>$4,099</td></tr><tr><th scope="row">Aug 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2135576.html" target="_blank" rel="noopener">¥59,980</a> <span class="pt-d">8–22 Aug</span></td><td>$799</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2135570.html" target="_blank" rel="noopener">¥96,980</a> <span class="pt-d">8–22 Aug</span></td><td>$779</td><td>$719</td><td>$4,499</td></tr><tr><th scope="row">Sep 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2142665.html" target="_blank" rel="noopener">¥52,990</a> <span class="pt-d">12–19 Sep</span></td><td>$839</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2142626.html" target="_blank" rel="noopener">¥89,980</a> <span class="pt-d">12–19 Sep</span></td><td>$779</td><td>$768</td><td class="pt-na">no reading</td></tr><tr><th scope="row">Oct 2026</th><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html" target="_blank" rel="noopener">¥72,980</a> <span class="pt-d">17–24 Oct</span></td><td>$849</td><td><a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html" target="_blank" rel="noopener">¥89,980</a> <span class="pt-d">17–24 Oct</span></td><td>$779</td><td>$849</td><td>$9,344</td></tr><tr><th scope="row">Nov 2026</th><td class="pt-na">no reading</td><td>$849 <span class="pt-d">1–3 Nov</span></td><td class="pt-na">no reading</td><td>$799 <span class="pt-d">1–3 Nov</span></td><td>$919 <span class="pt-d">1–4 Nov</span></td><td>$8,999 <span class="pt-d">1–3 Nov</span></td></tr></tbody></table></div></details>
+      <h3 class="subhead-label pt-more-h">How these are tracked</h3>
+      <ul class="pt-notes"><li><b>DDR5-6000 32GB kit (2×16GB).</b> AKIBA PC Hotline! (Impress Watch) surveys memory prices at six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for a DDR5-6000 16GB×2 desktop kit, tax included, and links to that month&#x27;s report. The same survey runs every month, which keeps the months comparable. The lowest price is one shop&#x27;s offer that week, so a single sale can move it. Source: <a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html" target="_blank" rel="noopener">AKIBA PC Hotline!</a>.</li><li><b>GeForce RTX 5070, GeForce RTX 5060 Ti 16GB, Radeon RX 9070 XT and GeForce RTX 5090.</b> BestValueGPU checks the lowest new price at Newegg every day and filters out one-off mislisted prices. Each point is that month&#x27;s median of those daily lows. Its record of new prices starts in March 2026, and the November point covers only the days checked so far. The RTX 5090 has no new price for September. Source: BestValueGPU (<a class="inline" href="https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/" target="_blank" rel="noopener">GeForce RTX 5070</a>, <a class="inline" href="https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/" target="_blank" rel="noopener">GeForce RTX 5060 Ti 16GB</a>, <a class="inline" href="https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/" target="_blank" rel="noopener">Radeon RX 9070 XT</a>, <a class="inline" href="https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/" target="_blank" rel="noopener">GeForce RTX 5090</a>).</li><li><b>Samsung 990 PRO 2TB.</b> AKIBA PC Hotline! surveys SSD prices at four to six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for the Samsung 990 PRO 2TB without a heatsink (MZ-V9P2T0B/IT), tax included, and links to that month&#x27;s report. Source: <a class="inline" href="https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html" target="_blank" rel="noopener">AKIBA PC Hotline!</a>.</li></ul>
+      </section>
 <h2 class="subhead-label">Topics I'm tracking</h2>
       <div class="topics">
         <article class="topic wide" aria-labelledby="tp-gpu">
@@ -941,6 +1071,50 @@ document.querySelectorAll('[data-copy]').forEach(function (btn) {
         label.textContent = 'Copied'; reset();
       }, selectIt);
     } catch (e) { selectIt(); }
+  });
+});
+
+document.querySelectorAll('svg.pt-svg').forEach(function (svg) {
+  // Hover or arrow keys: a crosshair snaps to the nearest reading and the readout shows its date and price.
+  var pts = JSON.parse(svg.getAttribute('data-pts')), tip = svg.parentNode.querySelector('.pt-tip');
+  var cross = svg.querySelector('.pt-x'), dot = svg.querySelector('.pt-f'), cur = pts.length - 1;
+  function show(i) {
+    cur = i;
+    var p = pts[i];
+    cross.setAttribute('x1', p[0]); cross.setAttribute('x2', p[0]); cross.setAttribute('visibility', 'visible');
+    dot.setAttribute('cx', p[0]); dot.setAttribute('cy', p[1]); dot.setAttribute('visibility', 'visible');
+    tip.replaceChildren();
+    var b = document.createElement('b'); b.textContent = p[3];
+    var s = document.createElement('span'); s.textContent = p[2];
+    tip.append(b, s);
+    tip.hidden = false;
+    var box = svg.getBoundingClientRect(), host = svg.parentNode.getBoundingClientRect();
+    var vb = svg.viewBox.baseVal, x = box.left - host.left + p[0] / vb.width * box.width;
+    var y = box.top - host.top + p[1] / vb.height * box.height;
+    var w = tip.offsetWidth, left = Math.min(Math.max(x - w / 2, 0), host.width - w);
+    tip.style.left = left + 'px';
+    tip.style.top = Math.max(y - tip.offsetHeight - 12, 0) + 'px';
+  }
+  function hide() {
+    cross.setAttribute('visibility', 'hidden'); dot.setAttribute('visibility', 'hidden'); tip.hidden = true;
+  }
+  function nearest(ev) {
+    var box = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+    var x = (ev.clientX - box.left) / box.width * vb.width, best = 0;
+    pts.forEach(function (p, i) { if (Math.abs(p[0] - x) < Math.abs(pts[best][0] - x)) best = i; });
+    return best;
+  }
+  svg.addEventListener('pointermove', function (ev) { show(nearest(ev)); });
+  svg.addEventListener('pointerdown', function (ev) { show(nearest(ev)); });
+  svg.addEventListener('pointerleave', hide);
+  svg.addEventListener('focus', function () { show(pts.length - 1); });
+  svg.addEventListener('blur', hide);
+  svg.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowLeft' && cur > 0) { show(cur - 1); ev.preventDefault(); }
+    else if (ev.key === 'ArrowRight' && cur < pts.length - 1) { show(cur + 1); ev.preventDefault(); }
+    else if (ev.key === 'Home') { show(0); ev.preventDefault(); }
+    else if (ev.key === 'End') { show(pts.length - 1); ev.preventDefault(); }
+    else if (ev.key === 'Escape') { hide(); }
   });
 });
 </script>
