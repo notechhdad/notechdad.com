@@ -30,6 +30,7 @@ The build exits with an error if an internal link is broken, or if anything priv
 - Never publish or commit the owner's personal email address, real name, employer, prices paid, or order and pledge links. The only public email is Nizzel@notechdad.com.
 - Commit as No_Tech-Dad: `git -c user.name="No_Tech-Dad" -c user.email="Nizzel@notechdad.com" commit ...`
 - Results, inventory, video pages and opinions come only from the owner. Never add or change them on your own.
+- Asset numbers come from the owner's inventory workbook. A device without one uses `None` in `build.py`, and the bench shows a dash; never make one up.
 - Never invent a version, date, number or quote. If something can't be confirmed on its source, leave it out.
 - Write plain, active sentences. Summarize news in your own words with the source linked, and label reports and rumors.
 

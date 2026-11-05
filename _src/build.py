@@ -34,7 +34,7 @@ def show(iso):
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
     "updated": "2026-11-05",     # footer stamp, results page, sitemap
-    "inventory": "2026-10-14",   # bench page
+    "inventory": "2026-11-05",   # bench page
     "links": "2026-11-05",       # useful links and the latest drivers
     "news": "2026-11-05",        # news page and the home page's news column
 }
@@ -78,18 +78,19 @@ HANDHELDS = [
     ("H03", "ROG Xbox Ally", "Ryzen Z2 A", "AMD", "Van Gogh", ""),
     ("H07", "Legion Go S", "Ryzen Z1 Extreme", "AMD", "Phoenix", "SteamOS · 32 GB"),
     ("H02", "ROG Xbox Ally X", "Ryzen AI Z2 Extreme", "AMD", "Strix Point", ""),
+    ("H20", "ROG Xbox Ally X20", "Ryzen AI Z2 Extreme", "AMD", "Strix Point", "20th-anniversary bundle"),
     ("H05", "MSI Claw A8", "Ryzen Z2 Extreme", "AMD", "Strix Point", "No NPU"),
-    ("H09", "OneXPlayer X1 Pro", "Ryzen AI 9 HX 470", "AMD", "Gorgon Point", ""),
+    ("H09", "OneXPlayer X1 Pro", "Ryzen AI 9 HX 470", "AMD", "Gorgon Point", "32 GB"),
     ("H13", "OneXFly Apex", "Ryzen AI Max+ 395", "AMD", "Strix Halo", "96 GB"),
-    ("H15", "AYANEO Next 2", "Ryzen AI Max+ 395", "AMD", "Strix Halo", ""),
-    ("H12", "OneXPlayer X2 Mini Pro", "Ryzen AI Max+", "AMD", "Strix Halo", "Orange · 2 TB"),
+    ("H15", "AYANEO Next 2", "Ryzen AI Max+ 395", "AMD", "Strix Halo", "128 GB"),
+    ("H12", "OneXPlayer X2 Mini Pro", "Ryzen AI Max+ 388", "AMD", "Strix Halo", "64 GB · 2 TB"),
     ("H26", "GPD Win Max 3", "Ryzen AI Max+ 395", "AMD", "Strix Halo", "128 GB"),
     ("H27", "GPD Win 5", "Ryzen AI Max+ 388", "AMD", "Strix Halo", "32 GB"),
     ("H04", "MSI Claw A1M", "Core Ultra 7 155H", "Intel", "Meteor Lake", ""),
     ("H06", "MSI Claw 8 AI+", "Core Ultra 7 258V", "Intel", "Lunar Lake", ""),
-    ("H10", "OneXPlayer X2", "Arc G3 Extreme", "Intel", "Panther Lake", ""),
-    ("H11", "OneXPlayer 3", "Arc G3 Extreme", "Intel", "Panther Lake", ""),
-    ("H14", "OneXFly Apex Air", "Arc G3 Extreme", "Intel", "Panther Lake", ""),
+    ("H10", "OneXPlayer X2", "Arc G3 Extreme", "Intel", "Panther Lake", "48 GB"),
+    ("H11", "OneXPlayer 3", "Arc G3 Extreme", "Intel", "Panther Lake", "32 GB"),
+    ("H14", "OneXFly Apex Air", "Arc G3 Extreme", "Intel", "Panther Lake", "32 GB"),
     ("H25", "MSI Claw 8 EX AI+", "Arc G3 Extreme", "Intel", "Panther Lake", ""),
 ]
 ARCH = {
@@ -102,6 +103,7 @@ ARCH = {
 SECTIONS = [
     ("android", "Android handhelds", "", [(None, [
         ("H17", "AYANEO Pocket AIR Mini", "", ""), ("H21", "AYANEO KONKR Pocket BLOCK", "", ""),
+        (None, "AYANEO KONKR Pocket ADVANCE", "", ""),
         ("H18", "AYN Thor", "", ""), ("H19", "AYN Odin 3", "", "")])]),
     ("consoles", "Consoles", "", [
         ("Sony", [("C08", "PlayStation 5 Pro", "", ""),
@@ -111,13 +113,16 @@ SECTIONS = [
                       ("H31", "Nintendo Switch Lite", "", "")])]),
     ("mini-pcs", "Mini PCs", "", [(None, [
         ("C01", "Minisforum AI X1 Pro", "Ryzen AI 9 HX 470", "OCuLink"),
-        ("C03", "Beelink GTi15 Ultra", "", "")])]),
+        ("C03", "Beelink GTi15 Ultra", "", ""),
+        (None, "Minisforum MS-02 Ultra", "Core Ultra 9 285HX", "64 GB"),
+        ("C10", "GPD BOX", "Core Ultra 7 356H", "32 GB · 1 TB"),
+        ("C05", "Valve Steam Machine", "", "")])]),
     ("desktop", "Desktop test bench", "", [(None, [
         ("C06", "ASUS ROG Crosshair X870E Hero", "Motherboard", ""),
         ("C07", "Open-air test bench", "Frame", "")])]),
     ("gpus", "Graphics cards", "", [(None, [
         ("G01", "ASUS ROG Astral RTX 5090", "", ""), ("G03", "NVIDIA RTX 5090 Founders Edition", "", ""),
-        ("G06", "NVIDIA RTX 4090 Founders Edition", "", ""), ("G07", "RTX 5070", "", ""),
+        ("G06", "NVIDIA RTX 4090 Founders Edition", "", ""), ("G07", "RTX 5070", "", ""), (None, "RTX 5070 Ti", "", ""),
         ("G04", "RTX 4070 Super", "", ""), ("G12", "RTX 5060 Ti", "", ""), ("G05", "RTX 4060", "", ""),
         ("G08", "RTX 5050", "", "")])]),
     ("egpus", "External GPUs", "", [(None, [
@@ -125,7 +130,8 @@ SECTIONS = [
         ("G11", "AORUS RTX 5060 Ti eGPU", "", "")])]),
     ("docks", "Docks", "", [
         ("eGPU docks", [("D01", "Minisforum DEG2", "", ""), ("D02", "AOOSTAR AG03", "OCuLink", ""),
-                        ("D03", "UGREEN Link Station", "", "")]),
+                        ("D03", "UGREEN Link Station", "", ""),
+                        ("D12", "GPD G2", "MCIO 8i and USB4 v2", "Bundled with the GPD BOX")]),
         ("Expansion docks", [("D04", "Beelink EX dock", "", ""), ("D05", "Beelink EX Mate Pro", "", "")]),
         ("Thunderbolt and USB-C docks", [("D09", "Razer Thunderbolt Dock Chroma", "", ""),
                                          ("D06", "JSAUX 5-in-1 dock", "", ""), ("D07", "UGREEN 6-in-1 dock", "", ""),
@@ -138,6 +144,8 @@ SECTIONS = [
     ("power", "Power and measurement", "", [(None, [
         ("P04", "TP-Link Tapo P110M ×2", "Smart plug with energy monitoring", "Wall power for each setup"),
         ("P01", "Anker Prime charger", "160W", ""), ("P02", "CUKTECH 30 Ultra charger", "300W", ""),
+        (None, "UGREEN Nexode Pro charger", "160W", "Retractable USB-C cable"),
+        (None, "AYANEO GaN charger", "140W", "Stock charger"),
         ("P03", "OneXPlayer Frost Bay", "Cooling dock", "")])]),
     ("filming", "Filming", "", [(None, [
         ("F01", "Sony FX30", "Main camera", ""), ("F02", "Sony ZV-E10 II", "Second camera", ""),
@@ -148,14 +156,15 @@ SECTIONS = [
         ("F13", "Blackmagic DeckLink Quad HDMI Recorder", "Capture card", "")])]),
 ]
 SOFTWARE = "DaVinci Resolve · OBS Studio · CapFrameX · HWiNFO64 · RTSS · Blackmagic Camera"
-INCOMING = [  # asset, device, details, status, chip class
-    ("H20", "ROG Xbox Ally X20", "20th-anniversary bundle", "Ordered", "t-info"),
-    ("H28", "Acer Predator Atlas 8", "Intel Arc G3", "Back-ordered", "t-info"),
-    ("C05", "Valve Steam Machine", "", "Bought", "t-info"),
-    ("C04", "Piston V", "Ryzen AI 9 HX 370 · 64 GB · 4 TB", "Backed · est. Jan 2027", "t-mute"),
-    ("C10", "GPD BOX", "Core Ultra 7 356H · 32 GB · 1 TB", "Backed", "t-mute"),
-    ("D12", "GPD G2 eGPU dock", "MCIO 8i and USB4 v2 · bundled with the GPD BOX", "Backed", "t-mute"),
+INCOMING = [  # asset, device, details, status, chip class, bench section it will join (for the feedback page)
+    ("H28", "Acer Predator Atlas 8", "Intel Arc G3", "Back-ordered", "t-info", "handhelds"),
+    ("C04", "Piston V", "Ryzen AI 9 HX 370 · 64 GB · 4 TB", "Backed · est. Jan 2027", "t-mute", "mini-pcs"),
+    (None, "Anbernic RG DDS", "", "Ordered", "t-info", "android"),
+    (None, "ASUS UGen Arc Pro B70", "32 GB", "Ordered", "t-info", "gpus"),
+    (None, "ASUS ROG XG Station 3", "Thunderbolt 5 eGPU dock", "Ordered", "t-info", "docks"),
+    (None, "SlimQ 240W charger", "DC and USB-C", "Ordered", "t-info", "power"),
 ]
+# An asset id of None means Moe hasn't assigned one yet: the bench shows a dash. Never make one up.
 
 def count(groups):
     return sum(len(rows) for _, rows in groups)
@@ -309,8 +318,6 @@ FB_POPULAR = {  # bench section id: popular devices that aren't in the inventory
     "egpus": ["OneXGPU 2", "OneXGPU Lite", "GPD G1", "AYANEO AG01", "AORUS RTX 5090 AI BOX"],
     "docks": ["Razer Core X V2", "Minisforum DEG1", "Steam Deck Dock"],
 }
-FB_INCOMING = {"H": "handhelds", "C": "mini-pcs", "D": "docks", "G": "gpus", "M": "displays", "P": "power",
-               "F": "filming"}  # asset id letter: the group an "on the way" device joins
 
 # ================================================================ videos
 # data/videos.json: {"checked": ISO date, "videos": [{"id", "title" (as on YouTube), "published" (UTC date),
@@ -844,6 +851,11 @@ def about_main():
 </div>
 </main>"""
 
+def asset_cell(aid):
+    if aid:
+        return f'<td class="asset">{aid}</td>'
+    return '<td class="asset"><span aria-hidden="true">—</span><span class="visually-hidden">No asset number yet</span></td>'
+
 def bench_main():
     def table(groups):
         rows_all = [r for _, rows in groups for r in rows]
@@ -857,12 +869,12 @@ def bench_main():
             if label:
                 trs.append(f'<tr><th colspan="{len(cols)}" scope="colgroup">{e(label)}</th></tr>')
             for aid, dev, det, note in rows:
-                tds = [f'<td class="asset">{aid}</td>', f'<td class="dev">{e(dev)}</td>']
+                tds = [asset_cell(aid), f'<td class="dev">{e(dev)}</td>']
                 if has_det:
                     tds.append(f'<td class="det">{e(det)}</td>')
                 if has_note:
                     tds.append(f'<td class="note">{e(note)}</td>')
-                trs.append(f'<tr id="asset-{aid}">' + "".join(tds) + "</tr>")
+                trs.append((f'<tr id="asset-{aid}">' if aid else "<tr>") + "".join(tds) + "</tr>")
             bodies.append("<tbody>" + "".join(trs) + "</tbody>")
         return f'<div class="tbl"><table class="inv">{head}{"".join(bodies)}</table></div>'
 
@@ -879,16 +891,18 @@ def bench_main():
             inner += f'<p class="sw"><b>Software</b>{e(SOFTWARE)}</p>'
         parts.append(section(sid, title, lead, inner, count(groups)))
     inc_rows = "".join(
-        f'<tr id="asset-{a}"><td class="asset">{a}</td><td class="dev">{e(d)}</td><td class="det">{e(det)}</td>'
-        f'<td><span class="tag {cls}">{e(st)}</span></td></tr>' for a, d, det, st, cls in INCOMING)
+        (f'<tr id="asset-{a}">' if a else "<tr>") + f'{asset_cell(a)}<td class="dev">{e(d)}</td><td class="det">{e(det)}</td>'
+        f'<td><span class="tag {cls}">{e(st)}</span></td></tr>' for a, d, det, st, cls, _ in INCOMING)
     inc = ('<div class="tbl"><table class="inv"><thead><tr><th scope="col">Asset</th><th scope="col">Device</th>'
            '<th scope="col">Details</th><th scope="col">Status</th></tr></thead><tbody>' + inc_rows + "</tbody></table></div>")
     parts.append(section("incoming", "On the way", "Bought or backed, and not on the bench yet.", inc, len(INCOMING)))
     jumps = [("handhelds", "Handheld PCs", len(HANDHELDS))] + [(s, t, count(g)) for s, t, _, g in SECTIONS] + [("incoming", "On the way", len(INCOMING))]
     jump_html = "".join(f'<li><a href="#{s}">{e(t)} <b>{n}</b></a></li>' for s, t, n in jumps)
+    unnumbered = any(not r[0] for *_, g in SECTIONS for _, rows in g for r in rows) or any(not r[0] for r in INCOMING)
     head = page_head(f"Updated {INV_DATE} · {ON_BENCH} entries on the bench", "Inventory",
-                     "Everything here was bought with my own money. Asset numbers come from my inventory workbook. "
-                     "Anything whose exact model I haven't confirmed yet stays off this list until I have.", jump_html)
+                     "Everything here was bought with my own money. Asset numbers come from my inventory workbook"
+                     + (", and a dash means an item doesn't have one yet. " if unnumbered else ". ")
+                     + "Anything whose exact model I haven't confirmed yet stays off this list until I have.", jump_html)
     return f"""<main id="top">
 <div class="wrap">
 {head}
@@ -946,8 +960,8 @@ def fb_device_groups():
     groups = [("handhelds", "Handheld PCs", [d[1] for d in HANDHELDS], [])]
     groups += [(sid, title, [bare(r[1]) for _, rows in g for r in rows], []) for sid, title, _, g in SECTIONS]
     by_id = {g[0]: g for g in groups}
-    for a, dev, *_ in INCOMING:
-        by_id.get(FB_INCOMING.get(a[0]), groups[0])[3].append(dev)
+    for a, dev, _, _, _, sid in INCOMING:
+        by_id.get(sid, groups[0])[3].append(dev)
     owned = {n.lower() for g in groups for n in g[2] + g[3]}
     return [(sid, title, bench, way, [p for p in FB_POPULAR.get(sid, []) if p.lower() not in owned])
             for sid, title, bench, way in groups]
