@@ -165,10 +165,12 @@ DRIVERS = [
      "support handheld PCs, so get handheld drivers from the maker.",
      [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-2.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
-    ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9150", "WHQL", "12 Oct 2026",
-     "Full version 32.0.101.9150. It covers Arc A- and B-series cards and the graphics in Core Ultra chips from "
-     "Meteor Lake to Panther Lake. Arc G3 handheld chips aren't named in the notes, so check your maker's page first.",
-     [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes__101.9150_WHQL.pdf"),
+    ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9175", "Non-WHQL", "4 Nov 2026",
+     "Full version 32.0.101.9175. It covers Arc A- and B-series cards and Core Ultra graphics from Meteor Lake to "
+     "Panther Lake, and adds Game On support for Football Manager 27, Phantom Blade Zero and World of Warcraft: Forever. "
+     "Intel lists the Arc G3 and G3 Extreme handheld chips as supported, but check your maker's page first. The latest "
+     "WHQL-certified version is 101.9150.",
+     [("Release notes (PDF)", "https://downloadmirror.intel.com/932273/ReleaseNotes_101.9175_Non-WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
     ("NVIDIA · GeForce", "Game Ready driver", "621.14", "WHQL", "4 Nov 2026",
      "Game Ready for World of Warcraft: Forever. It's also the driver for DLSS 5 in Hogwarts Legacy, which NVIDIA says "
@@ -296,7 +298,7 @@ FB_POPULAR = {  # bench section id: popular devices that aren't in the inventory
     "consoles": ["PlayStation 5", "PlayStation Portal", "Xbox Series X", "Xbox Series S"],
     "mini-pcs": ["Framework Desktop", "Minisforum MS-S1 Max", "Minisforum MS-A2", "Beelink GTR9 Pro", "Beelink SER9",
                  "GMKtec EVO-X2", "ASUS ROG NUC", "Acer Revo Box AI", "Apple Mac mini"],
-    "gpus": ["RTX 5080", "RTX 5070 Ti", "RTX 5060", "Radeon RX 9070 XT", "Radeon RX 9070", "Radeon RX 9060 XT",
+    "gpus": ["RTX 5080", "RTX 5060", "Radeon RX 9070 XT", "Radeon RX 9070", "Radeon RX 9060 XT",
              "Arc B580", "Arc B570"],
     "egpus": ["OneXGPU 2", "OneXGPU Lite", "GPD G1", "AYANEO AG01", "AORUS RTX 5090 AI BOX"],
     "docks": ["Razer Core X V2", "Minisforum DEG1", "Steam Deck Dock"],
