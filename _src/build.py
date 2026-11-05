@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-02",     # footer stamp, results page, sitemap
+    "updated": "2026-11-05",     # footer stamp, results page, sitemap
     "inventory": "2026-10-14",   # bench page
-    "links": "2026-11-02",       # useful links and the latest drivers
+    "links": "2026-11-05",       # useful links and the latest drivers
     "news": "2026-11-02",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -170,12 +170,12 @@ DRIVERS = [
      "Meteor Lake to Panther Lake. Arc G3 handheld chips aren't named in the notes, so check your maker's page first.",
      [("Release notes (PDF)", "https://downloadmirror.intel.com/930514/ReleaseNotes__101.9150_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
-    ("NVIDIA · GeForce", "Hotfix driver", "621.12", "Hotfix · beta", "27 Oct 2026",
-     "Built on Game Ready 621.01, it fixes video freezes and black screens on some RTX 50 and RTX Spark systems. "
-     "Warning: NVIDIA calls hotfix drivers beta, optional and provided as-is, with a much shorter QA process, and says "
-     "the safest option is to wait for the next WHQL driver. The latest WHQL driver is Game Ready 621.01, from "
-     "21 Oct 2026. For the most stable setup, my pick is Game Ready 617.42 (WHQL, 6 Oct 2026).",
-     [("Hotfix notes", "https://nvidia.custhelp.com/app/answers/detail/a_id/5938/~/geforce%2Frtx-spark-hotfix-display-driver-version-621.12"),
+    ("NVIDIA · GeForce", "Game Ready driver", "621.14", "WHQL", "4 Nov 2026",
+     "Game Ready for World of Warcraft: Forever. It's also the driver for DLSS 5 in Hogwarts Legacy, which NVIDIA says "
+     "starts on 5 Nov for RTX 50 Series GPUs and laptops and RTX Spark PCs. For the most stable setup, my pick is "
+     "Game Ready 617.42 (WHQL, 6 Oct 2026).",
+     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/world-of-warcraft-forever-geforce-rtx-spark-game-ready-driver/"),
+      ("Release notes (PDF)", "https://us.download.nvidia.com/Windows/621.14/621.14-geforce-win11-x64-release-notes.pdf"),
       ("617.42 announcement", "https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/"),
       ("Download page", "https://www.nvidia.com/en-us/geforce/drivers/")]),
 ]
