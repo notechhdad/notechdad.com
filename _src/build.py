@@ -103,7 +103,7 @@ ARCH = {
 SECTIONS = [
     ("android", "Android handhelds", "", [(None, [
         ("H17", "AYANEO Pocket AIR Mini", "", ""), ("H21", "AYANEO KONKR Pocket BLOCK", "", ""),
-        (None, "AYANEO KONKR Pocket ADVANCE", "", ""),
+        ("H34", "AYANEO KONKR Pocket ADVANCE", "", ""),
         ("H18", "AYN Thor", "", ""), ("H19", "AYN Odin 3", "", "")])]),
     ("consoles", "Consoles", "", [
         ("Sony", [("C08", "PlayStation 5 Pro", "", ""),
@@ -114,7 +114,7 @@ SECTIONS = [
     ("mini-pcs", "Mini PCs", "", [(None, [
         ("C01", "Minisforum AI X1 Pro", "Ryzen AI 9 HX 470", "OCuLink"),
         ("C03", "Beelink GTi15 Ultra", "", ""),
-        (None, "Minisforum MS-02 Ultra", "Core Ultra 9 285HX", "64 GB"),
+        ("C11", "Minisforum MS-02 Ultra", "Core Ultra 9 285HX", "64 GB"),
         ("C10", "GPD BOX", "Core Ultra 7 356H", "32 GB · 1 TB"),
         ("C05", "Valve Steam Machine", "", "")])]),
     ("desktop", "Desktop test bench", "", [(None, [
@@ -122,7 +122,7 @@ SECTIONS = [
         ("C07", "Open-air test bench", "Frame", "")])]),
     ("gpus", "Graphics cards", "", [(None, [
         ("G01", "ASUS ROG Astral RTX 5090", "", ""), ("G03", "NVIDIA RTX 5090 Founders Edition", "", ""),
-        ("G06", "NVIDIA RTX 4090 Founders Edition", "", ""), ("G07", "RTX 5070", "", ""), (None, "RTX 5070 Ti", "", ""),
+        ("G06", "NVIDIA RTX 4090 Founders Edition", "", ""), ("G07", "RTX 5070", "", ""), ("G13", "RTX 5070 Ti", "", ""),
         ("G04", "RTX 4070 Super", "", ""), ("G12", "RTX 5060 Ti", "", ""), ("G05", "RTX 4060", "", ""),
         ("G08", "RTX 5050", "", "")])]),
     ("egpus", "External GPUs", "", [(None, [
@@ -144,8 +144,8 @@ SECTIONS = [
     ("power", "Power and measurement", "", [(None, [
         ("P04", "TP-Link Tapo P110M ×2", "Smart plug with energy monitoring", "Wall power for each setup"),
         ("P01", "Anker Prime charger", "160W", ""), ("P02", "CUKTECH 30 Ultra charger", "300W", ""),
-        (None, "UGREEN Nexode Pro charger", "160W", "Retractable USB-C cable"),
-        (None, "AYANEO GaN charger", "140W", "Stock charger"),
+        ("P05", "AYANEO GaN charger", "140W", "Stock charger"),
+        ("P06", "UGREEN Nexode Pro charger", "160W", "Retractable USB-C cable"),
         ("P03", "OneXPlayer Frost Bay", "Cooling dock", "")])]),
     ("filming", "Filming", "", [(None, [
         ("F01", "Sony FX30", "Main camera", ""), ("F02", "Sony ZV-E10 II", "Second camera", ""),
@@ -159,10 +159,10 @@ SOFTWARE = "DaVinci Resolve · OBS Studio · CapFrameX · HWiNFO64 · RTSS · Bl
 INCOMING = [  # asset, device, details, status, chip class, bench section it will join (for the feedback page)
     ("H28", "Acer Predator Atlas 8", "Intel Arc G3", "Back-ordered", "t-info", "handhelds"),
     ("C04", "Piston V", "Ryzen AI 9 HX 370 · 64 GB · 4 TB", "Backed · est. Jan 2027", "t-mute", "mini-pcs"),
-    (None, "Anbernic RG DDS", "", "Ordered", "t-info", "android"),
-    (None, "ASUS UGen Arc Pro B70", "32 GB", "Ordered", "t-info", "gpus"),
-    (None, "ASUS ROG XG Station 3", "Thunderbolt 5 eGPU dock", "Ordered", "t-info", "docks"),
-    (None, "SlimQ 240W charger", "DC and USB-C", "Ordered", "t-info", "power"),
+    ("H35", "Anbernic RG DDS", "", "Ordered", "t-info", "android"),
+    ("G14", "ASUS UGen Arc Pro B70", "32 GB", "Ordered", "t-info", "gpus"),
+    ("D13", "ASUS ROG XG Station 3", "Thunderbolt 5 eGPU dock", "Ordered", "t-info", "docks"),
+    ("P07", "SlimQ 240W charger", "DC and USB-C", "Ordered", "t-info", "power"),
 ]
 # An asset id of None means Moe hasn't assigned one yet: the bench shows a dash. Never make one up.
 
