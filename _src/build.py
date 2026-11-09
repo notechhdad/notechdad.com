@@ -36,7 +36,7 @@ DATES = {
     "updated": "2026-11-09",     # footer stamp, results page, sitemap
     "inventory": "2026-11-05",   # bench page
     "links": "2026-11-09",       # useful links and the latest drivers
-    "news": "2026-11-05",        # news page and the home page's news column
+    "news": "2026-11-09",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
 INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"]), show(DATES["news"])
