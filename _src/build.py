@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-05",     # footer stamp, results page, sitemap
+    "updated": "2026-11-09",     # footer stamp, results page, sitemap
     "inventory": "2026-11-05",   # bench page
-    "links": "2026-11-05",       # useful links and the latest drivers
+    "links": "2026-11-09",       # useful links and the latest drivers
     "news": "2026-11-05",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -180,12 +180,11 @@ DRIVERS = [
      "support handheld PCs, so get handheld drivers from the maker.",
      [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-2.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
-    ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9175", "Non-WHQL", "4 Nov 2026",
-     "Full version 32.0.101.9175. It covers Arc A- and B-series cards and Core Ultra graphics from Meteor Lake to "
-     "Panther Lake, and adds Game On support for Football Manager 27, Phantom Blade Zero and World of Warcraft: Forever. "
-     "Intel lists the Arc G3 and G3 Extreme handheld chips as supported, but check your maker's page first. The latest "
-     "WHQL-certified version is 101.9150.",
-     [("Release notes (PDF)", "https://downloadmirror.intel.com/932273/ReleaseNotes_101.9175_Non-WHQL.pdf"),
+    ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9175", "WHQL", "4 Nov 2026",
+     "Full version 32.0.101.9175, now WHQL Certified. It covers Arc A- and B-series cards and Core Ultra graphics from "
+     "Meteor Lake to Panther Lake, and adds Game On support for Football Manager 27, Phantom Blade Zero and World of "
+     "Warcraft: Forever. On a handheld, check your maker's page first.",
+     [("Release notes (PDF)", "https://downloadmirror.intel.com/932449/ReleaseNotes_101.9175_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
     ("NVIDIA · GeForce", "Game Ready driver", "621.14", "WHQL", "4 Nov 2026",
      "Game Ready for World of Warcraft: Forever. It's also the driver for DLSS 5 in Hogwarts Legacy, which NVIDIA says "

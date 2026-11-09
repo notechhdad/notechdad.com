@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-05",
+  "checked": "2026-11-09",
   "note": "Graphics cards: US prices in US dollars. Memory and SSD: Akihabara shop prices in yen, tax included. Each percentage compares a part with its own earlier price, so exchange rates don't affect it.",
   "series": [
     {
@@ -145,7 +145,7 @@
           "month": "2026-11",
           "value": 849,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/",
-          "to": "2026-11-03"
+          "to": "2026-11-08"
         }
       ]
     },
@@ -287,9 +287,9 @@
         },
         {
           "month": "2026-11",
-          "value": 799,
+          "value": 769,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/",
-          "to": "2026-11-03"
+          "to": "2026-11-08"
         }
       ]
     },
@@ -352,9 +352,9 @@
         },
         {
           "month": "2026-11",
-          "value": 919,
+          "value": 949,
           "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/",
-          "to": "2026-11-04"
+          "to": "2026-11-07"
         }
       ]
     },
@@ -375,7 +375,7 @@
         "value": 1999,
         "label": "MSRP"
       },
-      "flag": "PC Gamer, 30 Oct: “Unavailable from reputable sellers”",
+      "flag": "PC Gamer, 6 Nov: “Unavailable from reputable sellers”",
       "flag_url": "https://www.pcgamer.com/best-graphics-card-deals-today",
       "points": [
         {
@@ -420,9 +420,9 @@
         },
         {
           "month": "2026-11",
-          "value": 8999,
+          "value": 7999,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/",
-          "to": "2026-11-03"
+          "to": "2026-11-08"
         }
       ]
     }
