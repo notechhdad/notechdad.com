@@ -326,6 +326,7 @@ EXPORT_DATE = show(VDATA["checked"])
 
 # One line per long-form video, in Nizzel's words from that video's YouTube description (lightly trimmed).
 BLURBS = {
+    "dZ3BSUOGnJs": "My RTX 5090 rig stutters in Phantom Blade Zero at Ultra with ray tracing, and two of the three handhelds put more frames on screen with frame generation. Same 80-second route, three runs per pass, every frame measured with PresentMon through my own tool, PBZ Bench.",
     "LfZLywglLT4": "It started with a small borrowed corner of our family room. The studio transformation, from the original room and the 3D plan to the building work, shelving, cable chaos and the grand reveal.",
     "CsgpuSEVITI": "Can Intel's new Arc G3 Extreme run Gears of War: E-Day on the OneXPlayer X2? Ten benchmark configurations from 30W to 40W, all tested at about 35,000 feet aboard an aircraft.",
     "2viMjdGRkS8": "What better place to play ACE COMBAT 8: Wings of Theve than at 35,000 feet? The AYANEO NEXT 2 from 35W to 85W, looking for the best balance between performance and power consumption.",
@@ -444,6 +445,16 @@ RESULTS = [
               '<li><span>Gameplay passed, save/load unchecked</span><span class="res res-warn"><span aria-hidden="true">?</span> 1</span></li>'
               '<li><span>Unresolved: repeated freezes</span><span class="res res-bad"><span aria-hidden="true">✕</span> 2</span></li>'
               '</ul>')},
+    {"slug": "pbz-rig-vs-handhelds", "type": "Handhelds", "video": "dZ3BSUOGnJs", "tag": ("t-ok", "Verified"),
+     "title": "Phantom Blade Zero: three handhelds vs my RTX 5090 rig",
+     "finding": "At the same settings the handhelds reach 34 to 55% of my RTX 5090 rig. With 2x frame generation, the X2 Mini Pro and AYANEO Next 2 put more frames on screen than the rig does at Ultra with ray tracing.",
+     "meta": "Nov 2026 · Same 80-second route, three runs per pass, PresentMon through PBZ Bench",
+     "mini": ('<ul class="bars">'
+              '<li><div class="bar-top"><span>RTX 5090 rig<small>4K</small></span><b>103.9</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:86.6%"></span></div></li>'
+              '<li><div class="bar-top"><span>X2 Mini Pro<small>1920x1200</small></span><b>57.3</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:47.8%"></span></div></li>'
+              '<li><div class="bar-top"><span>AYANEO Next 2<small>1920x1200</small></span><b>54.9</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:45.8%"></span></div></li>'
+              '<li><div class="bar-top"><span>OneXPlayer 3<small>1920x1200</small></span><b>35.8</b></div><div class="track" aria-hidden="true"><span class="fill" style="width:29.8%"></span></div></li>'
+              '</ul><p class="cap">Pass A, same settings: average fps. Bars run from 0 to 120 fps.</p>')},
     {"slug": "eday-g3e", "type": "Handhelds", "video": "CsgpuSEVITI", "tag": ("t-gold", "Verdict"),
      "title": "Gears of War: E-Day on the OneXPlayer X2",
      "finding": "40W, Low, frame generation off: 65 fps average, 48 fps 1% low, no stutter. Frame generation lifts the average but the lows fall.",
