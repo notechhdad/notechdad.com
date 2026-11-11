@@ -1,0 +1,7 @@
+PBZ Bench 1.4.1 - SHA-256 checksums
+
+9837e310b2f364244598bbaa3c92bb8a162d14f734ff363cb4f1df74aedf9b68  PBZBench-1.4.1.zip
+f5a2ef044042adb2468e0398cddf524d4cc4487586ab2023cf56145651dd792e  PBZBench.exe
+b2a706bc6ad475749e3b7e3409263aa1e6906d45bdcf993f6dbc0f660188f1af  tools\PresentMon.exe
+
+Check in PowerShell: Get-FileHash .\PBZBench-1.4.1.zip

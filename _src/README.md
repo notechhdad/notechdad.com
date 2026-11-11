@@ -12,6 +12,7 @@ notechdad.com is the website of the No_Tech-Dad YouTube channel. The presenter's
 | `_src/web/results/` | One lab plate per published result. |
 | `_src/data/videos.json` | Long-form videos (over three minutes): id, title as on YouTube, published (UTC date), seconds, views. Public data only. |
 | `_src/data/prices.json`, `_src/tracker.py` | The price tracker's readings, and the code that draws its charts on the news page and its tiles on the home page. See "Price tracker" below. |
+| `downloads/` | The PBZ Bench download (one zip, the current version) and its `SHA256SUMS.txt`. The build never touches it, but the Tools page links to the zip, so the build fails if the file is missing. |
 | `_src/check_pages.py` | Optional. Screenshots every page at phone and desktop widths and reports sideways overflow and script errors. Needs Playwright. |
 | Repo root | Generated pages (`*.html`, `404.html`, `sitemap.xml`, `CNAME`), plus assets the build never touches: `img/`, `fonts/`, icons, `og-image.png` and `robots.txt`. |
 
@@ -54,6 +55,16 @@ Where the numbers come from:
 - **Memory and SSD** (Akihabara, yen with tax): AKIBA PC Hotline!'s second-half-of-the-month (後半) price reports, titled like "[10月後半のメモリ価格]" and "[10月後半のSSD価格]". Each comes out a few days after its survey ends, usually in the last week of the month. From the memory report, take the lowest price (最安値) of the DDR5-6000 16GB×2枚組 DIMM row. From the SSD report, take the lowest price of the Samsung 990 PRO MZ-V9P2T0B/IT (2TB) row. Add each month once, with the survey window from the report's 調査日 line and the report's URL.
 
 Rules: one source and one method per series, for every month. Never estimate, interpolate or carry a value forward. Change a past month only when the source has changed it. Re-check every `context` and `flag` on its source, and remove a flag once its source no longer says it. Charts start at zero, so a rise reads at its true size.
+
+## Tools page (PBZ Bench)
+
+`pbz-bench.html` ("Tools" in the menu) offers PBZ Bench, the owner's free benchmark tool for Phantom Blade Zero. Its text, the terms and the checksums come from the owner's release: never change the terms or the description on your own. To publish a new version that the owner hands over:
+
+1. Put the new zip and its `SHA256SUMS.txt` in `downloads/`, and delete the old zip.
+2. Update `PBZ_BENCH` in `build.py`: version, release date, file name, size in bytes, both SHA-256 values (read them from the files, for example with `sha256sum`), PresentMon's version and the short "new" list from the release's changelog.
+3. Build, open the Tools page, and check that the download link and the checksums match the files.
+
+The terms on the page (`web/pages/pbz_terms.html`) match LICENSE.txt in the zip; when one changes, change the other.
 
 ## Feedback page
 

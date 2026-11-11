@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBZ Bench · No_Tech-Dad</title>
+<meta name="description" content="PBZ Bench 1.4.1: a free, unofficial benchmark tool for Phantom Blade Zero on Windows. Download, install steps, what it changes on your PC, and its terms.">
+<link rel="canonical" href="https://notechdad.com/pbz-bench.html">
+<meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF8F8" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="No_Tech-Dad">
+<meta property="og:title" content="PBZ Bench · No_Tech-Dad">
+<meta property="og:description" content="PBZ Bench 1.4.1: a free, unofficial benchmark tool for Phantom Blade Zero on Windows. Download, install steps, what it changes on your PC, and its terms.">
+<meta property="og:url" content="https://notechdad.com/pbz-bench.html">
+<meta property="og:image" content="https://notechdad.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="No_Tech-Dad channel art with the No_Tech-Dad wordmark and tagline">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@No_TechDad">
+<link rel="me" href="https://www.youtube.com/@no_tech-dad">
+<link rel="me" href="https://x.com/No_TechDad">
+<link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"PBZ Bench","softwareVersion":"1.4.1","operatingSystem":"Windows 10, Windows 11","applicationCategory":"UtilitiesApplication","downloadUrl":"https://notechdad.com/downloads/PBZBench-1.4.1.zip","datePublished":"2026-11-11","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"No_Tech-Dad","url":"https://notechdad.com/"}}</script>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/big-shoulders-display-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-style:normal;font-weight:900;font-display:swap;src:url(fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2")}
+/* Layout: a lab notebook. Sticky bar, then pages built from one 1120px column: a newest-video hero beside
+   the run card, result plates, the video shelf, news, drivers and the bench. Dark-first, with a light mirror. */
+:root{
+  color-scheme: dark;
+  --bg:#121011; --panel:#1A1718; --raised:#262122; --line:#332C2D; --line-2:#4B4142;
+  --fg:#F2EDEB; --fg-2:#C3B9B7; --muted:#968B89; --bar:#BDB2B0; --grid:rgba(255,255,255,.045);
+  --red:#E3222C; --red-btn:#C81C25; --red-ink:#FF6369; --on-red:#FFFFFF; --gold:#D9B35C;
+  --ok:#55C992; --ok-wash:rgba(85,201,146,.12);
+  --info:#93B5F5; --info-wash:rgba(147,181,245,.12);
+  --warn:#F2914A; --warn-wash:rgba(242,145,74,.13);
+  --gold-wash:rgba(217,179,92,.13);
+  --header:rgba(18,16,17,.9);
+  --display:"Big Shoulders Display",Impact,"Arial Narrow","Roboto Condensed",sans-serif-condensed,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --wrap:1120px; --r:6px;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme: light;
+    --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
+    --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
+    --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
+    --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
+    --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
+    --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+    --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
+    --header:rgba(250,248,248,.92);
+  }
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#FAF8F8; --panel:#FFFFFF; --raised:#EFEAEA; --line:#E4DCDC; --line-2:#CBBFBF;
+  --fg:#1B1516; --fg-2:#463C3D; --muted:#6F6465; --bar:#5A4F50; --grid:rgba(0,0,0,.05);
+  --red:#C8121C; --red-btn:#C8121C; --red-ink:#B30F18; --on-red:#FFFFFF; --gold:#8A6714;
+  --ok:#106E43; --ok-wash:rgba(16,110,67,.09);
+  --info:#2F5FB3; --info-wash:rgba(47,95,179,.09);
+  --warn:#9A4709; --warn-wash:rgba(154,71,9,.09);
+  --gold-wash:rgba(138,103,20,.09); --gold-ink:#806013;
+  --header:rgba(250,248,248,.92);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a.inline,.prose a{color:var(--red-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;background:var(--header);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 20px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:23px;letter-spacing:.01em;line-height:1}
+.brand svg{width:34px;height:34px;flex:none}
+.nav{order:2;flex:1 1 100%;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -8px}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;padding:6px 8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-2);text-decoration:none;border-radius:4px}
+.nav a:hover{color:var(--fg);background:var(--raised)}
+.topbar .btn{order:1;margin-left:auto}
+@media (min-width:1060px){
+  .nav{order:1;flex:0 1 auto;margin:0 0 0 auto}
+  .topbar .btn{order:2;margin-left:0}
+}
+
+/* Buttons and tags */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:4px;font-weight:600;font-size:15px;line-height:1.2;text-decoration:none;border:1px solid transparent;transition:filter .15s,border-color .15s}
+.btn-red{background:var(--red-btn);color:var(--on-red)}
+.btn-red:hover{filter:brightness(1.1)}
+.btn-line{border-color:var(--line-2);color:var(--fg)}
+.btn-line:hover{border-color:var(--fg-2)}
+.btn-sm{padding:7px 12px;font-size:13.5px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;line-height:1;padding:5px 8px;border-radius:3px;border:1px solid currentColor;border-color:color-mix(in srgb, currentColor 45%, transparent);white-space:nowrap}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.t-ok{color:var(--ok);background:var(--ok-wash)}
+.t-info{color:var(--info);background:var(--info-wash)}
+.t-warn{color:var(--warn);background:var(--warn-wash)}
+.t-gold{color:var(--gold-ink, var(--gold));background:var(--gold-wash)}
+.t-mute{color:var(--muted);background:transparent}
+.t-plain{color:var(--fg-2);background:transparent;border-color:var(--line-2)}
+.t-plain::before{display:none}
+
+/* Hero */
+.strip{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.wordmark{font-family:var(--display);font-weight:900;font-size:clamp(52px,8.5vw,104px);font-size:clamp(52px,15cqi,112px);line-height:.86;letter-spacing:-.005em;margin:0;white-space:nowrap}
+.tagline{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.5vw,27px);letter-spacing:.04em;text-transform:uppercase;color:var(--fg-2);margin:16px 0 0}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--fg-2);max-width:34em;margin:22px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+.runcard{border:1px solid var(--line-2);background:var(--panel);border-radius:3px;font-size:14.5px;line-height:1.5}
+.rc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;background:var(--fg);color:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.rc-head span{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:rec 1.8s ease-in-out infinite}
+@keyframes rec{50%{opacity:.2}}
+.rc-rows{margin:0;padding:4px 16px}
+.rc-row{display:grid;grid-template-columns:minmax(0,7.6rem) minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.rc-row:last-child{border-bottom:0}
+.rc-row dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.rc-row dd{margin:0}
+.rc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding:10px 16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px}
+.rc-foot a{color:var(--red-ink);text-decoration:none}
+.rc-foot a:hover{text-decoration:underline}
+
+/* Sections */
+.sec{padding-block:clamp(52px,7vw,92px);border-top:1px solid var(--line)}
+.sec-alt{background:var(--panel)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px 24px;margin-bottom:clamp(26px,4vw,42px)}
+@media (max-width:700px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-ink);margin:0 0 10px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,66px);line-height:.92;text-transform:uppercase;letter-spacing:.005em;margin:0;text-wrap:balance}
+.sec-lead{color:var(--fg-2);max-width:42em;margin:14px 0 0}
+.more{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--red-ink);text-decoration:none;white-space:nowrap}
+.more:hover{text-decoration:underline}
+.subhead-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 12px}
+
+
+
+/* Results */
+.plates{display:grid;gap:24px}
+.plate{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+.plate-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px 16px;padding:22px 22px 0}
+.plate-head h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1;text-transform:uppercase;margin:0;max-width:26ch;text-wrap:balance}
+.cond{display:flex;flex-wrap:wrap;gap:8px 24px;margin:16px 22px 0;padding:12px 14px;background:var(--bg);border:1px dashed var(--line-2);border-radius:3px;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+.cond div{display:flex;gap:8px;min-width:0}
+.cond dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:11px;padding-top:1px;flex:none}
+.cond dd{margin:0}
+.plate-body{padding:18px 22px 22px}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:0 14px 10px 0;border-bottom:1px solid var(--line-2)}
+td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th:last-child,td:last-child{padding-right:0}
+.res{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;font-weight:600;white-space:nowrap}
+.res-ok{color:var(--ok)}
+.res-bad{color:var(--red-ink)}
+.note{color:var(--fg-2);font-size:14.5px;margin:16px 0 0;max-width:66ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.chart-head h4{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin:0;font-weight:600}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:15px}
+.bar-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14.5px}
+.bar-top small{display:block;color:var(--muted);font-size:12.5px}
+.bar-top b{font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{position:relative;height:12px;background:var(--raised);border-radius:2px;margin-top:6px}
+.fill{position:absolute;top:0;bottom:0;left:0;background:var(--bar);border-radius:2px}
+.tick{position:absolute;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--warn)}
+.cap{font-size:13.5px;color:var(--muted);margin:16px 0 0}
+
+/* Method */
+.legend{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.legend li{display:grid;grid-template-columns:8.4rem minmax(0,1fr);gap:12px;align-items:start;font-size:15px;color:var(--fg-2)}
+.legend .tag{justify-self:start;margin-top:2px}
+.proto{margin:0;border-top:1px solid var(--line-2)}
+.proto div{display:grid;grid-template-columns:minmax(0,8.5rem) minmax(0,1fr);gap:4px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.proto dt{font-family:var(--display);font-weight:800;font-size:23px;text-transform:uppercase;line-height:1.1}
+.proto dd{margin:0;color:var(--fg-2)}
+@media (max-width:560px){.proto div{grid-template-columns:minmax(0,1fr)}}
+
+
+
+/* News */
+.news{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.news li{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:6px 28px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media (max-width:620px){.news li{grid-template-columns:minmax(0,1fr)}}
+.news time{font-family:var(--mono);font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums;padding-top:3px;white-space:nowrap}
+.nh{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:6px}
+.news h3{font-size:18px;font-weight:600;margin:0;line-height:1.3}
+.news p{margin:0;color:var(--fg-2);max-width:70ch}
+.news .src{margin-top:8px}
+.news .src a{color:var(--fg-2);text-underline-offset:3px}
+.news .src a:hover{color:var(--fg)}
+
+/* Footer */
+.foot{border-top:1px solid var(--line);background:var(--panel);padding-block:clamp(44px,6vw,68px) 28px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px}
+@media (max-width:820px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.links li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.lk{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.links a{font-weight:600;text-decoration:none}
+.links a:hover{color:var(--red-ink)}
+.val{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.copy{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--line-2);background:transparent;color:var(--fg);border-radius:3px;cursor:pointer}
+.copy:hover{border-color:var(--fg-2)}
+.fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+
+/* Brand: badge image and wordmark colors from the channel logo */
+.brand img{width:34px;height:34px;flex:none;display:block}
+.foot-brand .brand img{width:48px;height:48px}
+.wordmark .w-no{color:var(--red)}
+.wordmark .w-dad{color:var(--gold)}
+
+/* About: the human behind it */
+.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,56px);align-items:start}
+.about-grid:not(:has(.portrait)){grid-template-columns:minmax(0,1fr)}
+@media (max-width:820px){.about-grid{grid-template-columns:minmax(0,1fr)}}
+.photo{margin:0;min-width:0}
+.frame{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:var(--r);overflow:hidden;background:var(--raised)}
+.portrait .frame{aspect-ratio:4/5}
+.frame img{display:block;width:100%;height:100%;object-fit:cover}
+.photo figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+.frame.art{background:#0E0B0C}
+.frame.art img{object-fit:contain}
+.about-text p{color:var(--fg-2);margin:0 0 14px;max-width:38em;font-size:17px}
+.about-text .hi{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,40px);line-height:1;text-transform:uppercase;color:var(--fg);margin-bottom:18px}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:26px 0 0;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.role{padding:18px 20px;min-width:0}
+.role + .role{border-left:1px solid var(--line-2)}
+@media (max-width:600px){
+  .roles{grid-template-columns:minmax(0,1fr)}
+  .role + .role{border-left:0;border-top:1px solid var(--line-2)}
+}
+.role h2{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;font-weight:600}
+.role h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+.role.ai h2::before{background:var(--gold)}
+.role ul{margin:0;padding:0 0 0 18px;display:grid;gap:7px;color:var(--fg-2);font-size:15px;line-height:1.45}
+.about-text .ai-note{margin-top:18px;color:var(--fg);font-size:15.5px}
+.contact-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:15.5px}
+.contact-line a{color:var(--fg);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.photo-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(30px,4vw,44px)}
+@media (max-width:760px){.photo-row{grid-template-columns:minmax(0,1fr)}}
+
+
+
+/* Inventory page */
+.page-head{padding-block:clamp(40px,6vw,72px) clamp(28px,4vw,44px)}
+.page-head h1{font-family:var(--display);font-weight:900;font-size:clamp(56px,9vw,104px);line-height:.86;text-transform:uppercase;margin:0}
+.jump{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.jump a{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--line-2);border-radius:4px;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--fg-2)}
+.jump a:hover{color:var(--fg);border-color:var(--fg-2)}
+.jump b{color:var(--muted);font-weight:600}
+.inv-sec{padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+.inv-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin-bottom:16px}
+.inv-head h2{font-size:clamp(30px,4vw,44px)}
+.inv-head .count{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--muted)}
+.inv-sec .sec-lead{margin:0 0 18px}
+table.inv td.asset{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;width:4.2rem}
+table.inv td.dev{font-weight:600}
+table.inv td.det{color:var(--fg-2)}
+table.inv td.note{color:var(--muted);font-size:14px}
+table.inv tbody th{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);font-weight:600;text-align:left;padding:18px 0 8px;border-bottom:1px solid var(--line-2)}
+table.inv tbody:first-of-type th{padding-top:4px}
+.sw{margin:16px 0 0;color:var(--fg-2);font-size:15px}
+.sw b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
+.held{margin:26px 0 0;color:var(--muted);font-size:14.5px}
+.nav a[aria-current="page"]{color:var(--fg);background:var(--raised)}
+table.inv .tag{white-space:normal;line-height:1.3}
+.otw{margin:0 0 22px;color:var(--fg-2);font-size:15px}
+.otw b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-right:10px}
+
+/* News: topics I'm tracking */
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:clamp(36px,5vw,52px)}
+@media (max-width:820px){.topics{grid-template-columns:minmax(0,1fr)}}
+.topic{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);padding:20px 22px 22px;min-width:0}
+@media (max-width:520px){.topic{padding:18px 16px 20px}}
+.topic.wide{grid-column:1 / -1}
+.topic h3{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1;text-transform:uppercase;margin:12px 0 0;text-wrap:balance}
+.topic .intro{color:var(--fg-2);margin:10px 0 0;max-width:60ch}
+.topic-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 36px;margin-top:20px;align-items:start}
+@media (max-width:820px){.topic-split{grid-template-columns:minmax(0,1fr)}}
+.bars.hot .fill{background:var(--red)}
+.topic .cap a,.tl a.s{color:var(--fg-2);text-underline-offset:3px}
+.topic .cap a:hover,.tl a.s:hover{color:var(--fg)}
+.tl{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+.topic-split .tl{margin-top:0}
+.tl li{display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:12px;font-size:15px;line-height:1.5}
+.tl time{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:2px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tl p{margin:0;color:var(--fg-2)}
+.tl a.s{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.flag{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-right:8px}
+
+/* Useful links */
+.drivers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.drv{display:flex;flex-direction:column;padding:18px 20px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);min-width:0}
+.sec-alt .drv{background:var(--bg)}
+.drv-vendor{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);margin:0}
+.drv-name{font-size:17px;font-weight:600;margin:6px 0 0;line-height:1.3}
+.drv-ver{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:12px 0 0}
+.drv-ver .v{font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;font-variant-numeric:tabular-nums}
+.drv-date{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.drv-note{font-size:14.5px;color:var(--fg-2);margin:12px 0 0;line-height:1.5}
+.drv-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:auto 0 0;padding-top:14px;font-family:var(--mono);font-size:12.5px}
+.drv-links a{color:var(--red-ink);text-decoration:none}
+.drv-links a:hover{text-decoration:underline}
+.lrows{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.lrows{grid-template-columns:minmax(0,1fr)}}
+.lrows li{min-width:0}
+.lrow{display:flex;flex-direction:column;gap:4px;height:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s}
+.lrow:hover{border-color:var(--fg-2)}
+.lr-name{font-weight:600;font-size:16px;line-height:1.35}
+.lr-go{color:var(--red-ink)}
+.lr-where{font-family:var(--mono);font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.lr-desc{color:var(--fg-2);font-size:14.5px;line-height:1.5;margin-top:4px}
+.lgroup{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:28px 0 12px}
+.caution{margin:0 0 4px;padding:14px 16px;border:1px solid var(--line-2);border-left:3px solid var(--warn);border-radius:3px;background:var(--panel);color:var(--fg-2);font-size:15px;max-width:72ch}
+.caution b{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--warn);font-weight:600;margin-bottom:4px}
+
+/* Footer brand block */
+.foot-brand .brand{font-size:28px}
+.foot-brand .brand svg{width:48px;height:48px}
+.foot-brand .tagline-sm{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-2);margin:14px 0 8px}
+.foot-brand p{color:var(--fg-2);max-width:32em;margin:0}
+
+/* ---------------------------------------------------------------- video + lab layout */
+/* Home hero: the newest video, framed like a viewfinder, beside the run card */
+.hero2{padding-block:clamp(30px,4.5vw,56px) clamp(44px,6vw,76px)}
+.hero-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(26px,4vw,44px)}
+@media (max-width:860px){.hero-intro{grid-template-columns:minmax(0,1fr)}}
+.brandcol{container-type:inline-size;min-width:0}
+.hero-intro .wordmark{font-size:clamp(48px,8vw,92px);font-size:clamp(48px,15cqi,96px)}
+.hero-intro .tagline{margin-top:12px}
+.hero-intro .lead{margin:0;max-width:36em}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:860px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.feature{min-width:0}
+.feature-media{display:block;border-radius:var(--r)}
+.feat-kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--muted);margin:18px 0 8px}
+h2.feat-title{font-size:clamp(30px,3.6vw,46px);line-height:.95}
+.feat-blurb{color:var(--fg-2);margin:12px 0 0;max-width:40em;font-size:17px}
+.feature .cta{margin-top:20px}
+
+.vthumb{position:relative;display:block;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background-color:var(--raised);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vthumb .fb{position:absolute;left:14px;bottom:10px;font-family:var(--display);font-weight:900;font-size:24px;line-height:.9;text-transform:uppercase;color:var(--muted)}
+.vthumb.big{border-radius:var(--r)}
+.vthumb.big .fb{left:30px;bottom:26px;font-size:clamp(32px,5vw,60px)}
+.vf{position:absolute;inset:14px;pointer-events:none;--c:rgba(255,255,255,.92);
+  background:
+    linear-gradient(var(--c) 0 0) left top/26px 2px,linear-gradient(var(--c) 0 0) left top/2px 26px,
+    linear-gradient(var(--c) 0 0) right top/26px 2px,linear-gradient(var(--c) 0 0) right top/2px 26px,
+    linear-gradient(var(--c) 0 0) left bottom/26px 2px,linear-gradient(var(--c) 0 0) left bottom/2px 26px,
+    linear-gradient(var(--c) 0 0) right bottom/26px 2px,linear-gradient(var(--c) 0 0) right bottom/2px 26px;
+  background-repeat:no-repeat}
+.vthumb:not(:has(img)) .vf{--c:var(--line-2)}
+.play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:var(--red-btn);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(0,0,0,.24);transition:transform .15s}
+.play svg{margin-left:3px}
+a:hover .play{transform:scale(1.06)}
+.vf-tag,.vthumb .dur{position:absolute;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;line-height:1;padding:6px 8px;border-radius:3px;background:rgba(10,8,9,.74);color:#fff}
+.vf-tag{left:26px;top:24px;text-transform:uppercase}
+.vthumb .dur{right:26px;bottom:24px;font-variant-numeric:tabular-nums}
+@media (max-width:520px){
+  .vf{inset:9px}
+  .vf-tag{left:16px;top:15px}
+  .vthumb .dur{right:16px;bottom:15px}
+  .play{width:56px;height:56px;margin:-28px 0 0 -28px}
+}
+
+/* The channel in numbers: one ruled line */
+.ledger{border-block:1px solid var(--line);background:var(--panel)}
+.ledger ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.ledger li{min-width:0}
+.ledger li + li{border-left:1px solid var(--line)}
+.ledger a{display:flex;align-items:baseline;gap:10px;height:100%;padding:18px 20px;text-decoration:none;color:var(--fg-2);font-size:15px;line-height:1.3}
+.ledger li:first-child a{padding-left:0}
+.ledger b{font-family:var(--display);font-weight:900;font-size:38px;line-height:.9;color:var(--fg);font-variant-numeric:tabular-nums;flex:none}
+.ledger a:hover b{color:var(--red-ink)}
+@media (max-width:860px){
+  .ledger ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ledger li:nth-child(3){border-left:0}
+  .ledger li:nth-child(n+3){border-top:1px solid var(--line)}
+  .ledger li:nth-child(odd) a{padding-left:0}
+  .ledger li:nth-child(even) a{padding-right:0}
+}
+@media (max-width:420px){.ledger a{flex-direction:column;gap:6px;font-size:14px}}
+
+/* Results hub */
+.rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.rgrid{grid-template-columns:minmax(0,1fr)}}
+.rcard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 22px 22px;min-width:0}
+.rs-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rcard h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1;text-transform:uppercase;margin:14px 0 0;text-wrap:balance}
+.finding{color:var(--fg);font-size:16.5px;margin:10px 0 18px;max-width:46ch}
+.rs-meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin:16px 0 0}
+.rs-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:auto 0 0;padding-top:14px;font-family:var(--mono);font-size:12.5px}
+.rs-links a{color:var(--red-ink);text-decoration:none}
+.rs-links a:hover{text-decoration:underline}
+.checks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.checks li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+
+/* Video shelf */
+.vgrid2{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 22px}
+@media (max-width:920px){.vgrid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vc{min-width:0}
+.vc a{display:flex;flex-direction:column;gap:6px;height:100%;text-decoration:none;color:inherit}
+.vc .vthumb{margin-bottom:8px}
+.vc-title{font-weight:600;font-size:16.5px;line-height:1.35}
+.vc a:hover .vc-title{color:var(--red-ink)}
+.vc-meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.vc-blurb{color:var(--fg-2);font-size:14.5px;line-height:1.5}
+.vc-go{margin-top:auto;padding-top:4px;font-family:var(--mono);font-size:12px;color:var(--red-ink)}
+@media (max-width:560px){
+  .vgrid2{grid-template-columns:minmax(0,1fr);gap:20px}
+  .vc a{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);column-gap:14px;row-gap:4px;align-content:start}
+  .vc .vthumb{grid-row:1 / span 4;margin:0}
+  .vc-title{font-size:15px}
+  .vc-blurb{display:none}
+}
+.vshorts{margin:28px 0 0}
+
+/* News and latest drivers */
+.nd-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(36px,5vw,64px)}
+@media (max-width:900px){.nd-grid{grid-template-columns:minmax(0,1fr)}}
+.nd-grid .sec-head{margin-bottom:18px}
+.nd-grid h2{font-size:clamp(34px,4.2vw,48px)}
+.nlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.nlist a{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.nl-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.nl-top time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.nl-title{font-weight:600;font-size:18px;line-height:1.3}
+.nlist a:hover .nl-title{color:var(--red-ink)}
+.nl-sum{color:var(--fg-2);font-size:15px}
+.dmini{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.dmini li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.dm-name{font-weight:600;font-size:16px;min-width:0}
+.dm-name b{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);font-weight:600;margin-right:10px}
+.dm-ver{grid-row:1 / span 2;grid-column:2;font-family:var(--display);font-weight:900;font-size:38px;line-height:.9;font-variant-numeric:tabular-nums}
+.dm-sub{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.dm-sub a{color:var(--red-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.dm-note{font-size:14.5px;color:var(--fg-2);margin:14px 0 0}
+
+/* About strip */
+.about-strip{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center}
+@media (max-width:640px){.about-strip{grid-template-columns:minmax(0,1fr)}}
+.as-photo{margin:0;width:100%;max-width:200px;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--raised)}
+@media (max-width:640px){.as-photo{max-width:132px}}
+.as-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.as-text h2{font-size:clamp(30px,3.6vw,44px)}
+.as-text p{color:var(--fg-2);max-width:40em;margin:14px 0 0}
+.as-text .contact-line{margin:14px 0 20px}
+
+/* Inner pages */
+.page-head .eyebrow a{color:inherit;text-underline-offset:3px}
+.method2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(30px,5vw,64px);align-items:start;padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+@media (max-width:860px){.method2{grid-template-columns:minmax(0,1fr)}}
+.method2 .legend{margin-top:0}
+.about-page,.news-page{padding-block:clamp(30px,4.5vw,48px);border-top:1px solid var(--line)}
+.news-page > .subhead-label{margin-bottom:14px}
+.page-head.vp-head h1{font-size:clamp(34px,5vw,60px);line-height:.92;text-wrap:balance;max-width:22ch}
+.vp-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start;padding-bottom:clamp(30px,4.5vw,48px)}
+@media (max-width:900px){.vp-grid{grid-template-columns:minmax(0,1fr)}}
+.embed{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#000}
+.embed > a{display:block;height:100%}
+.embed .vthumb{height:100%;aspect-ratio:auto;border-radius:0}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vp-intro p{color:var(--fg-2);margin:16px 0 0;max-width:62ch}
+.vp-intro p:first-child{color:var(--fg);font-size:18px;margin-top:22px}
+.vp-side .chapters,.vp-side .jump{margin:0 0 28px}
+.chapters{list-style:none;padding:0;border-top:1px solid var(--line-2)}
+.chapters a{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--fg-2);font-size:15px;line-height:1.4}
+.chapters a:hover{color:var(--fg)}
+.chapters time{font-family:var(--mono);font-size:12.5px;color:var(--red-ink);font-variant-numeric:tabular-nums;padding-top:1px}
+.tested{margin:0;padding:0 0 0 20px;display:grid;gap:8px;color:var(--fg-2);max-width:70ch}
+table.inv tr:target td{background:var(--gold-wash)}
+main > .wrap:last-child{padding-bottom:clamp(40px,6vw,72px)}
+@media (max-width:560px){.vc .vthumb .fb{font-size:17px;left:10px;bottom:8px}}
+.plate-fig{margin:18px 0 0}
+.plate-fig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
+.plate-fig figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.res-warn{color:var(--warn)}
+.tbl td small{display:block;color:var(--muted);font-size:13px}
+.tbl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* Feedback page: a form whose button writes an email in the visitor's own mail app */
+.fb{border-top:1px solid var(--line)}
+.fb-set{border:0;margin:0;padding:clamp(30px,4.5vw,48px) 0;min-width:0}
+.fb-set + .fb-set{border-top:1px solid var(--line)}
+.fb-set legend{float:left;width:100%;padding:0;margin:0}
+.fb-set legend h2{font-size:clamp(30px,4vw,44px)}
+.fb-set legend + *{clear:both}
+.fb-lead{color:var(--fg-2);max-width:42em;margin:0;padding:12px 0 18px}
+.fb-sub{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:22px 0 10px}
+.fb-lead + .fb-sub{margin-top:0}
+.picks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pick{display:inline-flex;align-items:center;gap:9px;min-height:40px;padding:8px 12px 8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--panel);color:var(--fg-2);font-size:15px;line-height:1.3;cursor:pointer;transition:border-color .15s,background-color .15s}
+.pick:hover{border-color:var(--fg-2);color:var(--fg)}
+.pick input{margin:0;width:16px;height:16px;flex:none;accent-color:var(--red-btn)}
+.pick:has(input:checked){border-color:var(--red);background:color-mix(in srgb, var(--red) 12%, transparent);color:var(--fg)}
+.pick:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.fb-groups{display:grid;gap:10px}
+.fb-dev{border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel)}
+.fb-dev summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:14px 16px;cursor:pointer;list-style:none}
+.fb-dev summary::-webkit-details-marker{display:none}
+.fb-dev summary::before{content:"+";font-family:var(--mono);font-weight:600;color:var(--red-ink);width:1ch}
+.fb-dev[open] summary::before{content:"−"}
+.fb-dev summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:var(--r)}
+.sum-t{font-weight:600;font-size:17px}
+.sum-n{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.sum-k{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--red-ink);margin-left:auto}
+.fb-dev-body{padding:0 16px 18px}
+.fb-dev-body .fb-sub:first-child{margin-top:4px}
+.fb-dev .pick{background:var(--bg)}
+.fb-field{display:grid;gap:6px;margin-top:22px;max-width:36rem}
+.fb-field.wide{max-width:48rem;margin-top:0}
+.fb-field label{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fb-field input,.fb-field textarea{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--panel);border:1px solid var(--line-2);border-radius:4px;padding:10px 12px}
+.fb-field textarea{min-height:8.5rem;resize:vertical;line-height:1.5}
+.fb-field input:focus-visible,.fb-field textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fb-send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+button.btn{font-family:inherit;cursor:pointer}
+.fb-count{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0}
+.fb-status{margin:14px 0 0;font-weight:600}
+.fb-status:empty{display:none}
+.fb-privacy{color:var(--muted);font-size:14.5px;max-width:62ch;margin:14px 0 0}
+.fb-out{margin-top:22px;padding:16px 18px;border:1px solid var(--line-2);border-left:3px solid var(--gold);border-radius:3px;background:var(--panel);max-width:72ch}
+.fb-out p{margin:0;color:var(--fg-2)}
+.fb-msg{margin:14px 0;padding:12px 14px;background:var(--bg);border:1px dashed var(--line-2);border-radius:3px;font-family:var(--mono);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.fb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+
+/* Home: the feedback call-out */
+.fbc{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px 40px}
+@media (max-width:700px){.fbc{grid-template-columns:minmax(0,1fr)}.fbc .btn{justify-self:start}}
+
+/* Price tracker: news page section and home strip (built by _src/tracker.py) */
+.pt{margin:0 0 clamp(40px,6vw,64px)}
+.pt-head{margin-bottom:22px}
+h2.pt-h{font-size:clamp(34px,4.6vw,52px)}
+.pt-lead{color:var(--fg-2);max-width:62ch;margin:12px 0 0;font-size:17px}
+.pt-checked{font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0 0}
+.pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}
+.pt-card{margin:0;display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);padding:18px 20px 16px;min-width:0}
+.pt-cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink);margin:0}
+.pt-title{font-size:17px;font-weight:600;margin:6px 0 0;line-height:1.3}
+.pt-now-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:12px 0 0}
+.pt-price{font-family:var(--display);font-weight:900;font-size:50px;line-height:.9}
+.pt-when{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pt-deltas{display:flex;flex-wrap:wrap;gap:4px 14px;margin:10px 0 0;font-size:14.5px}
+.pt-delta{font-weight:600;white-space:nowrap}
+.pt-up{color:var(--red-ink)}
+.pt-down{color:var(--ok)}
+.pt-flat{color:var(--muted)}
+.pt-since{font-weight:400;color:var(--fg-2)}
+.pt-over{color:var(--fg-2)}
+.pt-chart{position:relative;margin:14px 0 0}
+.pt-svg{display:block;width:100%;max-width:480px;height:auto;overflow:visible;touch-action:pan-y}
+.pt-svg:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:3px}
+.pt-svg .pt-grid{stroke:var(--line);stroke-width:1}
+.pt-svg .pt-base{stroke:var(--line-2);stroke-width:1}
+.pt-svg .pt-ref{stroke:var(--muted);stroke-width:1}
+.pt-svg text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.pt-svg .pt-reflabel{fill:var(--fg-2);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.pt-svg .pt-nowlabel{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+.pt-start,.pt-lone{fill:var(--red);stroke:var(--panel);stroke-width:2}
+.pt-svg .pt-nowlabel{fill:var(--fg);font-size:11.5px;font-weight:600}
+.pt-line{fill:none;stroke:var(--red);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.pt-area{fill:var(--red);fill-opacity:.1;stroke:none}
+.pt-halo{fill:var(--red);fill-opacity:.2}
+.pt-now{fill:var(--red);stroke:var(--panel);stroke-width:2}
+.pt-x{stroke:var(--fg-2);stroke-width:1}
+.pt-f{fill:var(--panel);stroke:var(--red);stroke-width:2}
+.pt-tip{position:absolute;top:0;left:0;z-index:2;pointer-events:none;display:flex;flex-direction:column;gap:2px;padding:6px 9px;border-radius:4px;background:var(--fg);color:var(--bg);line-height:1.25;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.pt-tip[hidden]{display:none}
+.pt-tip b{font-family:var(--mono);font-size:13px}
+.pt-tip span{font-family:var(--mono);font-size:11px;opacity:.85}
+.pt-src{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:auto;padding-top:12px}
+.pt-src a{color:var(--fg-2);text-underline-offset:3px}
+.pt-src a:hover{color:var(--fg)}
+.pt-more-h{margin:30px 0 10px}
+.pt-more{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
+.pt-more li{display:grid;grid-template-columns:minmax(0,1.2fr) 120px minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:6px 18px;padding:12px 0;border-bottom:1px solid var(--line)}
+.pm-name{font-weight:600}
+.pm-msrp{display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted);font-weight:400}
+.pm-vals{font-family:var(--mono);font-size:13.5px;color:var(--fg-2);white-space:nowrap}
+.pm-vals b{color:var(--fg)}
+.pt-more .pt-delta{font-size:14px}
+@media (max-width:700px){
+  .pt-more li{grid-template-columns:minmax(0,1fr) auto}
+  .pm-spark{grid-column:2;grid-row:1 / span 2}
+  .pm-vals{grid-column:1}
+  .pt-more .pt-delta{grid-column:1 / -1}
+}
+.pt-spark{display:block;width:120px;height:44px;overflow:visible}
+.pt-spark .pt-now{stroke-width:1.5}
+.pt-table{margin:24px 0 0}
+.pt-table summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--red-ink);width:max-content}
+.pt-table .tbl{margin-top:12px}
+.pt-table td{font-family:var(--mono);font-size:13px;white-space:nowrap}
+.pt-table tbody th{font-family:var(--mono);font-size:12px;color:var(--fg-2);text-transform:none;letter-spacing:0;white-space:nowrap;padding:12px 14px 12px 0;border-bottom:1px solid var(--line)}
+.pt-d{color:var(--muted);font-size:11.5px}
+.pt-na{color:var(--muted)}
+.pt-notes{margin:0;padding:0 0 0 18px;display:grid;gap:8px;color:var(--fg-2);font-size:14.5px;max-width:80ch}
+.ps{margin:0 0 clamp(36px,5vw,52px)}
+.ps-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px;margin-bottom:12px}
+.ps-head .subhead-label{margin:0}
+.ps-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.ps-tiles{grid-template-columns:minmax(0,1fr)}}
+.ps-tiles a{display:flex;flex-direction:column;gap:4px;height:100%;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--panel);text-decoration:none;color:inherit;transition:border-color .15s}
+.ps-tiles a:hover{border-color:var(--fg-2)}
+.ps-cat{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--red-ink)}
+.ps-name{font-weight:600;font-size:15px;line-height:1.3}
+.ps-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:6px 0 2px}
+.ps-price{font-family:var(--display);font-weight:900;font-size:38px;line-height:.9}
+.ps .pt-delta{font-size:13.5px}
+.pt-metric{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+.pt-ctx{font-size:13.5px;color:var(--fg-2);margin:12px 0 0;line-height:1.5}
+.pm-vals small{font-size:11.5px;color:var(--muted)}
+.pm-change{display:flex;flex-direction:column;gap:2px}
+.pm-flag{font-size:12.5px;color:var(--fg-2);line-height:1.4}
+
+/* PBZ Bench page */
+.dl-row{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0}
+.sha{font-family:var(--mono);font-size:12.5px;line-height:1.5;word-break:break-all;font-weight:500}
+.pbz-page code{font-family:var(--mono);font-size:.92em;word-break:break-word}
+.pbz-page .caution{margin-bottom:22px}
+.pbz-page .links li{align-items:flex-start}
+.pbz-page .links .val{flex:1 1 22rem;justify-content:space-between;min-width:0}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="No_Tech-Dad, home"><img src="img/badge.png" width="34" height="34" alt="">No_Tech-Dad</a>
+    <nav class="nav" aria-label="Pages">
+      <a href="videos.html">Videos</a>
+      <a href="results.html">Results</a>
+      <a href="method.html">Method</a>
+      <a href="pbz-bench.html" aria-current="page">Tools</a>
+      <a href="bench.html">Bench</a>
+      <a href="news.html">News</a>
+      <a href="links.html">Links</a>
+      <a href="about.html">About</a>
+      <a href="feedback.html">Feedback</a>
+    </nav>
+    <a class="btn btn-red btn-sm" href="https://www.youtube.com/@no_tech-dad?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
+  </div>
+</header>
+<main id="top">
+<div class="wrap pbz-page">
+  <div class="page-head">
+    <p class="eyebrow">Tools · free download · version 1.4.1</p>
+    <h1>PBZ Bench</h1>
+    <p class="sec-lead">A benchmark for Phantom Blade Zero, which doesn't have one built in. It sets the graphics settings you pick, launches the game, captures every frame with Intel PresentMon while you play a fixed route, then puts your own settings back. I built it with Claude for my own tests.</p>
+    <ul class="jump"><li><a href="#download">Download</a></li><li><a href="#what">What it does</a></li><li><a href="#install">Install</a></li><li><a href="#first-run">First run</a></li><li><a href="#changes">What it changes</a></li><li><a href="#privacy">Privacy</a></li><li><a href="#terms">Terms</a></li><li><a href="#new">What's new</a></li></ul>
+  </div>
+  <section class="inv-sec" id="download" aria-labelledby="download-title">
+    <div class="inv-head"><h2 id="download-title">Download</h2></div>
+    <div class="caution" role="note" aria-label="Read before you download"><b>Unofficial tool, no warranty</b>PBZ Bench is fan-made. It isn't affiliated with or supported by S-GAME, Valve, Intel, NVIDIA or AMD. It runs as administrator and changes the game's settings file while it works, backing it up first and putting it back afterwards. You use it at your own risk: read the <a class="inline" href="#terms">terms</a>.</div>
+    <dl class="proto">
+      <div><dt>Version</dt><dd>1.4.1 · released 11 Nov 2026</dd></div>
+      <div><dt>Runs on</dt><dd>Windows 10 or 11, 64-bit, with Phantom Blade Zero on Steam. It uses the .NET Framework 4.8 that comes with Windows, so there's nothing else to install.</dd></div>
+      <div><dt>In the zip</dt><dd>PBZBench.exe, Intel PresentMon 2.6.0 (MIT licence), the guide (README.txt), the terms (LICENSE.txt) and the changelog. 637&nbsp;KB.</dd></div>
+      <div><dt>Price</dt><dd>Free. Please link to this page rather than re-hosting the file.</dd></div>
+    </dl>
+    <p class="dl-row"><a class="btn btn-red" href="downloads/PBZBench-1.4.1.zip" download data-goatcounter-click="download-pbzbench-1.4.1" data-goatcounter-title="PBZ Bench 1.4.1 download">Download PBZ Bench 1.4.1 (zip)</a><a class="btn btn-line" href="#install">How to install</a></p>
+    <p class="note">Downloading means you accept the <a class="inline" href="#terms">terms and disclaimer</a>.</p>
+    <h3 class="lgroup">SHA-256 checksums</h3>
+    <ul class="links"><li><span class="lk">PBZBench-1.4.1.zip</span><span class="val"><span class="sha" id="sha-zip">9837e310b2f364244598bbaa3c92bb8a162d14f734ff363cb4f1df74aedf9b68</span><button class="copy" type="button" data-copy="9837e310b2f364244598bbaa3c92bb8a162d14f734ff363cb4f1df74aedf9b68" aria-controls="sha-zip"><span class="copy-label">Copy</span></button></span></li><li><span class="lk">PBZBench.exe</span><span class="val"><span class="sha" id="sha-exe">f5a2ef044042adb2468e0398cddf524d4cc4487586ab2023cf56145651dd792e</span><button class="copy" type="button" data-copy="f5a2ef044042adb2468e0398cddf524d4cc4487586ab2023cf56145651dd792e" aria-controls="sha-exe"><span class="copy-label">Copy</span></button></span></li></ul>
+    <p class="note">In PowerShell, <code>Get-FileHash .\PBZBench-1.4.1.zip</code> should print the same value. If it doesn't, delete the file and don't run it.</p>
+  </section>
+  <section class="inv-sec" id="what" aria-labelledby="what-title">
+    <div class="inv-head"><h2 id="what-title">What it does</h2></div>
+    <ol class="tested">
+      <li>Writes the graphics settings you pick into the game's settings file.</li>
+      <li>Launches the game through Steam, after asking you first.</li>
+      <li>Captures every frame with Intel PresentMon while you play a fixed route, or replays a route you recorded.</li>
+      <li>Closes the game, checks that the game kept your settings, and puts your own settings back.</li>
+      <li>Shows average FPS, 1%, 0.2% and 0.1% lows, a frame-time graph and GPU and CPU telemetry, and keeps every run.</li>
+      <li>Writes one row per configuration to Results\sheet_summary.csv for your spreadsheet, with the lows pooled over every pass.</li>
+    </ol>
+    <p class="note">It's for Phantom Blade Zero on Steam only. It runs on desktops and on handheld PCs, where holding L3 + R3 on the controller starts and stops a run. It finds frame generation from NVIDIA, AMD and Intel by itself and reports what reached the screen.</p>
+  </section>
+  <section class="inv-sec" id="install" aria-labelledby="install-title">
+    <div class="inv-head"><h2 id="install-title">Install</h2></div>
+    <ol class="tested">
+      <li>Unzip the whole folder somewhere you can write to, such as Documents\PBZ Bench. Not Program Files: PBZ Bench saves its results next to PBZBench.exe.</li>
+      <li>Keep the tools folder next to PBZBench.exe. It holds PresentMon, which captures the frames.</li>
+      <li>Run PBZBench.exe and choose Yes on the administrator prompt. PresentMon needs administrator rights to read frame timings.</li>
+      <li>PBZ Bench isn't code-signed, so Windows SmartScreen may say "Windows protected your PC". Check the SHA-256 above first. If it matches, choose More info, then Run anyway.</li>
+    </ol>
+    <p class="note"><b>Updating:</b> unzip the new version over the old folder. Your results, presets, routes, branding and settings aren't in the zip, so they stay as they are. <b>Removing it:</b> Setup → Restore ORIGINAL (first run) puts the game's settings back exactly as they were before your first run. Then delete the folder; nothing else was installed.</p>
+  </section>
+  <section class="inv-sec" id="first-run" aria-labelledby="first-run-title">
+    <div class="inv-head"><h2 id="first-run-title">Your first benchmark</h2></div>
+    <ol class="tested">
+      <li>Quit the game and keep Steam running.</li>
+      <li>On the Benchmark page, pick the quality preset, ray tracing, Super Resolution mode and display options, or pick a ready-made preset under Benchmark → Presets. Set the upscaler, frame generation and Reflex in the game's own menu once, and match them in PBZ Bench.</li>
+      <li>Press START BENCHMARK. When the game has loaded, walk to your starting spot and press F9 (on a controller, hold L3 + R3 until the beep, then let go).</li>
+      <li>Play your route until the second beep. F10 (or holding L3 + R3 for three seconds) stops at any time.</li>
+      <li>The game closes, your settings are put back, and Results opens.</li>
+    </ol>
+    <p class="note">For runs you can repeat exactly, record a route once under Setup → Routes and turn on Start position lock. Every run is saved in the Results folder. The full guide is README.txt in the zip.</p>
+  </section>
+  <section class="inv-sec" id="changes" aria-labelledby="changes-title">
+    <div class="inv-head"><h2 id="changes-title">What it changes on your PC</h2></div>
+    <dl class="proto">
+      <div><dt>Game files</dt><dd>Not modified. PBZ Bench doesn't read or change the game's memory either.</dd></div>
+      <div><dt>Settings</dt><dd><code>%LOCALAPPDATA%\ProjectPBZ\Saved\Config\Windows\GameUserSettings.ini</code>, backed up before every session and put back after it. The first, untouched copy is kept, and Setup → Restore ORIGINAL puts it back at any time.</dd></div>
+      <div><dt>Saves</dt><dd>Only with Start position lock turned on. They're backed up first and put back afterwards.</dd></div>
+      <div><dt>Input</dt><dd>Recorded routes replay keyboard and mouse input, only while the game is the window in front. F9 and F10 are only watched during a run.</dd></div>
+      <div><dt>Its folder</dt><dd>Results, backups, presets, routes, exports, its own settings (config.json) and a log, all next to PBZBench.exe. Nothing else is installed.</dd></div>
+    </dl>
+  </section>
+  <section class="inv-sec" id="privacy" aria-labelledby="privacy-title">
+    <div class="inv-head"><h2 id="privacy-title">Privacy</h2></div>
+    <dl class="proto">
+      <div><dt>Internet</dt><dd>Nothing leaves your PC. There's no telemetry, no account and no update check.</dd></div>
+      <div><dt>OBS</dt><dd>Optional. If you turn on OBS recording, PBZ Bench connects only to the OBS address you enter.</dd></div>
+      <div><dt>Sharing</dt><dd>Saved runs list your hardware, drivers and computer name, and the log shows folder paths that include your Windows user name. Check them before you share a run or an export.</dd></div>
+    </dl>
+  </section>
+  <section class="inv-sec" id="terms" aria-labelledby="terms-title">
+    <div class="inv-head"><h2 id="terms-title">Terms and disclaimer</h2></div>
+    <p class="sec-lead">By downloading or using PBZ Bench you agree to these terms. They&#x27;re also in LICENSE.txt in the zip.</p>        <dl class="proto">
+          <div><dt>Free</dt><dd>PBZ Bench is free for personal and commercial use, including benchmarks for videos, streams, articles and reviews. A credit such as "Measured with PBZ Bench by No_Tech-Dad" is appreciated but not required.</dd></div>
+          <div><dt>Where</dt><dd>The only official download is this page. You're welcome to link to it. Without written permission, you may not re-host, mirror, sell, bundle or otherwise share PBZ Bench, as it is or modified.</dd></div>
+          <div><dt>Unofficial</dt><dd>PBZ Bench is an independent fan-made tool. It isn't affiliated with, endorsed, sponsored or supported by S-GAME (the developer of Phantom Blade Zero), Valve, Intel, NVIDIA, AMD or any hardware maker. Product names and trademarks belong to their owners and only say what PBZ Bench works with. Please don't contact any of them for help with it.</dd></div>
+          <div><dt>Your PC</dt><dd>It writes the settings you choose into the game's settings file, launches the game through Steam, captures frame timings with Intel PresentMon (which needs administrator rights) and closes the game afterwards. It backs up the settings file first and puts your own settings back after each session, and does the same for your saves if you turn on Start position lock. Recorded routes replay keyboard and mouse input while the game is in front. It doesn't modify the game's installed files or read or change the game's memory. Keep your own backups of anything important, your saves included.</dd></div>
+          <div><dt>No warranty</dt><dd>PBZ Bench is provided "as is", without warranty of any kind, express or implied, including merchantability, fitness for a particular purpose and non-infringement. You use it at your own risk.</dd></div>
+          <div><dt>Liability</dt><dd>As far as the law allows, the author isn't liable for any loss or damage from using PBZ Bench or being unable to use it. That includes lost or changed settings or saves, game or system crashes, data loss, hardware damage or overheating, problems with your Steam account or the game, and decisions based on its results.</dd></div>
+          <div><dt>Results</dt><dd>Numbers depend on your hardware, drivers, power settings, game version, settings and route. They're for comparison and information, can contain errors, and aren't official figures from any maker or from S-GAME.</dd></div>
+          <div><dt>Game terms</dt><dd>You're responsible for using Phantom Blade Zero and Steam within their own terms, including when PBZ Bench launches the game again and again or replays input.</dd></div>
+          <div><dt>Privacy</dt><dd>PBZ Bench sends nothing over the internet and has no telemetry. Results, logs and exports stay on your PC unless you share them. The only connection it can make is to OBS, if you turn on OBS recording, at the address you enter.</dd></div>
+          <div><dt>Credits</dt><dd>The zip includes Intel PresentMon, unmodified, copyright 2017-2024 Intel Corporation, under the MIT licence in tools\PresentMon-LICENSE.txt.</dd></div>
+          <div><dt>Changes</dt><dd>These terms can change with a new version. The terms in LICENSE.txt in your copy apply to that copy.</dd></div>
+        </dl>
+
+  </section>
+  <section class="inv-sec" id="new" aria-labelledby="new-title">
+    <div class="inv-head"><h2 id="new-title">What&#x27;s new in 1.4.1</h2></div>
+    <ul class="tested"><li>Before a session it compares each configuration with the game&#x27;s own menu and lists every setting that differs, because the game keeps its menu settings and writes them back.</li><li>XeSS Balanced is written and read as the game&#x27;s own value, so those runs verify.</li><li>Motion blur levels carry the names the game&#x27;s menu uses.</li><li>The 40 newest settings backups are kept, and the backup a session has just made is never removed.</li></ul>
+    <p class="note">The full list of changes is CHANGELOG.txt in the zip.</p>
+  </section>
+  <p class="held">Found a bug or want a feature? <a class="inline" href="feedback.html">Tell me on the feedback page</a>. Results → Export for Claude makes a zip of your runs and the log that you can attach to the email.</p>
+</div>
+</main>
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand"><img src="img/badge.png" width="48" height="48" alt="">No_Tech-Dad</span>
+        <p class="tagline-sm">Tech. Life. Leveling Up Together.</p>
+        <p>Independent tests of handheld PCs, eGPUs and mini PCs. Run by a human, supported by AI.</p>
+      </div>
+      <div>
+        <h2 class="subhead-label">Find me</h2>
+        <ul class="links">
+          <li><span class="lk">Email</span><span class="val"><a id="foot-email" href="mailto:Nizzel@notechdad.com">Nizzel@notechdad.com</a><button class="copy" type="button" data-copy="Nizzel@notechdad.com" aria-controls="foot-email"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Feedback</span><a href="feedback.html">Tell me what to test next →</a></li>
+          <li><span class="lk">YouTube</span><a href="https://www.youtube.com/@no_tech-dad" target="_blank" rel="noopener">@no_tech-dad ↗</a></li>
+          <li><span class="lk">X</span><a href="https://x.com/No_TechDad" target="_blank" rel="noopener">@No_TechDad ↗</a></li>
+          <li><span class="lk">Discord</span><span class="val"><span id="discord-handle">nizzel1982</span><button class="copy" type="button" data-copy="nizzel1982" aria-controls="discord-handle"><span class="copy-label">Copy</span></button></span></li>
+          <li><span class="lk">Community</span><a href="https://handheldsunited.com" target="_blank" rel="noopener">Handhelds United ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fine">
+      <span>I buy everything I review with my own money, and the opinions are my own.</span>
+      <span>Stay healthy. Stay safe. Love and peace. · Updated 11 Nov 2026</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {  // on phones the nav scrolls sideways: bring the current page's item into view
+  var cur = document.querySelector('.nav [aria-current="page"]');
+  if (!cur) return;
+  var nav = cur.parentElement, r = cur.getBoundingClientRect(), n = nav.getBoundingClientRect();
+  if (r.right > n.right) nav.scrollLeft += r.right - n.right + 8;
+})();
+(function () {  // a table that scrolls sideways takes keyboard focus, so arrow keys can scroll it
+  var mark = function () {
+    document.querySelectorAll('.tbl').forEach(function (t) {
+      if (t.scrollWidth > t.clientWidth + 1) { t.setAttribute('tabindex', '0'); } else { t.removeAttribute('tabindex'); }
+    });
+  };
+  mark();
+  window.addEventListener('resize', mark);
+})();
+document.querySelectorAll('img[data-yt]').forEach(function (img) {
+  var drop = function () { img.remove(); };
+  if (img.complete && img.naturalWidth === 0) { drop(); } else { img.addEventListener('error', drop); }
+});
+document.querySelectorAll('[data-embed]').forEach(function (box) {
+  // Plays the video in place on notechdad.com; anywhere else the link simply opens YouTube.
+  if (!/(^|\.)notechdad\.com$/.test(location.hostname)) return;
+  box.querySelector('a').addEventListener('click', function (ev) {
+    ev.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + box.getAttribute('data-embed') + '?autoplay=1&rel=0';
+    f.title = box.getAttribute('data-title') || 'YouTube video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    box.replaceChildren(f);
+  });
+});
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var label = btn.querySelector('.copy-label');
+    var reset = function () { setTimeout(function () { label.textContent = 'Copy'; }, 2200); };
+    function selectIt() {
+      var el = document.getElementById(btn.getAttribute('aria-controls'));
+      try {
+        var range = document.createRange(); range.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        label.textContent = 'Selected';
+      } catch (e2) { label.textContent = 'Copy failed'; }
+      reset();
+    }
+    try {
+      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () {
+        label.textContent = 'Copied'; reset();
+      }, selectIt);
+    } catch (e) { selectIt(); }
+  });
+});
+
+document.querySelectorAll('svg.pt-svg').forEach(function (svg) {
+  // Hover or arrow keys: a crosshair snaps to the nearest reading and the readout shows its date and price.
+  var pts = JSON.parse(svg.getAttribute('data-pts')), tip = svg.parentNode.querySelector('.pt-tip');
+  var cross = svg.querySelector('.pt-x'), dot = svg.querySelector('.pt-f'), cur = pts.length - 1;
+  function show(i) {
+    cur = i;
+    var p = pts[i];
+    cross.setAttribute('x1', p[0]); cross.setAttribute('x2', p[0]); cross.setAttribute('visibility', 'visible');
+    dot.setAttribute('cx', p[0]); dot.setAttribute('cy', p[1]); dot.setAttribute('visibility', 'visible');
+    tip.replaceChildren();
+    var b = document.createElement('b'); b.textContent = p[3];
+    var s = document.createElement('span'); s.textContent = p[2];
+    tip.append(b, s);
+    tip.hidden = false;
+    var box = svg.getBoundingClientRect(), host = svg.parentNode.getBoundingClientRect();
+    var vb = svg.viewBox.baseVal, x = box.left - host.left + p[0] / vb.width * box.width;
+    var y = box.top - host.top + p[1] / vb.height * box.height;
+    var w = tip.offsetWidth, left = Math.min(Math.max(x - w / 2, 0), host.width - w);
+    tip.style.left = left + 'px';
+    tip.style.top = Math.max(y - tip.offsetHeight - 12, 0) + 'px';
+  }
+  function hide() {
+    cross.setAttribute('visibility', 'hidden'); dot.setAttribute('visibility', 'hidden'); tip.hidden = true;
+  }
+  function nearest(ev) {
+    var box = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+    var x = (ev.clientX - box.left) / box.width * vb.width, best = 0;
+    pts.forEach(function (p, i) { if (Math.abs(p[0] - x) < Math.abs(pts[best][0] - x)) best = i; });
+    return best;
+  }
+  svg.addEventListener('pointermove', function (ev) { show(nearest(ev)); });
+  svg.addEventListener('pointerdown', function (ev) { show(nearest(ev)); });
+  svg.addEventListener('pointerleave', hide);
+  svg.addEventListener('focus', function () { show(pts.length - 1); });
+  svg.addEventListener('blur', hide);
+  svg.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowLeft' && cur > 0) { show(cur - 1); ev.preventDefault(); }
+    else if (ev.key === 'ArrowRight' && cur < pts.length - 1) { show(cur + 1); ev.preventDefault(); }
+    else if (ev.key === 'Home') { show(0); ev.preventDefault(); }
+    else if (ev.key === 'End') { show(pts.length - 1); ev.preventDefault(); }
+    else if (ev.key === 'Escape') { hide(); }
+  });
+});
+</script>
+<script data-goatcounter="https://notechdad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href*='youtube.com']");if(!a||!window.goatcounter||!window.goatcounter.count)return;var h=a.getAttribute("href"),n=h.indexOf("sub_confirmation")>-1?"subscribe":(h.match(/v=([\w-]+)/)?"watch-"+h.match(/v=([\w-]+)/)[1]:"channel");window.goatcounter.count({path:"click-"+n,title:a.textContent.trim().slice(0,60),event:true})});</script>
+</body>
+</html>

@@ -33,7 +33,7 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-09",     # footer stamp, results page, sitemap
+    "updated": "2026-11-11",     # footer stamp, results page, sitemap
     "inventory": "2026-11-05",   # bench page
     "links": "2026-11-09",       # useful links and the latest drivers
     "news": "2026-11-09",        # news page and the home page's news column
@@ -505,7 +505,7 @@ def slugify(s):
 
 # ================================================================ shared chrome
 NAV = [("videos", "Videos", "videos.html"), ("results", "Results", "results.html"), ("method", "Method", "method.html"),
-       ("bench", "Bench", "bench.html"), ("news", "News", "news.html"), ("links", "Links", "links.html"),
+       ("tools", "Tools", "pbz-bench.html"), ("bench", "Bench", "bench.html"), ("news", "News", "news.html"), ("links", "Links", "links.html"),
        ("about", "About", "about.html"), ("feedback", "Feedback", "feedback.html")]
 
 def topbar(current):
@@ -1145,6 +1145,106 @@ def companion_main(vid):
 </div>
 </main>"""
 
+# ================================================================ PBZ Bench (Tools)
+# The free download, served from downloads/. For a new version: put the new zip (and SHA256SUMS.txt) in downloads/,
+# delete the old zip, and update this dict from the files themselves: never type a size or a checksum from memory.
+PBZ_BENCH = {
+    "version": "1.4.1",
+    "released": "2026-11-11",
+    "zip": "downloads/PBZBench-1.4.1.zip",
+    "zip_bytes": 651882,
+    "zip_sha256": "9837e310b2f364244598bbaa3c92bb8a162d14f734ff363cb4f1df74aedf9b68",
+    "exe_sha256": "f5a2ef044042adb2468e0398cddf524d4cc4487586ab2023cf56145651dd792e",
+    "presentmon": "2.6.0",
+    "new": [  # what changed in this version, short; the full list is CHANGELOG.txt in the zip
+        "Before a session it compares each configuration with the game's own menu and lists every setting that "
+        "differs, because the game keeps its menu settings and writes them back.",
+        "XeSS Balanced is written and read as the game's own value, so those runs verify.",
+        "Motion blur levels carry the names the game's menu uses.",
+        "The 40 newest settings backups are kept, and the backup a session has just made is never removed.",
+    ],
+}
+
+def pbz_main():
+    b = PBZ_BENCH
+    v, kb = b["version"], round(b["zip_bytes"] / 1024)
+    released = show(b["released"])
+    fname = b["zip"].split("/")[-1]
+    jumps = "".join(f'<li><a href="#{a}">{t}</a></li>' for a, t in (
+        ("download", "Download"), ("what", "What it does"), ("install", "Install"), ("first-run", "First run"),
+        ("changes", "What it changes"), ("privacy", "Privacy"), ("terms", "Terms"), ("new", "What's new")))
+    head = page_head(f"Tools · free download · version {v}", "PBZ Bench",
+                     "A benchmark for Phantom Blade Zero, which doesn't have one built in. It sets the graphics settings "
+                     "you pick, launches the game, captures every frame with Intel PresentMon while you play a fixed "
+                     "route, then puts your own settings back. I built it with Claude for my own tests.", jumps)
+    sha = lambda i, label, h: (f'<li><span class="lk">{e(label)}</span><span class="val"><span class="sha" id="{i}">{h}</span>'
+                               f'<button class="copy" type="button" data-copy="{h}" aria-controls="{i}">'
+                               f'<span class="copy-label">Copy</span></button></span></li>')
+    download = f"""<div class="caution" role="note" aria-label="Read before you download"><b>Unofficial tool, no warranty</b>PBZ Bench is fan-made. It isn't affiliated with or supported by S-GAME, Valve, Intel, NVIDIA or AMD. It runs as administrator and changes the game's settings file while it works, backing it up first and putting it back afterwards. You use it at your own risk: read the <a class="inline" href="#terms">terms</a>.</div>
+    <dl class="proto">
+      <div><dt>Version</dt><dd>{v} · released {released}</dd></div>
+      <div><dt>Runs on</dt><dd>Windows 10 or 11, 64-bit, with Phantom Blade Zero on Steam. It uses the .NET Framework 4.8 that comes with Windows, so there's nothing else to install.</dd></div>
+      <div><dt>In the zip</dt><dd>PBZBench.exe, Intel PresentMon {b["presentmon"]} (MIT licence), the guide (README.txt), the terms (LICENSE.txt) and the changelog. {kb}&nbsp;KB.</dd></div>
+      <div><dt>Price</dt><dd>Free. Please link to this page rather than re-hosting the file.</dd></div>
+    </dl>
+    <p class="dl-row"><a class="btn btn-red" href="{b["zip"]}" download data-goatcounter-click="download-pbzbench-{v}" data-goatcounter-title="PBZ Bench {v} download">Download PBZ Bench {v} (zip)</a><a class="btn btn-line" href="#install">How to install</a></p>
+    <p class="note">Downloading means you accept the <a class="inline" href="#terms">terms and disclaimer</a>.</p>
+    <h3 class="lgroup">SHA-256 checksums</h3>
+    <ul class="links">{sha("sha-zip", fname, b["zip_sha256"])}{sha("sha-exe", "PBZBench.exe", b["exe_sha256"])}</ul>
+    <p class="note">In PowerShell, <code>Get-FileHash .\\{fname}</code> should print the same value. If it doesn't, delete the file and don't run it.</p>"""
+    what = """<ol class="tested">
+      <li>Writes the graphics settings you pick into the game's settings file.</li>
+      <li>Launches the game through Steam, after asking you first.</li>
+      <li>Captures every frame with Intel PresentMon while you play a fixed route, or replays a route you recorded.</li>
+      <li>Closes the game, checks that the game kept your settings, and puts your own settings back.</li>
+      <li>Shows average FPS, 1%, 0.2% and 0.1% lows, a frame-time graph and GPU and CPU telemetry, and keeps every run.</li>
+      <li>Writes one row per configuration to Results\\sheet_summary.csv for your spreadsheet, with the lows pooled over every pass.</li>
+    </ol>
+    <p class="note">It's for Phantom Blade Zero on Steam only. It runs on desktops and on handheld PCs, where holding L3 + R3 on the controller starts and stops a run. It finds frame generation from NVIDIA, AMD and Intel by itself and reports what reached the screen.</p>"""
+    install = """<ol class="tested">
+      <li>Unzip the whole folder somewhere you can write to, such as Documents\\PBZ Bench. Not Program Files: PBZ Bench saves its results next to PBZBench.exe.</li>
+      <li>Keep the tools folder next to PBZBench.exe. It holds PresentMon, which captures the frames.</li>
+      <li>Run PBZBench.exe and choose Yes on the administrator prompt. PresentMon needs administrator rights to read frame timings.</li>
+      <li>PBZ Bench isn't code-signed, so Windows SmartScreen may say "Windows protected your PC". Check the SHA-256 above first. If it matches, choose More info, then Run anyway.</li>
+    </ol>
+    <p class="note"><b>Updating:</b> unzip the new version over the old folder. Your results, presets, routes, branding and settings aren't in the zip, so they stay as they are. <b>Removing it:</b> Setup → Restore ORIGINAL (first run) puts the game's settings back exactly as they were before your first run. Then delete the folder; nothing else was installed.</p>"""
+    first = """<ol class="tested">
+      <li>Quit the game and keep Steam running.</li>
+      <li>On the Benchmark page, pick the quality preset, ray tracing, Super Resolution mode and display options, or pick a ready-made preset under Benchmark → Presets. Set the upscaler, frame generation and Reflex in the game's own menu once, and match them in PBZ Bench.</li>
+      <li>Press START BENCHMARK. When the game has loaded, walk to your starting spot and press F9 (on a controller, hold L3 + R3 until the beep, then let go).</li>
+      <li>Play your route until the second beep. F10 (or holding L3 + R3 for three seconds) stops at any time.</li>
+      <li>The game closes, your settings are put back, and Results opens.</li>
+    </ol>
+    <p class="note">For runs you can repeat exactly, record a route once under Setup → Routes and turn on Start position lock. Every run is saved in the Results folder. The full guide is README.txt in the zip.</p>"""
+    changes = """<dl class="proto">
+      <div><dt>Game files</dt><dd>Not modified. PBZ Bench doesn't read or change the game's memory either.</dd></div>
+      <div><dt>Settings</dt><dd><code>%LOCALAPPDATA%\\ProjectPBZ\\Saved\\Config\\Windows\\GameUserSettings.ini</code>, backed up before every session and put back after it. The first, untouched copy is kept, and Setup → Restore ORIGINAL puts it back at any time.</dd></div>
+      <div><dt>Saves</dt><dd>Only with Start position lock turned on. They're backed up first and put back afterwards.</dd></div>
+      <div><dt>Input</dt><dd>Recorded routes replay keyboard and mouse input, only while the game is the window in front. F9 and F10 are only watched during a run.</dd></div>
+      <div><dt>Its folder</dt><dd>Results, backups, presets, routes, exports, its own settings (config.json) and a log, all next to PBZBench.exe. Nothing else is installed.</dd></div>
+    </dl>"""
+    privacy = """<dl class="proto">
+      <div><dt>Internet</dt><dd>Nothing leaves your PC. There's no telemetry, no account and no update check.</dd></div>
+      <div><dt>OBS</dt><dd>Optional. If you turn on OBS recording, PBZ Bench connects only to the OBS address you enter.</dd></div>
+      <div><dt>Sharing</dt><dd>Saved runs list your hardware, drivers and computer name, and the log shows folder paths that include your Windows user name. Check them before you share a run or an export.</dd></div>
+    </dl>"""
+    new = '<ul class="tested">' + "".join(f"<li>{e(x)}</li>" for x in b["new"]) + "</ul>"
+    new += '\n    <p class="note">The full list of changes is CHANGELOG.txt in the zip.</p>'
+    return f"""<main id="top">
+<div class="wrap pbz-page">
+{head}
+{section("download", "Download", "", download, None)}
+{section("what", "What it does", "", what, None)}
+{section("install", "Install", "", install, None)}
+{section("first-run", "Your first benchmark", "", first, None)}
+{section("changes", "What it changes on your PC", "", changes, None)}
+{section("privacy", "Privacy", "", privacy, None)}
+{section("terms", "Terms and disclaimer", "By downloading or using PBZ Bench you agree to these terms. They're also in LICENSE.txt in the zip.", part("pbz_terms.html"), None)}
+{section("new", f"What's new in {v}", "", new, None)}
+  <p class="held">Found a bug or want a feature? <a class="inline" href="feedback.html">Tell me on the feedback page</a>. Results → Export for Claude makes a zip of your runs and the log that you can attach to the email.</p>
+</div>
+</main>"""
+
 # ================================================================ assembly
 def body(current, main):
     return "\n".join([topbar(current), main, footer(), SCRIPT])
@@ -1224,6 +1324,15 @@ def all_pages():
         ("links", "links.html", "Useful links · No_Tech-Dad",
          "The latest AMD, Intel and NVIDIA graphics drivers, handheld makers' support pages, and open-source tools for "
          "handheld gaming PCs.", links_main(), None, None),
+        ("tools", "pbz-bench.html", "PBZ Bench · No_Tech-Dad",
+         f"PBZ Bench {PBZ_BENCH['version']}: a free, unofficial benchmark tool for Phantom Blade Zero on Windows. "
+         "Download, install steps, what it changes on your PC, and its terms.", pbz_main(),
+         {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PBZ Bench",
+          "softwareVersion": PBZ_BENCH["version"], "operatingSystem": "Windows 10, Windows 11",
+          "applicationCategory": "UtilitiesApplication", "downloadUrl": DOMAIN + PBZ_BENCH["zip"],
+          "datePublished": PBZ_BENCH["released"], "isAccessibleForFree": True,
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+          "author": {"@type": "Organization", "name": "No_Tech-Dad", "url": DOMAIN}}, None),
         ("about", "about.html", "About · No_Tech-Dad",
          "Nizzel, the dad behind No_Tech-Dad: a problem solver who buys every device and runs every test, supported by AI.",
          about_main(), None, None),
