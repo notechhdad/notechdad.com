@@ -34,7 +34,7 @@ def show(iso):
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
     "updated": "2026-11-16",     # footer stamp, results page, sitemap
-    "inventory": "2026-11-05",   # bench page
+    "inventory": "2026-11-16",   # bench page
     "links": "2026-11-16",       # useful links and the latest drivers
     "news": "2026-11-16",        # news page and the home page's news column
 }
@@ -76,6 +76,7 @@ def part(name):
 HANDHELDS = [
     ("H01", "Steam Deck OLED", "Custom APU (Sephiroth)", "AMD", "Van Gogh", "White edition · SteamOS"),
     ("H03", "ROG Xbox Ally", "Ryzen Z2 A", "AMD", "Van Gogh", ""),
+    (None, "OneXPlayer 2", "Ryzen 7 6800U", "AMD", "Rembrandt", "Radeon 680M"),
     ("H07", "Legion Go S", "Ryzen Z1 Extreme", "AMD", "Phoenix", "SteamOS · 32 GB"),
     ("H02", "ROG Xbox Ally X", "Ryzen AI Z2 Extreme", "AMD", "Strix Point", ""),
     ("H20", "ROG Xbox Ally X20", "Ryzen AI Z2 Extreme", "AMD", "Strix Point", "20th-anniversary bundle"),
@@ -92,9 +93,10 @@ HANDHELDS = [
     ("H11", "OneXPlayer 3", "Arc G3 Extreme", "Intel", "Panther Lake", "32 GB"),
     ("H14", "OneXFly Apex Air", "Arc G3 Extreme", "Intel", "Panther Lake", "32 GB"),
     ("H25", "MSI Claw 8 EX AI+", "Arc G3 Extreme", "Intel", "Panther Lake", ""),
+    ("H28", "Acer Predator Atlas 8", "Arc G3", "Intel", "Panther Lake", ""),
 ]
 ARCH = {
-    "AMD": [("Van Gogh", "and Van Gogh class"), ("Phoenix", "Zen 4, RDNA 3"), ("Strix Point", "Zen 5, RDNA 3.5"),
+    "AMD": [("Van Gogh", "and Van Gogh class"), ("Rembrandt", "Zen 3+, RDNA 2"), ("Phoenix", "Zen 4, RDNA 3"), ("Strix Point", "Zen 5, RDNA 3.5"),
             ("Gorgon Point", "a Strix Point refresh"), ("Strix Halo", "Ryzen AI Max+")],
     "Intel": [("Meteor Lake", "Core Ultra series 1"), ("Lunar Lake", "Core Ultra series 2"),
               ("Panther Lake", "Intel Arc G-series")],
@@ -119,14 +121,17 @@ SECTIONS = [
         ("C05", "Valve Steam Machine", "", "")])]),
     ("desktop", "Desktop test bench", "", [(None, [
         ("C06", "ASUS ROG Crosshair X870E Hero", "Motherboard", ""),
+        (None, "ASUS ROG Crosshair X870E Hero BTF", "Motherboard", ""),
+        (None, "AMD Ryzen 9 9950X3D2", "Processor", ""),
         ("C07", "Open-air test bench", "Frame", "")])]),
     ("gpus", "Graphics cards", "", [(None, [
-        ("G01", "ASUS ROG Astral RTX 5090", "", ""), ("G03", "NVIDIA RTX 5090 Founders Edition", "", ""),
+        ("G01", "ASUS ROG Astral RTX 5090", "", ""), (None, "ASUS ROG Matrix Platinum RTX 5090", "", ""),
+        (None, "ASUS ROG Matrix Platinum RTX 4090", "24 GB", ""), ("G03", "NVIDIA RTX 5090 Founders Edition", "", ""),
         ("G06", "NVIDIA RTX 4090 Founders Edition", "", ""), ("G07", "RTX 5070", "", ""), ("G13", "RTX 5070 Ti", "", ""),
         ("G04", "RTX 4070 Super", "", ""), ("G12", "RTX 5060 Ti", "", ""), ("G05", "RTX 4060", "", ""),
         ("G08", "RTX 5050", "", "")])]),
     ("egpus", "External GPUs", "", [(None, [
-        ("G09", "ASUS ROG XG Mobile", "RTX 5090", ""), ("G10", "MOREFINE 5090M", "", ""),
+        ("G09", "ASUS ROG XG Mobile", "RTX 5090", ""), (None, "OneXGPU 2", "EVA-02 Edition", ""),
         ("G11", "AORUS RTX 5060 Ti eGPU", "", "")])]),
     ("docks", "Docks", "", [
         ("eGPU docks", [("D01", "Minisforum DEG2", "", ""), ("D02", "AOOSTAR AG03", "OCuLink", ""),
@@ -134,8 +139,7 @@ SECTIONS = [
                         ("D12", "GPD G2", "MCIO 8i and USB4 v2", "Bundled with the GPD BOX")]),
         ("Expansion docks", [("D04", "Beelink EX dock", "", ""), ("D05", "Beelink EX Mate Pro", "", "")]),
         ("Thunderbolt and USB-C docks", [("D09", "Razer Thunderbolt Dock Chroma", "", ""),
-                                         ("D06", "JSAUX 5-in-1 dock", "", ""), ("D07", "UGREEN 6-in-1 dock", "", ""),
-                                         ("D08", "Anker 14-in-1 dock", "", "")])]),
+                                         ("D06", "JSAUX 5-in-1 dock", "", ""), ("D07", "UGREEN 6-in-1 dock", "", "")])]),
     ("displays", "Displays", "", [(None, [
         ("M01", "ASUS ROG Strix XG32UCWMG", "32-inch", ""), ("M02", "ASUS ROG Swift PG27UCDM", "27-inch", "Used in portrait"),
         ("M06", "UPERFECT portable monitor", "16-inch", ""), ("M07", "Aura dual-screen display", "16-inch", ""),
@@ -146,6 +150,8 @@ SECTIONS = [
         ("P01", "Anker Prime charger", "160W", ""), ("P02", "CUKTECH 30 Ultra charger", "300W", ""),
         ("P05", "AYANEO GaN charger", "140W", "Stock charger"),
         ("P06", "UGREEN Nexode Pro charger", "160W", "Retractable USB-C cable"),
+        ("P07", "SlimQ charger", "240W", "DC and USB-C"),
+        (None, "VOLTME GaN charger", "140W", ""),
         ("P03", "OneXPlayer Frost Bay", "Cooling dock", "")])]),
     ("filming", "Filming", "", [(None, [
         ("F01", "Sony FX30", "Main camera", ""), ("F02", "Sony ZV-E10 II", "Second camera", ""),
@@ -157,12 +163,12 @@ SECTIONS = [
 ]
 SOFTWARE = "DaVinci Resolve · OBS Studio · CapFrameX · HWiNFO64 · RTSS · Blackmagic Camera"
 INCOMING = [  # asset, device, details, status, chip class, bench section it will join (for the feedback page)
-    ("H28", "Acer Predator Atlas 8", "Intel Arc G3", "Back-ordered", "t-info", "handhelds"),
     ("C04", "Piston V", "Ryzen AI 9 HX 370 · 64 GB · 4 TB", "Backed · est. Jan 2027", "t-mute", "mini-pcs"),
     ("H35", "Anbernic RG DDS", "", "Ordered", "t-info", "android"),
     ("G14", "ASUS UGen Arc Pro B70", "32 GB", "Ordered", "t-info", "gpus"),
     ("D13", "ASUS ROG XG Station 3", "Thunderbolt 5 eGPU dock", "Ordered", "t-info", "docks"),
-    ("P07", "SlimQ 240W charger", "DC and USB-C", "Ordered", "t-info", "power"),
+    (None, "Retroid Pocket Duo GC", "8 GB · 128 GB", "On the way", "t-info", "android"),
+    ("G10", "MOREFINE 5090M", "", "On the way", "t-info", "egpus"),
 ]
 # An asset id of None means Moe hasn't assigned one yet: the bench shows a dash. Never make one up.
 
