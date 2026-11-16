@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-11",     # footer stamp, results page, sitemap
+    "updated": "2026-11-16",     # footer stamp, results page, sitemap
     "inventory": "2026-11-05",   # bench page
-    "links": "2026-11-09",       # useful links and the latest drivers
+    "links": "2026-11-16",       # useful links and the latest drivers
     "news": "2026-11-09",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -174,11 +174,11 @@ ON_BENCH = len(HANDHELDS) + sum(count(g) for *_, g in SECTIONS)
 # ================================================================ useful links (checked on LINKS_DATE)
 # (vendor line, product, version, status tag or None, release date, note, [(link label, url)])
 DRIVERS = [
-    ("AMD · Radeon graphics", "Adrenalin Edition", "26.10.2", "Optional", "30 Oct 2026",
-     "A fix-only release. AMD lists fixes for crashes and timeouts, including with overlays and FSR Frame "
-     "Generation. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes say this package doesn't "
-     "support handheld PCs, so get handheld drivers from the maker.",
-     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-10-2.html"),
+    ("AMD · Radeon graphics", "Adrenalin Edition", "26.11.1", "Optional", "12 Nov 2026",
+     "A fix-only release. AMD fixes excessive writes to the system drive, both at idle on RX 7000 series and newer "
+     "and while moving or resizing windows. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes "
+     "say this package doesn't support handheld PCs, so get handheld drivers from the maker.",
+     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-1.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
     ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9175", "WHQL", "4 Nov 2026",
      "Full version 32.0.101.9175, now WHQL Certified. It covers Arc A- and B-series cards and Core Ultra graphics from "
@@ -186,12 +186,12 @@ DRIVERS = [
      "Warcraft: Forever. On a handheld, check your maker's page first.",
      [("Release notes (PDF)", "https://downloadmirror.intel.com/932449/ReleaseNotes_101.9175_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
-    ("NVIDIA · GeForce", "Game Ready driver", "621.14", "WHQL", "4 Nov 2026",
-     "Game Ready for World of Warcraft: Forever. It's also the driver for DLSS 5 in Hogwarts Legacy, which NVIDIA says "
-     "starts on 5 Nov for RTX 50 Series GPUs and laptops and RTX Spark PCs. For the most stable setup, my pick is "
-     "Game Ready 617.42 (WHQL, 6 Oct 2026).",
-     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/world-of-warcraft-forever-geforce-rtx-spark-game-ready-driver/"),
-      ("Release notes (PDF)", "https://us.download.nvidia.com/Windows/621.14/621.14-geforce-win11-x64-release-notes.pdf"),
+    ("NVIDIA · GeForce", "Game Ready driver", "621.24", "WHQL", "12 Nov 2026",
+     "Game Ready for Warhammer 40,000: Dawn of War IV, which launches on 3 Dec. NVIDIA says it also covers DLSS 5 in "
+     "Where Winds Meet from 23 Nov and DLSS 4.5 Dynamic Multi Frame Generation in Assetto Corsa Rally, coming soon. "
+     "For the most stable setup, my pick is Game Ready 617.42 (WHQL, 6 Oct 2026).",
+     [("Announcement", "https://www.nvidia.com/en-us/geforce/news/warhammer-40000-dawn-of-war-4-geforce-rtx-spark-game-ready-driver/"),
+      ("Release notes (PDF)", "https://us.download.nvidia.com/Windows/621.24/621.24-geforce-win11-x64-release-notes.pdf"),
       ("617.42 announcement", "https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/"),
       ("Download page", "https://www.nvidia.com/en-us/geforce/drivers/")]),
 ]
@@ -326,6 +326,7 @@ EXPORT_DATE = show(VDATA["checked"])
 
 # One line per long-form video, in Nizzel's words from that video's YouTube description (lightly trimmed).
 BLURBS = {
+    "WpoSEGwW6eQ": "Two free community mods that change how OneXConsole looks and works on OneXPlayer handhelds: Graphite Ultra, shown on the OneXFly Apex Air, and OneX Extender, shown on the OneXPlayer 3 with five add-ons.",
     "dZ3BSUOGnJs": "My RTX 5090 rig stutters in Phantom Blade Zero at Ultra with ray tracing, and two of the three handhelds put more frames on screen with frame generation. Same 80-second route, three runs per pass, every frame measured with PresentMon through my own tool, PBZ Bench.",
     "LfZLywglLT4": "It started with a small borrowed corner of our family room. The studio transformation, from the original room and the 3D plan to the building work, shelving, cable chaos and the grand reveal.",
     "CsgpuSEVITI": "Can Intel's new Arc G3 Extreme run Gears of War: E-Day on the OneXPlayer X2? Ten benchmark configurations from 30W to 40W, all tested at about 35,000 feet aboard an aircraft.",
