@@ -82,6 +82,7 @@ HANDHELDS = [
     ("H20", "ROG Xbox Ally X20", "Ryzen AI Z2 Extreme", "AMD", "Strix Point", "20th-anniversary bundle"),
     ("H05", "MSI Claw A8", "Ryzen Z2 Extreme", "AMD", "Strix Point", "No NPU"),
     ("H09", "OneXPlayer X1 Pro", "Ryzen AI 9 HX 470", "AMD", "Gorgon Point", "32 GB"),
+    (None, "AYANEO KONKR FIT", "Ryzen AI 9 HX 470", "AMD", "Gorgon Point", "32 GB · 1 TB · Luminous Silver"),
     ("H13", "OneXFly Apex", "Ryzen AI Max+ 395", "AMD", "Strix Halo", "96 GB"),
     ("H15", "AYANEO Next 2", "Ryzen AI Max+ 395", "AMD", "Strix Halo", "128 GB"),
     ("H12", "OneXPlayer X2 Mini Pro", "Ryzen AI Max+ 388", "AMD", "Strix Halo", "64 GB · 2 TB"),
