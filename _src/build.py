@@ -535,10 +535,10 @@ PROMO = {
     "tag": "Black Friday",
     "brand": "OneXPlayer",
     "code": "Nizzel",
-    "offer": "an extra $29 off at checkout",
-    "url": "https://onexplayerstore.com/pages/black-fridy-2026",       # the store spells it "fridy"
+    "offer": "an extra $29 off on top of Black Friday prices, on any OneXPlayer device",
+    "url": "https://onexplayerstore.com/?ref=NIZZEL",                  # the owner's affiliate link
     "cta": "Shop the sale",
-    "note": "Affiliate code: buying with it supports the channel.",
+    "note": "Affiliate link and code: I earn a commission if you buy through them, at no extra cost to you.",
     "event": "click-onexplayer-nizzel",                                # GoatCounter event counted per click
 }
 def promo_bar():
