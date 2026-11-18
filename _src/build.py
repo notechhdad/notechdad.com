@@ -527,6 +527,35 @@ NAV = [("videos", "Videos", "videos.html"), ("results", "Results", "results.html
        ("tools", "Tools", "pbz-bench.html"), ("bench", "Bench", "bench.html"), ("news", "News", "news.html"), ("links", "Links", "links.html"),
        ("about", "About", "about.html"), ("feedback", "Feedback", "feedback.html")]
 
+# Promo bar above the header on every page. Set PROMO to None to remove it. The build leaves it out once
+# "ends" has passed, and a small script hides it for visitors from the day after "ends" even without a rebuild.
+# Every value comes from the owner (code, amount and sale link as confirmed by the brand).
+PROMO = {
+    "ends": "2026-11-30",                                              # last day the code works (ISO)
+    "tag": "Black Friday",
+    "brand": "OneXPlayer",
+    "code": "Nizzel",
+    "offer": "an extra $29 off at checkout",
+    "url": "https://onexplayerstore.com/pages/black-fridy-2026",       # the store spells it "fridy"
+    "cta": "Shop the sale",
+    "note": "Affiliate code: buying with it supports the channel.",
+    "event": "click-onexplayer-nizzel",                                # GoatCounter event counted per click
+}
+def promo_bar():
+    if not PROMO or datetime.now().strftime("%Y-%m-%d") > PROMO["ends"]:
+        return ""
+    y, m, d = (int(x) for x in PROMO["ends"].split("-"))
+    return (f'<aside class="promo" id="promo" aria-label="{e(PROMO["tag"])} offer">\n  <div class="wrap">\n'
+            f'    <p><span class="promo-tag">{e(PROMO["tag"])}</span> {e(PROMO["brand"])}: code '
+            f'<strong class="promo-code">{e(PROMO["code"])}</strong> takes {e(PROMO["offer"])}, until {show(PROMO["ends"])}. '
+            f'<a href="{e(PROMO["url"])}" target="_blank" rel="noopener sponsored" data-promo>{e(PROMO["cta"])}</a> '
+            f'<span class="promo-note">{e(PROMO["note"])}</span></p>\n  </div>\n</aside>\n'
+            f'<script>(function(){{var p=document.getElementById("promo");if(!p)return;'
+            f'if(new Date()>=new Date({y},{m - 1},{d + 1})){{p.remove();return}}'
+            f'p.addEventListener("click",function(ev){{var a=ev.target.closest&&ev.target.closest("a[data-promo]");'
+            f'if(a&&window.goatcounter&&window.goatcounter.count)'
+            f'window.goatcounter.count({{path:"{PROMO["event"]}",title:"{e(PROMO["brand"])} code {e(PROMO["code"])}",event:true}})}})}})();</script>')
+
 def topbar(current):
     cur = ' aria-current="page"'
     items = "\n      ".join(f'<a href="{href}"{cur if key == current else ""}>{label}</a>' for key, label, href in NAV)
@@ -1266,7 +1295,7 @@ def pbz_main():
 
 # ================================================================ assembly
 def body(current, main):
-    return "\n".join([topbar(current), main, footer(), SCRIPT])
+    return "\n".join(x for x in [promo_bar(), topbar(current), main, footer(), SCRIPT] if x)
 
 def font_faces(prefix):
     fams = {"Big Shoulders Display": ("big-shoulders-display", (700, 800, 900)),
