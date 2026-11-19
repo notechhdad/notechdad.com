@@ -13,6 +13,7 @@ notechdad.com is the website of the No_Tech-Dad YouTube channel. The presenter's
 | `_src/data/videos.json` | Long-form videos (over three minutes): id, title as on YouTube, published (UTC date), seconds, views. Public data only. |
 | `_src/data/prices.json`, `_src/tracker.py` | The price tracker's readings, and the code that draws its charts on the news page and its tiles on the home page. See "Price tracker" below. |
 | `downloads/` | The PBZ Bench download (one zip, the current version) and its `SHA256SUMS.txt`. The build never touches it, but the Tools page links to the zip, so the build fails if the file is missing. |
+| `_src/report.py` | Prints what changed, old -> new: dates, drivers, every price point, videos and new news items. The refresh report is written from its output. Read-only. |
 | `_src/check_pages.py` | Optional. Screenshots every page at phone and desktop widths and reports sideways overflow and script errors. Needs Playwright. |
 | Repo root | Generated pages (`*.html`, `404.html`, `sitemap.xml`, `CNAME`), plus assets the build never touches: `img/`, `fonts/`, icons, `og-image.png` and `robots.txt`. |
 
@@ -73,10 +74,13 @@ The terms on the page (`web/pages/pbz_terms.html`) match LICENSE.txt in the zip;
 ## Twice-weekly refresh (Monday and Thursday)
 
 1. **Drivers: publish directly.**
-   - Check each vendor's own page:
-     - AMD: the [Adrenalin download page](https://www.amd.com/en/support/download/drivers.html) and its latest release notes. Note which release is Optional and which is Recommended.
-     - Intel: the [Arc graphics driver page](https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html) and its release notes PDF.
-     - NVIDIA: the [GeForce drivers page](https://www.nvidia.com/en-us/geforce/drivers/) and the matching GeForce news post.
+   - Download pages lag behind releases (on 19 Nov 2026 AMD's still listed 26.11.1 while the 26.11.2 release notes were up), so never take a download page alone as proof that nothing is newer. For each vendor, do all three:
+     1. **Look for the next version directly.**
+        - AMD: open the release notes for the next numbers after the site's version, for example after 26.11.1 try `.../release-notes/rn-rad-win-26-11-2.html` and then `rn-rad-win-26-12-1.html` (use lower case; the upper-case address sometimes fails to load). A page that exists is a release. Check the [Adrenalin download page](https://www.amd.com/en/support/download/drivers.html) and a card's previous-drivers list for which release is Optional and which is Recommended. If AMD hasn't labelled a release yet, say what AMD's own pages show (for example WHQL in the file name) and don't guess.
+        - Intel: the [Arc graphics driver page](https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html), its version list and release notes PDF.
+        - NVIDIA: the [GeForce news page](https://www.nvidia.com/en-us/geforce/news/) for Game Ready and hotfix posts, and the release notes PDF for the version. The drivers page's version box sometimes loads empty.
+     2. **Search the web** for the vendor's driver news from the past week (for example "AMD Adrenalin 26.11.2", "Game Ready driver", "Arc driver"). Any version newer than the site's must be confirmed on the vendor's own page, or listed in the report as seen but not confirmed. Never drop it silently.
+     3. **Write down the answer** for each vendor: "newest found: X, on <vendor page>; nothing newer on <pages checked>". This goes into the report.
    - Update `DRIVERS` (and `CHIPSET` when AMD's mobile chipset package changes) in `build.py`: version, status, release date, note and links.
    - Set `DATES["links"]` to today.
 2. **Videos: publish directly.**
@@ -98,3 +102,7 @@ The terms on the page (`web/pages/pbz_terms.html`) match LICENSE.txt in the zip;
 6. **Publish.**
    - Commit only if something changed, with a message that says what changed. Push to `main`.
    - Confirm that the GitHub Pages "pages build and deployment" run succeeded.
+7. **Report.**
+   - Run `python3 _src/report.py <commit before this run>` (or with no argument before committing) and write the report from its output. Copy every number, version and date exactly as printed, with "old -> new" in that order. Never write a value from memory.
+   - Include the driver answer from step 1 for each vendor, including anything seen but not confirmed.
+   - Before sending, re-read each number in the report against the script's output.
