@@ -36,7 +36,7 @@ DATES = {
     "updated": "2026-11-19",     # footer stamp, results page, sitemap
     "inventory": "2026-11-16",   # bench page
     "links": "2026-11-19",       # useful links and the latest drivers
-    "news": "2026-11-16",        # news page and the home page's news column
+    "news": "2026-11-19",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
 INV_DATE, LINKS_DATE, NEWS_DATE = show(DATES["inventory"]), show(DATES["links"]), show(DATES["news"])
@@ -181,11 +181,13 @@ ON_BENCH = len(HANDHELDS) + sum(count(g) for *_, g in SECTIONS)
 # ================================================================ useful links (checked on LINKS_DATE)
 # (vendor line, product, version, status tag or None, release date, note, [(link label, url)])
 DRIVERS = [
-    ("AMD · Radeon graphics", "Adrenalin Edition", "26.11.1", "Optional", "12 Nov 2026",
-     "A fix-only release. AMD fixes excessive writes to the system drive, both at idle on RX 7000 series and newer "
-     "and while moving or resizing windows. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes "
-     "say this package doesn't support handheld PCs, so get handheld drivers from the maker.",
-     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/RN-RAD-WIN-26-11-1.html"),
+    ("AMD · Radeon graphics", "Adrenalin Edition", "26.11.2", "WHQL", "18 Nov 2026",
+     "Adds support for Phantom Blade Zero and Crimson Desert's Charting the Unknown DLC. Fixes include Smart Access "
+     "Memory turning off after install on Windows 10, hair corruption in Phantom Blade Zero on RX 9000 series, and a "
+     "memory leak that slowed app launches. AMD says Crimson Desert won't launch on RX 6000 cards with it, and suggests "
+     "26.11.1 there. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes say this package "
+     "doesn't support handheld PCs, so get handheld drivers from the maker.",
+     [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/rn-rad-win-26-11-2.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
     ("Intel · Arc graphics", "Arc and Core Ultra graphics", "101.9175", "WHQL", "4 Nov 2026",
      "Full version 32.0.101.9175, now WHQL Certified. It covers Arc A- and B-series cards and Core Ultra graphics from "
