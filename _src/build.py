@@ -33,9 +33,9 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-16",     # footer stamp, results page, sitemap
+    "updated": "2026-11-19",     # footer stamp, results page, sitemap
     "inventory": "2026-11-16",   # bench page
-    "links": "2026-11-16",       # useful links and the latest drivers
+    "links": "2026-11-19",       # useful links and the latest drivers
     "news": "2026-11-16",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
