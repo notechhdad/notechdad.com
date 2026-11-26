@@ -35,7 +35,7 @@ def show(iso):
 DATES = {
     "updated": "2026-11-26",     # footer stamp, results page, sitemap
     "inventory": "2026-11-16",   # bench page
-    "links": "2026-11-23",       # useful links and the latest drivers
+    "links": "2026-11-26",       # useful links and the latest drivers
     "news": "2026-11-23",        # news page and the home page's news column
 }
 UPDATED, SITEMAP_DATE = show(DATES["updated"]), DATES["updated"]
@@ -185,7 +185,8 @@ DRIVERS = [
      "Adds support for Phantom Blade Zero and Crimson Desert's Charting the Unknown DLC. Fixes include Smart Access "
      "Memory turning off after install on Windows 10, hair corruption in Phantom Blade Zero on RX 9000 series, and a "
      "memory leak that slowed app launches. AMD says Crimson Desert won't launch on RX 6000 cards with it, and suggests "
-     "26.11.1 there. The current Recommended release is 26.10.1, from 20 Oct 2026. AMD's notes say this package "
+     "26.11.1 there. AMD's latest-driver page for the RX 6750 GRE labels 26.11.2 Recommended, while the RX 7700's "
+     "previous-drivers list still shows 26.10.1 (20 Oct 2026) as its newest Recommended release. AMD's notes say this package "
      "doesn't support handheld PCs, so get handheld drivers from the maker.",
      [("Release notes", "https://www.amd.com/en/resources/support-articles/release-notes/rn-rad-win-26-11-2.html"),
       ("Download page", "https://www.amd.com/en/support/download/drivers.html")]),
@@ -195,12 +196,12 @@ DRIVERS = [
      "Warcraft: Forever. On a handheld, check your maker's page first.",
      [("Release notes (PDF)", "https://downloadmirror.intel.com/932449/ReleaseNotes_101.9175_WHQL.pdf"),
       ("Download page", "https://www.intel.com/content/www/us/en/download/785597/intel-arc-graphics-windows.html")]),
-    ("NVIDIA · GeForce", "Game Ready driver", "621.24", "WHQL", "12 Nov 2026",
-     "Game Ready for Warhammer 40,000: Dawn of War IV, which launches on 3 Dec. NVIDIA says it also covers DLSS 5 in "
-     "Where Winds Meet from 23 Nov and DLSS 4.5 Dynamic Multi Frame Generation in Assetto Corsa Rally, coming soon. "
+    ("NVIDIA · GeForce", "Game Ready driver", "621.40", "WHQL", "23 Nov 2026",
+     "Game Ready for Warhammer 40,000: Dawn of War IV, which launches on 3 Dec. It adds DLSS 5 in Where Winds Meet, "
+     "and NVIDIA says DLSS 4.5 Dynamic Multi Frame Generation is coming to Assetto Corsa Rally. "
      "For the most stable setup, my pick is Game Ready 617.42 (WHQL, 6 Oct 2026).",
      [("Announcement", "https://www.nvidia.com/en-us/geforce/news/warhammer-40000-dawn-of-war-4-geforce-rtx-spark-game-ready-driver/"),
-      ("Release notes (PDF)", "https://us.download.nvidia.com/Windows/621.24/621.24-geforce-win11-x64-release-notes.pdf"),
+      ("Release notes (PDF)", "https://us.download.nvidia.com/Windows/621.40/621.40-geforce-win11-x64-release-notes.pdf"),
       ("617.42 announcement", "https://www.nvidia.com/en-us/geforce/news/call-of-duty-modern-warfare-4-star-wars-galactic-racer-game-ready-driver/"),
       ("Download page", "https://www.nvidia.com/en-us/geforce/drivers/")]),
 ]

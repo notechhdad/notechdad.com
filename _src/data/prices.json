@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-23",
+  "checked": "2026-11-26",
   "note": "Graphics cards: US prices in US dollars. Memory and SSD: Akihabara shop prices in yen, tax included. Each percentage compares a part with its own earlier price, so exchange rates don't affect it.",
   "series": [
     {
@@ -13,7 +13,7 @@
       "region": "Akihabara, Tokyo · yen, tax included",
       "currency": "JPY",
       "source_name": "AKIBA PC Hotline!",
-      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html",
+      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2158920.html",
       "method": "AKIBA PC Hotline! (Impress Watch) surveys memory prices at six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for a DDR5-6000 16GB×2 desktop kit, tax included, and links to that month's report. The same survey runs every month, which keeps the months comparable.",
       "caveats": "The lowest price is one shop's offer that week, so a single sale can move it.",
       "context": "The six-shop average was ¥75,356 in January and ¥75,621 in October.",
@@ -77,6 +77,12 @@
           "label": "17–24 Oct 2026",
           "value": 72980,
           "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2152070.html"
+        },
+        {
+          "date": "2026-11-21",
+          "label": "14–21 Nov 2026",
+          "value": 72980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2158920.html"
         }
       ]
     },
@@ -143,9 +149,9 @@
         },
         {
           "month": "2026-11",
-          "value": 864,
+          "value": 879,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5070-price-history-and-specs/",
-          "to": "2026-11-22"
+          "to": "2026-11-25"
         }
       ]
     },
@@ -160,7 +166,7 @@
       "region": "Akihabara, Tokyo · yen, tax included",
       "currency": "JPY",
       "source_name": "AKIBA PC Hotline!",
-      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html",
+      "source_url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2158918.html",
       "method": "AKIBA PC Hotline! surveys SSD prices at four to six Akihabara shops over about a week in the second half of each month. Each point is the lowest price it found for the Samsung 990 PRO 2TB without a heatsink (MZ-V9P2T0B/IT), tax included, and links to that month's report.",
       "context": "In the US, Gamers Nexus found the same drive at Newegg for $190 in November 2025 and $400 in March 2026.",
       "context_src": "Gamers Nexus",
@@ -225,6 +231,12 @@
           "label": "17–24 Oct 2026",
           "value": 89980,
           "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2151707.html"
+        },
+        {
+          "date": "2026-11-21",
+          "label": "14–21 Nov 2026",
+          "value": 89980,
+          "url": "https://akiba-pc.watch.impress.co.jp/docs/price/monthly_repo/2158918.html"
         }
       ]
     },
@@ -289,7 +301,7 @@
           "month": "2026-11",
           "value": 799,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5060-ti-16gb-price-history-and-specs/",
-          "to": "2026-11-22"
+          "to": "2026-11-25"
         }
       ]
     },
@@ -354,7 +366,7 @@
           "month": "2026-11",
           "value": 949,
           "url": "https://bestvaluegpu.com/history/new-and-used-rx-9070-xt-price-history-and-specs/",
-          "to": "2026-11-22"
+          "to": "2026-11-25"
         }
       ]
     },
@@ -422,7 +434,7 @@
           "month": "2026-11",
           "value": 7899,
           "url": "https://bestvaluegpu.com/history/new-and-used-rtx-5090-price-history-and-specs/",
-          "to": "2026-11-22"
+          "to": "2026-11-25"
         }
       ]
     }
