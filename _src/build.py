@@ -33,7 +33,7 @@ def show(iso):
 
 # ISO dates. Change one when that part of the site is re-checked; the site shows them as "14 Oct 2026".
 DATES = {
-    "updated": "2026-11-23",     # footer stamp, results page, sitemap
+    "updated": "2026-11-26",     # footer stamp, results page, sitemap
     "inventory": "2026-11-16",   # bench page
     "links": "2026-11-23",       # useful links and the latest drivers
     "news": "2026-11-23",        # news page and the home page's news column
@@ -335,6 +335,7 @@ EXPORT_DATE = show(VDATA["checked"])
 
 # One line per long-form video, in Nizzel's words from that video's YouTube description (lightly trimmed).
 BLURBS = {
+    "MbDr01CSBNk": "GPD Win 5 vs OneXPlayer X2 Mini Pro: the same chip in both, the Ryzen AI Max+ 388 with the Radeon 8060S, at the same watts. Seven games, on battery and plugged in. Which one takes the Strix Halo crown?",
     "WpoSEGwW6eQ": "Two free community mods that change how OneXConsole looks and works on OneXPlayer handhelds: Graphite Ultra, shown on the OneXFly Apex Air, and OneX Extender, shown on the OneXPlayer 3 with five add-ons.",
     "dZ3BSUOGnJs": "My RTX 5090 rig stutters in Phantom Blade Zero at Ultra with ray tracing, and two of the three handhelds put more frames on screen with frame generation. Same 80-second route, three runs per pass, every frame measured with PresentMon through my own tool, PBZ Bench.",
     "LfZLywglLT4": "It started with a small borrowed corner of our family room. The studio transformation, from the original room and the 3D plan to the building work, shelving, cable chaos and the grand reveal.",
